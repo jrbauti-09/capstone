@@ -5,8 +5,8 @@ class Ingredient(db.Model):
     __tablename__ = 'ingredients'
 
     id = db.Column(db.Integer, primary_key=True)
-    thought_id = db.Column(db.Integer, db.ForeignKey("thoughts.id"))
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    thought_id = db.Column(db.Integer, db.ForeignKey("thoughts.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     name = db.Column(db.Integer, nullable=False)
 
 
