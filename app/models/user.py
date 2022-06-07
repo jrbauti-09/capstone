@@ -33,3 +33,8 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email
         }
+
+    def owner_info(self):
+        return {
+            'username': self.username
+        }
