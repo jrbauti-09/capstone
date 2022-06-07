@@ -12,8 +12,9 @@ class Thought(db.Model):
     time_created = db.Column(db.DateTime(timezone=True), server_default=func.now())
     time_updated = db.Column(db.DateTime(timezone=True), server_default=func.now())
 
+    # a thought belongs to a user
     user = db.relationship("User", back_populates="thoughts")
-    #a thought has many ingredients
+    # a thought has many ingredients
     ingredients = db.relationship("Ingredient", back_populates='thought', cascade='all, delete-orphan')
     # a thought has many reviews
     reviews = db.relationship("Review", back_populates="thought", cascade='all, delete-orphan')
