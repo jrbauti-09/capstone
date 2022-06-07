@@ -7,14 +7,14 @@ class Ingredient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     thought_id = db.Column(db.Integer, db.ForeignKey("thoughts.id"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    name = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String(), nullable=False)
 
 
 
     # An ingredient belongs to a thought
     thought = db.relationship("Thought", back_populates='ingredients')
     # A user has many ingredients
-    user = db.relationship("User", back_populates="ingredient")
+    user = db.relationship("User", back_populates="ingredients")
 
 
     def to_dict(self):
