@@ -1,0 +1,81 @@
+.landing_view_container {
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../../images/landing-bg-img.jpg");
+}
+
+/* Will divide our divs to left and right*/
+.landing_view_content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  width: 100%;
+  z-index: 1;
+}
+
+/* */
+
+.side_right {
+  background-color: #f2f3efbe;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: block;
+}
+
+.side_right_inner_content {
+  margin-top: 15%;
+  padding: 1.59em;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.upper {
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 1em;
+  /* margin-bottom: -10px; */
+  margin-bottom: -0.8em;
+}
+
+.middle {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.bottom {
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.2em;
+  margin-bottom: 2.2em;
+}
+
+.landing_view_buttons {
+  text-decoration: none;
+  color: white;
+  padding: 1em 1em;
+  background-color: #e1a75d;
+  border-radius: 0.3em;
+  margin: 0.5em;
+  border: 2px solid white;
+}
+
+.landing_view_buttons:hover {
+  border: 2px solid #e1a75d;
+  background-color: white;
+  color: #e1a75d;
+}
+
+body {
+  margin: 0;
+}
+
+.login_header {
+  color: rgb(38, 8, 211);
+  font-weight: bold;
+  text-decoration: none;
+  /* margin-bottom: -2em; */
+}
+
+.login_header_main {
+  color: black;
+}

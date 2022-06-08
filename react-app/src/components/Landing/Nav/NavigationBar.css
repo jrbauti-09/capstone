@@ -1,0 +1,174 @@
+.landing-log {
+  z-index: 99;
+  border-bottom: 1px solid red;
+  left: 0;
+  right: 0;
+}
+
+.landing {
+  grid-template-columns: 1fr 4fr 2fr;
+  height: 4.5em;
+  z-index: 99;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  display: grid;
+}
+
+.logo-here {
+  z-index: 99;
+  border-right: 1px solid red;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.search-bar-container {
+  z-index: 99;
+}
+
+.landing-navigation {
+  display: flex;
+  z-index: 99;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search-bar-input {
+  padding: 0.3em;
+  /* font-size: 18px; */
+  font-size: 1.2em;
+  color: #333;
+  width: 100%;
+  border: 0em;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.search-bar-input:focus {
+  outline: none;
+  color: #333;
+}
+
+.search-bar-form {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.magnifying-glass {
+  color: grey;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.login_btn {
+  color: #ff564c;
+  transition: color 0.15s ease-in-out;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  box-sizing: content-box;
+  padding: 0 30px;
+  font-size: 11px;
+  font-weight: 800;
+  height: 70px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-right: 1px solid rgba(131, 131, 131, 0.4);
+  border-left: 1px solid rgba(131, 131, 131, 0.4);
+  border-top: 1px solid rgba(131, 131, 131, 0.4);
+  border-bottom: 0px;
+  cursor: pointer;
+}
+
+.login_btn:hover {
+  background-color: rgba(131, 131, 131, 0.4);
+}
+
+.signup_btn {
+  color: #ff564c;
+  transition: color 0.15s ease-in-out;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  box-sizing: content-box;
+  padding: 0 30px;
+  font-size: 11px;
+  font-weight: 800;
+  height: 70px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-right: 1px solid rgba(131, 131, 131, 0.4);
+  border-left: 1px solid rgba(131, 131, 131, 0.4);
+  border-top: 1px solid rgba(131, 131, 131, 0.4);
+  border-bottom: 0px;
+  cursor: pointer;
+}
+
+.signup_btn:hover {
+  background-color: rgba(131, 131, 131, 0.4);
+}
+
+/* .signup_btn:focus {
+  outline: none;
+} */
+
+.drop {
+  font-size: 11px;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  overflow: hidden;
+  float: left;
+}
+
+.drop .about-drop {
+  font-size: 11px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  color: rgb(62, 93, 161);
+  /* padding: 14px 30px; */
+  padding: 1.2em 0.7em;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.drop:hover .about-drop {
+  background-color: #ff564c;
+  color: white;
+  font-size: 1em;
+  margin-right: 0px;
+}
+
+.repository {
+  border-top-right-radius: 3px;
+}
+
+.dropdown-container {
+  z-index: 2;
+  position: absolute;
+  display: none;
+  background-color: aliceblue;
+  /* box-shadow: 0em 2em 1.1em 0em rgba(0, 0, 0, 0.2); */
+}
+
+.dropdown-container a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-container a:hover {
+  color: red;
+  background-color: white;
+}
+
+.drop:hover .dropdown-container {
+  display: block;
+}
