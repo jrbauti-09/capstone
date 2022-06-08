@@ -36,7 +36,7 @@ function App() {
   if (!user) {
     return (
       <BrowserRouter>
-        <NavigationBar></NavigationBar>
+        <NavigationBar status="user-not-logged"></NavigationBar>
         <Switch>
           <Route path="/" exact={true}>
             <LandingPage status="default" />
@@ -55,7 +55,7 @@ function App() {
   return (
     loaded && (
       <BrowserRouter>
-        <NavBar />
+        <NavigationBar status="user-is-logged"></NavigationBar>
         <Switch>
           <Route path="/login" exact={true}>
             <LoginForm />
