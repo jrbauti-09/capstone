@@ -123,6 +123,8 @@ const thoughtReducer = (state = initialState, action) => {
         [action.thought.id]: action.thought,
       };
       return newState;
+    default:
+      return state;
   }
 };
 
