@@ -1,0 +1,27 @@
+.one-roll-container {
+  display: gird;
+  grid-template-rows: 2fr 1fr 1fr;
+  width: 95%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.one_thought_div {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.one_image_div {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
