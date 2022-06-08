@@ -24,3 +24,5 @@ class Image(db.Model):
             'time_created': self.time_created,
             'time_updated': self.time_updated,
         }
+    def image_info(self):
+        return self.url

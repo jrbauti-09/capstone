@@ -34,6 +34,6 @@ class Thought(db.Model):
             'time_created': self.time_created,
             'time_updated': self.time_updated,
             'user': self.user.owner_info(),
-            'image': self.images.to_dict(),
+            'images': [image.image_info() for image in self.images],
             'ingredients': [ingredient.to_dict() for ingredient in self.ingredients]
         }

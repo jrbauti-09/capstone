@@ -40,7 +40,7 @@ export const getThoughts = () => async (dispatch) => {
 
   if (response.ok) {
     const thoughts = await response.json();
-    dispatch(thoughts);
+    dispatch(load(thoughts));
   }
 };
 

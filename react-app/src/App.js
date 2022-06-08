@@ -13,6 +13,9 @@ import { authenticate } from "./store/session";
 import NavigationBar from "./components/Landing/Nav/index.js";
 import LandingPage from "./components/Landing/LandingPage";
 
+//testing components here..
+import ProxyHome from "./components/proxyHome";
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -64,7 +67,7 @@ function App() {
             <SignUpForm />
           </Route>
           <ProtectedRoute path="/" exact={true}>
-            <h1>My Home Page</h1>
+            <ProxyHome />
           </ProtectedRoute>
           <ProtectedRoute path="/users" exact={true}>
             <UsersList />
