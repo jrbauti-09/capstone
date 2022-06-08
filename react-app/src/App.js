@@ -15,6 +15,7 @@ import LandingPage from "./components/Landing/LandingPage";
 
 //testing components here..
 import ProxyHome from "./components/proxyHome";
+import ThoughtMain from "./components/ThoughtsPage/ThoughtMain";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -67,7 +68,7 @@ function App() {
             <SignUpForm />
           </Route>
           <ProtectedRoute path="/" exact={true}>
-            <ProxyHome />
+            <ThoughtMain />
           </ProtectedRoute>
           <ProtectedRoute path="/users" exact={true}>
             <UsersList />
