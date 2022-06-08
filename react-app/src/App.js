@@ -16,6 +16,9 @@ import LandingPage from "./components/Landing/LandingPage";
 //testing components here..
 import ProxyHome from "./components/proxyHome";
 import ThoughtMain from "./components/ThoughtsPage/ThoughtMain";
+import ThoughtDetail from "./components/ThoughtDetailPage/ThoughtDetail";
+
+//when user is authenticated
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -71,7 +74,7 @@ function App() {
             <ThoughtMain />
           </ProtectedRoute>
           <ProtectedRoute path="/thoughts/:thoughtId">
-            <div>HERE</div>
+            <ThoughtDetail />
           </ProtectedRoute>
           <ProtectedRoute path="/users" exact={true}>
             <UsersList />

@@ -25,6 +25,7 @@ class Review(db.Model):
             'user_id': self.user_id,
             'time_created': self.time_created,
             'time_updated': self.time_updated,
+            'user': self.user.owner_info()
         }
     def to_rating(self):
         return self.rating

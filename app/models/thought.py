@@ -37,5 +37,6 @@ class Thought(db.Model):
             'category': self.category,
             'images': [image.image_info() for image in self.images],
             'ingredients': [ingredient.to_dict() for ingredient in self.ingredients],
-            'reviewRating': [review.to_rating() for review in self.reviews]
+            'reviewRating': [review.to_rating() for review in self.reviews],
+            'reviews': [review.to_dict() for review in self.reviews]
         }
