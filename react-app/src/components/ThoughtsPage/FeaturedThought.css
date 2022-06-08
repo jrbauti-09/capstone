@@ -25,6 +25,8 @@
   border: 2px solid #f2f2f2;
   border-radius: 8px;
   overflow: hidden;
+  margin-left: 1em;
+  margin-top: 1.5em;
 }
 .recipe-content {
   padding: 16px 32px;
@@ -83,19 +85,19 @@
 }
 
 /* Body Layout */
-* {
+/* * {
   box-sizing: border-box;
-}
+} */
 
 body {
   --primary: #e05d26;
   --grey: #454545;
   --lightgrey: #666;
   color: var(--grey);
-  line-height: 1.55;
+  /* line-height: 1.55;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 

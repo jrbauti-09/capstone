@@ -70,6 +70,9 @@ function App() {
           <ProtectedRoute path="/" exact={true}>
             <ThoughtMain />
           </ProtectedRoute>
+          <ProtectedRoute path="/thoughts/:thoughtId">
+            <div>HERE</div>
+          </ProtectedRoute>
           <ProtectedRoute path="/users" exact={true}>
             <UsersList />
           </ProtectedRoute>

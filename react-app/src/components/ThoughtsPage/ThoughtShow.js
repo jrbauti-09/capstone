@@ -10,10 +10,16 @@ export default function ThoughtShow() {
   //   console.log(thoughts);
 
   return (
-    <div className="thought-show-container">
-      {thoughts?.map((thought, idx) => (
-        <ThoughtCard key={idx} thought={thought} />
-      ))}
-    </div>
+    <>
+      <div className="thought-show-container">
+        {thoughts?.map((thought) => {
+          return (
+            <>
+              <ThoughtCard key={thought?.id} thought={thought} />
+            </>
+          );
+        })}
+      </div>
+    </>
   );
 }
