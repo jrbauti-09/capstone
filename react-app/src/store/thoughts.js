@@ -75,7 +75,7 @@ export const editThought = (data, thoughtId) => async (dispatch) => {
 };
 
 export const deleteThought = (thoughtId) => async (dispatch) => {
-  const reponse = await fetch(`/api/thoughts/${thoughtId}`, {
+  const response = await fetch(`/api/thoughts/${thoughtId}`, {
     methods: "DELETE",
   });
 
