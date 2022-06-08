@@ -44,7 +44,7 @@ def post_review():
     return {"errors": validation_errors_to_error_messages(form.errors)}
 
 # PUT
-@review_routes.route('/<int:reviewId', methods=['PUT'])
+@review_routes.route('/<int:reviewId>', methods=['PUT'])
 def edit_review(reviewId):
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
