@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from .auth_routes import validation_errors_to_error_messages
 from app.forms import ThoughtForm
-from app.models import db, Thought, thought
+from app.models import db, Thought
 
 # TODO
 # import boto3
