@@ -53,7 +53,7 @@ export const addReview = (data) => async (dispatch) => {
     body: JSON.stringify(data),
   });
 
-  console.log(response);
+  // console.log(response);
 
   if (response.ok) {
     const review = await response.json();
@@ -76,6 +76,11 @@ export const editReview = (data, review_id) => async (dispatch) => {
   if (response.ok) {
     const editedReview = await response.json();
     dispatch(edit(editedReview));
+  } else {
+    const data = await response.json();
+    if (data.errors) {
+      return { errors: data.errors };
+    }
   }
 };
 
