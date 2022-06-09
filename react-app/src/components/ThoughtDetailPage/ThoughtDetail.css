@@ -155,3 +155,9 @@
   font-size: 15px;
   /* margin-bottom: -5px; */
 }
+
+.number_of_reviews {
+  font-size: 0.825em;
+  font-style: italic;
+  color: var(--lightgrey);
+}
