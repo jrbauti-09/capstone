@@ -37,18 +37,18 @@ export default function AddReview({ thoughtId }) {
 
     const newReview = await dispatch(addReview(data));
 
-    console.log(newReview, "NEW REVIEW");
+    // console.log(newReview, "NEW REVIEW");
 
     if (newReview?.errors) {
       setRouteErrors(newReview.errors);
-      console.log(rating, "RATING");
+      // console.log(rating, "RATING");
     } else {
       await dispatch(getThoughts());
       setRating(0);
       setReview("");
       setFlip(true);
       setRouteErrors([]);
-      history.push(`/thoughts/${thoughtId}`);
+      // history.push(`/thoughts/${thoughtId}`);
     }
   };
 
