@@ -93,22 +93,28 @@ def update_thought(thoughtId):
 @login_required
 def add_thought_image():
     newFile = request.form.get('newFile')
-    # print(newFile)
+
     if newFile == 'true':
         if "file" not in request.files:
             return "No user_file key in request.files"
         file = request.files['file']
 
+
         if file:
             thought_id = request.form.get('thought_id')
             user_id = request.form.get('user_id')
             file_url = upload_file_to_s3(file)
+            print(file_url, "LOOOOOOOOOOOOK HEEEEEREEEEEEEE")
+            print(file_url, "LOOOOOOOOOOOOK HEEEEEREEEEEEEE")
+            print(file_url, "LOOOOOOOOOOOOK HEEEEEREEEEEEEE")
             # file_url = file_url.replace(" ", "+")
             image = Image(thought_id=thought_id, user_id=user_id, url=file_url["url"])
             db.session.add(image)
             db.session.commit()
 
     if newFile == 'false':
+        print("********************************")
+        print("********************************")
         print("********************************")
         user_id = request.form.get('user_id')
         thought_id = request.form.get('thought_id')
