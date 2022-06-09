@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -16,10 +16,21 @@ export default function FeaturedThought() {
 
   const totalLengthIndex = allThoughts.length - 1;
   // randomly select an index to show random recipes
-  const featuredThought =
+  let featuredThought =
     allThoughts[Math.floor(Math.random() * totalLengthIndex)];
 
-  //   console.log(featuredThought);
+  // setInterval(async function () {
+  //   await dispatch(getThoughts());
+  // }, 2000);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     featuredThought =
+  //       allThoughts[Math.floor(Math.random() * totalLengthIndex)];
+  //   }, 5000);
+
+  //   return () => clearInterval(interval);
+  // }, [featuredThought]);
 
   let ratingValue = 0;
   const ratings = featuredThought?.reviewRating;
