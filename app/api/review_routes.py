@@ -70,10 +70,10 @@ def edit_review(reviewId):
         data = form.data
         review = Review.query.filter(Review.id == reviewId).first()
 
-        review.name = data['name']
-        review.review = data['review']
-        review.user_id = data['user_id']
-        review.thought_id = data['thought_id']
+        review.rating = data['rating'],
+        review.review = data['review'],
+        review.user_id = data['user_id'],
+        review.thought_id = data['thought_id'],
 
         db.session.commit()
 
