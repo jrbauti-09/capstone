@@ -16,6 +16,9 @@ export default function ThoughtDetail() {
   const dispatch = useDispatch();
   const { thoughtId } = useParams();
 
+  const [showEdit, setShowEdit] = useState(false);
+  const [ingredientIndex, setIngredientIndex] = useState(-1);
+
   // This will grab our needed thought recipe
   const thought = useSelector((state) => state.allThoughts[thoughtId]);
   //   console.log(thought, "working");
@@ -39,6 +42,8 @@ export default function ThoughtDetail() {
   useEffect(() => {
     dispatch(getThoughts());
   }, [dispatch]);
+
+  //TODO still need to figure out editing and deleting ingredient.
 
   return (
     <div className="thought_container">
@@ -95,15 +100,38 @@ export default function ThoughtDetail() {
             </div>
           </div>
           <div>
-            {thought?.ingredients.map((ingredient) => {
+            {thought?.ingredients.map((ingredient, idx) => {
               return (
-                <div className="thought_ingredient" key={ingredient?.id}>
-                  <div>{ingredient.name}</div>
-                  <div className="thought_ingredient_buttons">
-                    {user == thought?.user_id ? <div>Edit</div> : <></>}
-                    {user == thought?.user_id ? <div>Delete</div> : <></>}
+                <>
+                  <div className="thought_ingredient" key={ingredient?.id}>
+                    <div>{ingredient.name}</div>
+                    <div className="thought_ingredient_buttons">
+                      {ingredientIndex === idx ? (
+                        <button onClick={() => setIngredientIndex(-1)}>
+                          cancel
+                        </button>
+                      ) : (
+                        <></>
+                      )}
+                      {user == thought?.user_id ? (
+                        <div
+                          className="ingredient_button"
+                          onClick={() => setIngredientIndex(idx)}
+                        >
+                          Edit
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                      {user == thought?.user_id ? (
+                        <div className="ingredient_button">Delete</div>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
                   </div>
-                </div>
+                  {ingredientIndex === idx ? <div>Here</div> : <></>}
+                </>
               );
             })}
           </div>

@@ -124,3 +124,7 @@
 .thought_ingredient_buttons {
   display: flex;
 }
+
+.ingredient_button {
+  cursor: pointer;
+}
