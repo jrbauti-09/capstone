@@ -5,11 +5,18 @@ import { useHistory, useParams, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faXmark } from "@fortawesome/free-solid-svg-icons";
 
+// Thunks here.
 import { getThoughts } from "../../store/thoughts";
 import { getReviews } from "../../store/reviews";
 import { deleteReview } from "../../store/reviews";
-
+//
+//
+//
+//
+//
+// Components here.
 import AddReview from "./AddReview/AddReview";
+import EditReview from "./EditReview/EditReview";
 
 import "./ThoughtDetail.css";
 
@@ -195,7 +202,11 @@ export default function ThoughtDetail() {
                   </div>
                   <div>
                     {reviewIndex === idx ? (
-                      <div>edit review form component</div>
+                      <EditReview
+                        reviewId={review.id}
+                        thought_id={thought?.id}
+                        setReviewIndex={setReviewIndex}
+                      />
                     ) : (
                       <></>
                     )}
