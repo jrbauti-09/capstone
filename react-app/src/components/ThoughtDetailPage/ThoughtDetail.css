@@ -110,3 +110,17 @@
   grid-template-columns: 1fr 2fr;
   margin-bottom: 50px;
 }
+
+.ingredients_container_div {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.thought_ingredient {
+  display: flex;
+  justify-content: space-between;
+}
+
+.thought_ingredient_buttons {
+  display: flex;
+}

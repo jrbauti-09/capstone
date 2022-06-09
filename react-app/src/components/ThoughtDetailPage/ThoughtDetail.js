@@ -65,7 +65,6 @@ export default function ThoughtDetail() {
           </div>
         </div>
         <div className="category_rating">
-          <button>button</button>
           {user == thought?.user_id ? (
             <Link
               className="edit_thought_link"
@@ -88,7 +87,27 @@ export default function ThoughtDetail() {
         </div>
       </div>
       <div className="bottom_section">
-        <div>Ingredients Container</div>
+        <div className="ingredients_container_div">
+          Ingredients container
+          <div className="ingredients-container ing-controls">
+            <div className="ing-name ing-name-head">
+              <h2 className="single-h2 ing-h2">Ingredients: </h2>
+            </div>
+          </div>
+          <div>
+            {thought?.ingredients.map((ingredient) => {
+              return (
+                <div className="thought_ingredient" key={ingredient?.id}>
+                  <div>{ingredient.name}</div>
+                  <div className="thought_ingredient_buttons">
+                    {user == thought?.user_id ? <div>Edit</div> : <></>}
+                    {user == thought?.user_id ? <div>Delete</div> : <></>}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
         <div>Review Container</div>
       </div>
     </div>
