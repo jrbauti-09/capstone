@@ -88,11 +88,12 @@ export const deleteThought = (thoughtId) => async (dispatch) => {
 /******* TODO: still need to create route for images ***************/
 
 export const uploadFile = (fileForm) => async (dispatch) => {
-  const { thought_id, file, newFile } = fileForm;
+  const { thought_id, user_id, file, newFile } = fileForm;
 
   const form = new FormData();
   form.append("file", file);
   form.append("thought_id", thought_id);
+  form.append("user_id", user_id);
   form.append("newFile", newFile);
 
   const res = await fetch("/api/thoughts/images", {
