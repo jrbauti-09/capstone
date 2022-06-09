@@ -2,15 +2,13 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from .auth_routes import validation_errors_to_error_messages
 from app.forms import ThoughtForm
-from app.models import db, Thought
+from app.models import db, Thought, Image
 
-# TODO
-# import boto3
-# import botocore
+import boto3
+import botocore
 
-# TODO
-# from app.config import Config
-# from app.aws_s3 import *
+from app.config import Config
+from app.aws_s3 import *
 
 thought_routes = Blueprint('thoughts', __name__)
 
@@ -88,3 +86,35 @@ def update_thought(thoughtId):
 
         return thoughtUp.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
+
+# AWS upload
+# TODO configure route
+@thought_routes.route("/images", methods=['POST'])
+@login_required
+def add_thought_image():
+    newFile = request.form.get('newFile')
+    # print(newFile)
+    if newFile == 'true':
+        if "file" not in request.files:
+            return "No user_file key in request.files"
+        file = request.files['file']
+
+        if file:
+            spot_id = request.form.get('spot_id')
+            file_url = upload_file_to_s3(file)
+            # file_url = file_url.replace(" ", "+")
+            image = Image(spot_id=spot_id, url=file_url["url"])
+            db.session.add(image)
+            db.session.commit()
+
+    if newFile == 'false':
+        print("********************************")
+        spot_id = request.form.get('spot_id')
+        url = request.form.get('file')
+        print(spot_id)
+        print(url)
+        image = Image(spot_id=spot_id, url=url)
+        db.session.add(image)
+        db.session.commit()
+
+    return {'message': 'okay'}
