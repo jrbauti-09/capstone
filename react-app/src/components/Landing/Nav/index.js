@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { logout } from "../../../store/session";
 import { useDispatch } from "react-redux";
@@ -29,6 +29,7 @@ export default function NavigationBar({ status }) {
 
   const logOut = async (e) => {
     await dispatch(logout());
+    history.push("/");
   };
 
   if (status === "user-not-logged") {
@@ -103,19 +104,11 @@ export default function NavigationBar({ status }) {
           </div>
           <div className="landing-navigation">
             <div className="drop">
-              <button className="about-drop">
-                Your thought bubble<i className="fa fa-caret-down"></i>
-              </button>
-              <div className="dropdown-container">
-                <a
-                  href="https://github.com/jrbauti-09/capstone"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="repository"
-                >
-                  placeholder
-                </a>
-              </div>
+              <Link to="/thoughts/add">
+                <button className="about-drop">
+                  Share a thought!<i className="fa fa-caret-down"></i>
+                </button>
+              </Link>
             </div>
             <div className="drop">
               <button className="about-drop">
