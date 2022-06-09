@@ -36,7 +36,7 @@ const reviewToDelete = (deletedReview) => {
 // Thunks.
 
 export const getReviews = () => async (dispatch) => {
-  const response = await fetch("/api/reviews");
+  const response = await fetch("/api/reviews/");
 
   if (response.ok) {
     const reviews = await response.json();
@@ -45,15 +45,24 @@ export const getReviews = () => async (dispatch) => {
 };
 
 export const addReview = (data) => async (dispatch) => {
+  //   console.log(data);
+
   const response = await fetch("/api/reviews/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
 
+  console.log(response);
+
   if (response.ok) {
     const review = await response.json();
     dispatch(add(review));
+  } else {
+    const data = await response.json();
+    if (data.errors) {
+      return { errors: data.errors };
+    }
   }
 };
 
@@ -72,7 +81,7 @@ export const editReview = (data, review_id) => async (dispatch) => {
 
 export const deleteReview = (reviewId) => async (dispatch) => {
   const response = await fetch(`/api/reviews/${reviewId}`, {
-    methods: "DELETE",
+    method: "DELETE",
   });
 
   if (response.ok) {
@@ -111,7 +120,8 @@ const reviewReducer = (state = initialState, action) => {
       const newState = {
         ...state,
       };
-      delete newState[action.review.id];
+      //   console.log(action.review);
+      delete newState[action.deletedReview.id];
       return newState;
     }
     default:
