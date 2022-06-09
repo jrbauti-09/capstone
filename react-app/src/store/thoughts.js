@@ -46,7 +46,7 @@ export const getThoughts = () => async (dispatch) => {
 
 export const addThought = (data) => async (dispatch) => {
   const response = await fetch("/api/thoughts", {
-    method: "post",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },

@@ -1,0 +1,36 @@
+.thought_form_main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../images/bg_thought_form.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  height: 100%;
+}
+
+.experiment_box {
+  /* display: grid; */
+  /* justify-content: center; */
+  /* grid-template-columns: 1fr 2fr; */
+  /* border: 1px solid red; */
+  width: 60em;
+  max-width: 60em;
+  height: 40em;
+  max-height: 40em;
+  margin-top: 6em;
+  margin-bottom: 7.5em;
+}
+
+.right {
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.form_container_div {
+}
