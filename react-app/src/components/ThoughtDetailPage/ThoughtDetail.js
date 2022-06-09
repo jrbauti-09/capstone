@@ -6,6 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { getThoughts } from "../../store/thoughts";
+import { getReviews } from "../../store/reviews";
+import { deleteReview } from "../../store/reviews";
+
+import AddReview from "./AddReview/AddReview";
 
 import "./ThoughtDetail.css";
 
@@ -43,6 +47,17 @@ export default function ThoughtDetail() {
   useEffect(() => {
     dispatch(getThoughts());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getReviews());
+  }, [dispatch]);
+
+  const handleDelete = (review_id) => async (e) => {
+    e.preventDefault();
+    // console.log("Look");
+    await dispatch(deleteReview(review_id));
+    await dispatch(getThoughts());
+  };
 
   //TODO still need to figure out editing and deleting ingredient.
 
@@ -86,6 +101,9 @@ export default function ThoughtDetail() {
           ) : (
             <></>
           )}
+          <span className="number_of_reviews">
+            {thought?.reviewRating.length} total reviews
+          </span>
           <span
             className="stars"
             style={{ "--ratingValue": `${ratingValue}` }}
@@ -165,7 +183,11 @@ export default function ThoughtDetail() {
                     ) : (
                       <></>
                     )}
-                    {user == review?.user_id ? <button>Delete</button> : <></>}
+                    {user == review?.user_id ? (
+                      <button onClick={handleDelete(review.id)}>Delete</button>
+                    ) : (
+                      <></>
+                    )}
                     <span
                       className="stars"
                       style={{ "--ratingValue": `${review?.rating}` }}
@@ -181,7 +203,9 @@ export default function ThoughtDetail() {
                 </div>
               );
             })}
-            <div>Add Review Form</div>
+            <div>
+              <AddReview thoughtId={thought?.id} />
+            </div>
           </div>
         </div>
       </div>
