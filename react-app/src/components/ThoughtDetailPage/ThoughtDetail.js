@@ -43,7 +43,7 @@ export default function ThoughtDetail() {
   return (
     <div className="thought_container">
       <div className="thought_container_div thought_name">
-        <div className="thought_title">{thought?.name}</div>
+        <div className="thought_title_detail">{thought?.name}</div>
         <div className="thought_user_name">By: {thought?.user.username}</div>
       </div>
       <div className="thought_image">
@@ -64,9 +64,33 @@ export default function ThoughtDetail() {
             <span className="thought_category_span">{thought?.category}</span>
           </div>
         </div>
-        <div className="category_rating">here</div>
+        <div className="category_rating">
+          <button>button</button>
+          {user == thought?.user_id ? (
+            <Link
+              className="edit_thought_link"
+              to={`/thoughts/${thought?.id}/edit`}
+            >
+              Edit
+            </Link>
+          ) : (
+            <></>
+          )}
+          {user == thought?.user_id ? (
+            <button className="edit_thought_link">Delete</button>
+          ) : (
+            <></>
+          )}
+          <span
+            className="stars"
+            style={{ "--ratingValue": `${ratingValue}` }}
+          ></span>
+        </div>
       </div>
-      <div>HERE</div>
+      <div className="bottom_section">
+        <div>Ingredients Container</div>
+        <div>Review Container</div>
+      </div>
     </div>
   );
 }

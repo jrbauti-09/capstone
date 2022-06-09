@@ -1,5 +1,5 @@
 .one_thought_container {
-  display: gird;
+  display: block;
   grid-template-rows: 2fr 1fr 1fr;
   width: 95%;
   box-sizing: border-box;
