@@ -128,3 +128,30 @@
 .ingredient_button {
   cursor: pointer;
 }
+
+.thought_instructions_container {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 5px;
+  margin-bottom: 21px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  white-space: pre-wrap;
+}
+
+.thought_instructions_p {
+  white-space: pre-wrap;
+}
+
+.single-review {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.single-review-user {
+  font-weight: 400;
+  font-size: 15px;
+  /* margin-bottom: -5px; */
+}

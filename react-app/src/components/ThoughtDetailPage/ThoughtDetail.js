@@ -18,6 +18,7 @@ export default function ThoughtDetail() {
 
   const [showEdit, setShowEdit] = useState(false);
   const [ingredientIndex, setIngredientIndex] = useState(-1);
+  const [reviewIndex, setReviewIndex] = useState(-1);
 
   // This will grab our needed thought recipe
   const thought = useSelector((state) => state.allThoughts[thoughtId]);
@@ -136,7 +137,53 @@ export default function ThoughtDetail() {
             })}
           </div>
         </div>
-        <div>Review Container</div>
+        <div>
+          <div className="thought_instructions_container">
+            <h2 className="instructions_header">
+              Instructions to make Thought:
+            </h2>
+            <p className="thought_instructions_p">{thought?.instructions}</p>
+          </div>
+          <div className="review_container">
+            <h2 className="review_header">Reviews:</h2>
+            {thought?.reviews.map((review, idx) => {
+              return (
+                <div className="single-review" key={idx}>
+                  <p className="single-review-user">
+                    <span>Review By:</span>
+                    {review?.user?.username}
+                  </p>
+                  <p>{review?.review}</p>
+                  <div className="review_options">
+                    {user == review?.user_id ? (
+                      <button onClick={() => setReviewIndex(idx)}>Edit</button>
+                    ) : (
+                      <></>
+                    )}
+                    {reviewIndex === idx && user == review?.user_id ? (
+                      <button onClick={() => setReviewIndex(-1)}>Cancel</button>
+                    ) : (
+                      <></>
+                    )}
+                    {user == review?.user_id ? <button>Delete</button> : <></>}
+                    <span
+                      className="stars"
+                      style={{ "--ratingValue": `${review?.rating}` }}
+                    ></span>
+                  </div>
+                  <div>
+                    {reviewIndex === idx ? (
+                      <div>edit review form component</div>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+            <div>Add Review Form</div>
+          </div>
+        </div>
       </div>
     </div>
   );
