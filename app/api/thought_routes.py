@@ -100,20 +100,22 @@ def add_thought_image():
         file = request.files['file']
 
         if file:
-            spot_id = request.form.get('spot_id')
+            thought_id = request.form.get('thought_id')
+            user_id = request.form.get('user_id')
             file_url = upload_file_to_s3(file)
             # file_url = file_url.replace(" ", "+")
-            image = Image(spot_id=spot_id, url=file_url["url"])
+            image = Image(thought_id=thought_id, user_id=user_id, url=file_url["url"])
             db.session.add(image)
             db.session.commit()
 
     if newFile == 'false':
         print("********************************")
-        spot_id = request.form.get('spot_id')
+        user_id = request.form.get('user_id')
+        thought_id = request.form.get('thought_id')
         url = request.form.get('file')
-        print(spot_id)
+        print(thought_id)
         print(url)
-        image = Image(spot_id=spot_id, url=url)
+        image = Image(thought_id=thought_id,user_id=user_id, url=url)
         db.session.add(image)
         db.session.commit()
 
