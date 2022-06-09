@@ -9,6 +9,7 @@ import { faPencil, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { getThoughts } from "../../store/thoughts";
 import { getReviews } from "../../store/reviews";
 import { deleteReview } from "../../store/reviews";
+import { deleteThought } from "../../store/thoughts";
 //
 //
 //
@@ -66,6 +67,11 @@ export default function ThoughtDetail() {
     await dispatch(getThoughts());
   };
 
+  const handleDeleteThought = async (e) => {
+    await dispatch(deleteThought(thought?.id));
+    history.push("/");
+  };
+
   //TODO still need to figure out editing and deleting ingredient.
 
   return (
@@ -104,7 +110,9 @@ export default function ThoughtDetail() {
             <></>
           )}
           {user == thought?.user_id ? (
-            <button className="edit_thought_link">Delete</button>
+            <button className="edit_thought_link" onClick={handleDeleteThought}>
+              Delete
+            </button>
           ) : (
             <></>
           )}
