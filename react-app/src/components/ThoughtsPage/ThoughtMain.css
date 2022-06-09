@@ -14,3 +14,7 @@
   width: 100%;
   /* background-color: red; */
 }
+
+.carousel {
+  z-index: 2;
+}

@@ -10,5 +10,12 @@ export default function AddThought() {
   const user = useSelector((state) => state.session.user.id);
 
   const [errors, setErrors] = useState([]);
+
+  const [category, setCategory] = useState("");
+  const [instructions, setInstructions] = useState("");
+  const [description, setDescription] = useState("");
+  // Remember this is required, max length is 255.
+  const [name, setName] = useState("");
+
   return <div>AddThought</div>;
 }
