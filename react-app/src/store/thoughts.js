@@ -75,13 +75,15 @@ export const editThought = (data, thoughtId) => async (dispatch) => {
 };
 
 export const deleteThought = (thoughtId) => async (dispatch) => {
+  console.log(thoughtId, "LOOK HERE THOUGHT ID");
+
   const response = await fetch(`/api/thoughts/${thoughtId}`, {
-    methods: "DELETE",
+    method: "DELETE",
   });
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(deleteThought(data));
+    dispatch(thoughtToDelete(data));
   }
 };
 
@@ -124,6 +126,12 @@ const thoughtReducer = (state = initialState, action) => {
         [action.thought.id]: action.thought,
       };
       return newState;
+    case DELETE_THOUGHT:
+      const newstate = {
+        ...state,
+      };
+      delete newstate[action.deletedThought.id];
+      return newstate;
     default:
       return state;
   }
