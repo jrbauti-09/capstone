@@ -22,6 +22,14 @@ export default function AddThought() {
   // Remember this is required, max length is 255.
   const [name, setName] = useState("");
   const [images, setImages] = useState();
+  const [ingredientArray, setIngredientArray] = useState([]);
+
+  const [ingredientErrors, setIngredientErrors] = useState([]);
+  const [ingredient, setIngredient] = useState("");
+  const [editIngredientState, setEditIngredientState] = useState(false);
+  const [ingredientIndex, setIngredientIndex] = useState(-1);
+  const [currentIngredientEdit, setCurrentIngredientEdit] = useState("");
+  const [proxyState, setProxyState] = useState([]);
 
   const handleAddThought = async (e) => {
     e.preventDefault();
@@ -66,6 +74,90 @@ export default function AddThought() {
     };
     // Will need to add.
     await dispatch(uploadFile(obj));
+  };
+
+  const handleAddIngredient = (e) => {
+    //setProxyState will cause a rerender of the component.
+
+    if (!ingredient.length) {
+      setIngredientErrors(["Please provide an ingredient."]);
+      console.log(ingredientErrors);
+      setProxyState([]);
+      return;
+    }
+
+    if (ingredient.length > 30) {
+      setIngredientErrors(["Ingredient name cannot exceed 30 letters."]);
+      setProxyState([]);
+      return;
+    }
+
+    if (ingredient.length === 1) {
+      setIngredientErrors(["Ingredient cannot be 1 letter."]);
+      setProxyState([]);
+      return;
+    }
+
+    ingredientArray.push(ingredient);
+    console.log(ingredientArray);
+
+    setIngredient("");
+    setIngredientErrors([]);
+    setProxyState([]);
+  };
+
+  const handleEditIngredient = (idxToEdit) => {
+    // console.log(idxToEdit, currentIngredientEdit);
+    //User clicks edit and should show an input.
+
+    if (!currentIngredientEdit.length) {
+      setIngredientErrors(["Please provide an ingredient."]);
+      setProxyState([]);
+      return;
+    }
+
+    if (currentIngredientEdit.length > 30) {
+      setIngredientErrors(["Ingredient name cannot exceed 30 letters."]);
+      setProxyState([]);
+      return;
+    }
+
+    if (currentIngredientEdit.length === 1) {
+      setIngredientErrors(["Ingredient cannot be 1 letter."]);
+      setProxyState([]);
+      return;
+    }
+
+    ingredientArray.splice(idxToEdit, 1, currentIngredientEdit);
+    setEditIngredientState(!editIngredientState);
+    setProxyState([]);
+    setIngredientErrors([]);
+  };
+
+  const toogleEdit = (idxToEdit) => {
+    setEditIngredientState(!editIngredientState);
+    setCurrentIngredientEdit(ingredientArray[idxToEdit]);
+    setIngredientIndex(idxToEdit);
+  };
+
+  const cancelEdit = (index) => {
+    setEditIngredientState(!editIngredientState);
+    setCurrentIngredientEdit(ingredientArray[index]);
+    setIngredientIndex(-1);
+  };
+
+  const handleDeleteIngredient = (idxToDelete) => {
+    // console.log(idxToDelete);
+
+    // Working and deleting the right ingredients from the array.
+    ingredientArray.splice(idxToDelete, 1);
+    console.log(ingredientArray);
+    setProxyState([]);
+  };
+
+  const currentEdit = (e) => {
+    console.log(e);
+    setProxyState([]);
   };
 
   return (
@@ -127,6 +219,68 @@ export default function AddThought() {
                 <option value="Drinks">Drinks</option>
                 <option value="Salad">Salad</option>
               </select>
+            </div>
+            {ingredientErrors?.length ? (
+              ingredientErrors.map((error, idx) => {
+                return (
+                  <div key={idx}>
+                    <ul>
+                      <li>{error}</li>
+                    </ul>
+                  </div>
+                );
+              })
+            ) : (
+              <></>
+            )}
+            {ingredientArray?.map((ingredient, index) => {
+              return (
+                <>
+                  <div style={{ display: "flex" }}>
+                    <div key={index} style={{ marginRight: "2em" }}>
+                      {ingredient}
+                      {index}
+                    </div>
+                    {ingredientIndex === index && editIngredientState ? (
+                      <>
+                        <input
+                          value={currentIngredientEdit}
+                          onChange={(e) => {
+                            setCurrentIngredientEdit(e.target.value);
+                          }}
+                        ></input>
+                        <div onClick={() => cancelEdit(index)}>Cancel</div>
+                        <div onClick={() => handleEditIngredient(index)}>
+                          Confirm
+                        </div>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                    <div
+                      style={{ marginRight: "2em" }}
+                      onClick={() => toogleEdit(index)}
+                    >
+                      Edit
+                    </div>
+                    <div onClick={() => handleDeleteIngredient(index)}>
+                      DELETE
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+            <div>
+              <div>
+                <input
+                  type="text"
+                  value={ingredient}
+                  onChange={(e) => setIngredient(e.target.value)}
+                ></input>
+                <div onClick={handleAddIngredient}>
+                  Add ingredient will make into a div
+                </div>
+              </div>
             </div>
             <div></div>
             <div>
