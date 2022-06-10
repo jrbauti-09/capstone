@@ -79,10 +79,10 @@ def update_thought(thoughtId):
         thoughtUp.category = data['category']
 
         # TODO
-        # images = Image.query.filter(Image.spot_id == spotId).all()
-        # for image in images:
-        #     db.session.delete(image)
-        # db.session.commit()
+        images = Image.query.filter(Image.thought_id == thoughtId).all()
+        for image in images:
+            db.session.delete(image)
+        db.session.commit()
 
         return thoughtUp.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
@@ -122,6 +122,8 @@ def add_thought_image():
         user_id = request.form.get('user_id')
         thought_id = request.form.get('thought_id')
         url = request.form.get('file')
+        print(newFile)
+        print(request.form, "LOOOKIE HERE")
         print(thought_id)
         print(url)
         image = Image(thought_id=thought_id,user_id=user_id, url=url)
