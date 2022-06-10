@@ -50,6 +50,11 @@ export default function EditThought() {
 
     const thoughtData = await dispatch(editThought(data, thoughtToEdit?.id));
 
+    if (thoughtData?.errors) {
+      setErrors(thoughtData.errors);
+      return;
+    }
+
     await addImage(cleanImage[0], thoughtData[1].id, user);
     history.push("/");
   };
@@ -75,7 +80,20 @@ export default function EditThought() {
       <div className="experiment_box">
         <div className="right">
           <form className="form_container_div" onSubmit={handleEditThought}>
-            <h1 className="new_thought">Please share your thought!</h1>
+            <h1 className="new_thought">
+              Edit details for {thoughtToEdit?.name}
+            </h1>
+            {errors.length ? (
+              <div>
+                <ul>
+                  {errors.map((error, idx) => {
+                    return <li key={idx}>{error}</li>;
+                  })}
+                </ul>
+              </div>
+            ) : (
+              <></>
+            )}
             <div>
               <label>Name:*</label>
               <input

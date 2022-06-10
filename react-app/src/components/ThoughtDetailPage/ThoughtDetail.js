@@ -18,6 +18,7 @@ import { deleteThought } from "../../store/thoughts";
 // Components here.
 import AddReview from "./AddReview/AddReview";
 import EditReview from "./EditReview/EditReview";
+import AddIngredient from "./AddIngredient/AddIngredient";
 
 import "./ThoughtDetail.css";
 
@@ -168,6 +169,13 @@ export default function ThoughtDetail() {
                 </>
               );
             })}
+            <div>
+              {user == thought?.user_id ? (
+                <AddIngredient thoughtId={thought?.id} />
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
         </div>
         <div>

@@ -57,11 +57,16 @@ export const addThought = (data) => async (dispatch) => {
     const thought = await response.json();
     dispatch(add(thought));
     return ["Created", thought];
+  } else {
+    const data = await response.json();
+    if (data.errors) {
+      return { errors: data.errors };
+    }
   }
 };
 
 export const editThought = (data, thoughtId) => async (dispatch) => {
-  console.log(data, thoughtId, "LOOK HERE ******************");
+  // console.log(data, thoughtId, "LOOK HERE ******************");
 
   const response = await fetch(`/api/thoughts/${thoughtId}`, {
     method: "PUT",

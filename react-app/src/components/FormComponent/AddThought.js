@@ -43,6 +43,11 @@ export default function AddThought() {
 
     const thoughtData = await dispatch(addThought(data));
 
+    if (thoughtData?.errors) {
+      setErrors(thoughtData.errors);
+      return;
+    }
+
     await addImage(cleanImage[0], thoughtData[1].id, user);
     history.push("/");
   };
@@ -69,21 +74,34 @@ export default function AddThought() {
         <div className="right">
           <form className="form_container_div" onSubmit={handleAddThought}>
             <h1 className="new_thought">Please share your thought!</h1>
+            {errors.length ? (
+              <div>
+                <ul>
+                  {errors.map((error, idx) => {
+                    return <li key={idx}>{error}</li>;
+                  })}
+                </ul>
+              </div>
+            ) : (
+              <></>
+            )}
             <div>
               <label>Name:*</label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="new_thought_input"
+                required
               ></input>
             </div>
             <div>
               <label>Description:*</label>
-              <input
+              <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="new_thought_input"
-              ></input>
+                required
+              ></textarea>
             </div>
             <div>
               <label>Instructions:*</label>
@@ -91,6 +109,7 @@ export default function AddThought() {
                 value={instructions}
                 onChange={(e) => setInstructions(e.target.value)}
                 className="new_thought_input"
+                required
               ></input>
             </div>
             <div>
