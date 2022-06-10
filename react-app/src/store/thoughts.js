@@ -61,6 +61,8 @@ export const addThought = (data) => async (dispatch) => {
 };
 
 export const editThought = (data, thoughtId) => async (dispatch) => {
+  console.log(data, thoughtId, "LOOK HERE ******************");
+
   const response = await fetch(`/api/thoughts/${thoughtId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
@@ -69,13 +71,14 @@ export const editThought = (data, thoughtId) => async (dispatch) => {
 
   if (response.ok) {
     const editedThought = await response.json();
+    // console.log(editedThought, "THIS IS THE EDITED THOUGHT");
     dispatch(edit(editedThought));
     return ["Created", editedThought];
   }
 };
 
 export const deleteThought = (thoughtId) => async (dispatch) => {
-  console.log(thoughtId, "LOOK HERE THOUGHT ID");
+  // console.log(thoughtId, "LOOK HERE THOUGHT ID");
 
   const response = await fetch(`/api/thoughts/${thoughtId}`, {
     method: "DELETE",
@@ -92,6 +95,7 @@ export const deleteThought = (thoughtId) => async (dispatch) => {
 export const uploadFile = (fileForm) => async (dispatch) => {
   const { thought_id, user_id, file, newFile } = fileForm;
 
+  console.log(file, "THIS IS FROM THE THUNK");
   const form = new FormData();
   form.append("file", file);
   form.append("thought_id", thought_id);
@@ -132,6 +136,12 @@ const thoughtReducer = (state = initialState, action) => {
       };
       delete newstate[action.deletedThought.id];
       return newstate;
+    case EDIT_THOUGHT:
+      const editState = {
+        ...state,
+        [action.thought.id]: action.thought,
+      };
+      return editState;
     default:
       return state;
   }
