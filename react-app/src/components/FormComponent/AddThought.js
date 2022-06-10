@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addThought } from "../../store/thoughts";
+
 import { useHistory, Link } from "react-router-dom";
 
 import { uploadFile } from "../../store/thoughts";
+import { addThought } from "../../store/thoughts";
+import { addIngredient } from "../../store/ingredient";
 import ImageUploading from "react-images-uploading";
 
 import "./AddThought.css";
@@ -41,6 +43,11 @@ export default function AddThought() {
 
     let cleanImage = images.map((image) => image.file);
 
+    // if (ingredientArray) {
+    //   console.log(ingredientArray);
+    //   return;
+    // }
+
     const data = {
       name,
       description,
@@ -54,6 +61,20 @@ export default function AddThought() {
     if (thoughtData?.errors) {
       setErrors(thoughtData.errors);
       return;
+    }
+
+    // create a for loop that adds the ingredient to the thought.
+
+    for (let i = 0; i < ingredientArray.length; i++) {
+      let ingredient = ingredientArray[i];
+
+      await dispatch(
+        addIngredient({
+          thought_id: thoughtData[1].id,
+          user_id: user,
+          name: ingredient,
+        })
+      );
     }
 
     await addImage(cleanImage[0], thoughtData[1].id, user);
@@ -80,7 +101,7 @@ export default function AddThought() {
     //setProxyState will cause a rerender of the component.
 
     if (!ingredient.length) {
-      setIngredientErrors(["Please provide an ingredient."]);
+      setIngredientErrors(["Cannot add an empty ingredient."]);
       console.log(ingredientErrors);
       setProxyState([]);
       return;
@@ -111,7 +132,7 @@ export default function AddThought() {
     //User clicks edit and should show an input.
 
     if (!currentIngredientEdit.length) {
-      setIngredientErrors(["Please provide an ingredient."]);
+      setIngredientErrors(["Cannot add an empty ingredient."]);
       setProxyState([]);
       return;
     }
@@ -151,7 +172,7 @@ export default function AddThought() {
 
     // Working and deleting the right ingredients from the array.
     ingredientArray.splice(idxToDelete, 1);
-    console.log(ingredientArray);
+    // console.log(ingredientArray);
     setProxyState([]);
   };
 
@@ -225,7 +246,7 @@ export default function AddThought() {
                 return (
                   <div key={idx}>
                     <ul>
-                      <li>{error}</li>
+                      <li key={idx}>{error}</li>
                     </ul>
                   </div>
                 );
@@ -238,8 +259,9 @@ export default function AddThought() {
                 <>
                   <div style={{ display: "flex" }}>
                     <div key={index} style={{ marginRight: "2em" }}>
+                      {index + 1}
+                      {". "}
                       {ingredient}
-                      {index}
                     </div>
                     {ingredientIndex === index && editIngredientState ? (
                       <>
@@ -277,9 +299,7 @@ export default function AddThought() {
                   value={ingredient}
                   onChange={(e) => setIngredient(e.target.value)}
                 ></input>
-                <div onClick={handleAddIngredient}>
-                  Add ingredient will make into a div
-                </div>
+                <div onClick={handleAddIngredient}>Add div</div>
               </div>
             </div>
             <div></div>
