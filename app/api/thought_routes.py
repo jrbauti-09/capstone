@@ -78,11 +78,14 @@ def update_thought(thoughtId):
         thoughtUp.user_id = data['user_id']
         thoughtUp.category = data['category']
 
+
         # TODO
         images = Image.query.filter(Image.thought_id == thoughtId).all()
         for image in images:
             db.session.delete(image)
         db.session.commit()
+
+
 
         return thoughtUp.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
@@ -129,5 +132,22 @@ def add_thought_image():
         image = Image(thought_id=thought_id,user_id=user_id, url=url)
         db.session.add(image)
         db.session.commit()
+
+    return {'message': 'okay'}
+
+
+#Non AWS handler
+@thought_routes.route("/image", methods=["POST"])
+@login_required
+def add_thought_image_url():
+    url = request.form.get("url")
+    thought_id = request.form.get("thought_id")
+    user_id = request.form.get("user_id")
+
+
+
+    image = Image(thought_id=thought_id,user_id=user_id, url=url)
+    db.session.add(image)
+    db.session.commit()
 
     return {'message': 'okay'}
