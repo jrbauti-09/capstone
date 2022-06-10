@@ -19,6 +19,7 @@ import { deleteThought } from "../../store/thoughts";
 import AddReview from "./AddReview/AddReview";
 import EditReview from "./EditReview/EditReview";
 import AddIngredient from "./AddIngredient/AddIngredient";
+import EditIngForm from "./EditIngredient/EditIngredient";
 
 import "./ThoughtDetail.css";
 import { deleteIngredient } from "../../store/ingredient";
@@ -155,13 +156,6 @@ export default function ThoughtDetail() {
                   <div className="thought_ingredient" key={ingredient?.id}>
                     <div>{ingredient.name}</div>
                     <div className="thought_ingredient_buttons">
-                      {ingredientIndex === idx ? (
-                        <button onClick={() => setIngredientIndex(-1)}>
-                          cancel
-                        </button>
-                      ) : (
-                        <></>
-                      )}
                       {user == thought?.user_id ? (
                         <div
                           className="ingredient_button"
@@ -184,7 +178,15 @@ export default function ThoughtDetail() {
                       )}
                     </div>
                   </div>
-                  {ingredientIndex === idx ? <div>Here</div> : <></>}
+                  {ingredientIndex === idx ? (
+                    <EditIngForm
+                      thoughtId={thought?.id}
+                      ingredientId={ingredient.id}
+                      setIngredientIndex={setIngredientIndex}
+                    />
+                  ) : (
+                    <></>
+                  )}
                 </>
               );
             })}
