@@ -113,6 +113,22 @@ export const uploadFile = (fileForm) => async (dispatch) => {
   });
 };
 
+export const uploadUrl = (data) => async (dispatch) => {
+  const { url, thought_id, user_id } = data;
+
+  console.log(data);
+
+  const form = new FormData();
+  form.append("url", url);
+  form.append("thought_id", thought_id);
+  form.append("user_id", user_id);
+
+  const response = fetch("/api/thoughts/image", {
+    method: "POST",
+    body: form,
+  });
+};
+
 // Reducer and initial state
 
 const initialState = {};

@@ -6,6 +6,7 @@ import { useHistory, Link, useParams } from "react-router-dom";
 import { uploadFile } from "../../store/thoughts";
 import ImageUploading from "react-images-uploading";
 import { editThought } from "../../store/thoughts";
+import { uploadUrl } from "../../store/thoughts";
 import "./AddThought.css";
 
 export default function EditThought() {
@@ -25,6 +26,8 @@ export default function EditThought() {
   const [name, setName] = useState(thoughtToEdit?.name);
   const [images, setImages] = useState(thoughtToEdit?.images);
 
+  // console.log(thoughtToEdit?.images[0]);
+
   const handleEditThought = async (e) => {
     e.preventDefault();
 
@@ -38,6 +41,7 @@ export default function EditThought() {
       return;
     }
 
+    // console.log(images, "Look here");
     let cleanImage = images.map((image) => image.file);
 
     const data = {
@@ -53,6 +57,17 @@ export default function EditThought() {
     if (thoughtData?.errors) {
       setErrors(thoughtData.errors);
       return;
+    }
+
+    if (cleanImage[0] == undefined) {
+      // console.log("LOOOOOOOOOOOOOOOOOOOOOK HEEEEEEEEEEEEEEEEEEEEEEERE");
+      await dispatch(
+        uploadUrl({
+          url: images[0],
+          thought_id: thoughtToEdit?.id,
+          user_id: user,
+        })
+      );
     }
 
     await addImage(cleanImage[0], thoughtData[1].id, user);
