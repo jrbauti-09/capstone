@@ -52,6 +52,14 @@ export default function AddReview({ thoughtId }) {
     }
   };
 
+  const cancelFunction = async (e) => {
+    setFlip(!flip);
+    // set values back to default state.
+    setRating(0);
+    setReview("");
+    setRouteErrors([]);
+  };
+
   return (
     <div className="add_review_form_container">
       <form onSubmit={handleSubmitReview}>
@@ -155,7 +163,7 @@ export default function AddReview({ thoughtId }) {
                 onChange={(e) => setReview(e.target.value)}
                 required
                 autoComplete="off"
-                placeholder="Review"
+                placeholder="Post your review here.."
               />
             </label>
           )}
@@ -171,7 +179,7 @@ export default function AddReview({ thoughtId }) {
           {flip === false ? (
             <button
               className="add-review-button cancel-review"
-              onClick={() => setFlip(!flip)}
+              onClick={cancelFunction}
               type="button"
             >
               Cancel

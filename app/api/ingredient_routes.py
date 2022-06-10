@@ -66,7 +66,10 @@ def edit_ingredient(ingredientId):
 @login_required
 def delete_ingredient(ingredientId):
 
+    print(ingredientId)
     ingredientToDelete = Ingredient.query.filter(Ingredient.id == ingredientId).first()
 
     if ingredientToDelete:
         db.session.delete(ingredientToDelete)
+        db.session.commit()
+        return {"id": ingredientToDelete.id}

@@ -118,12 +118,14 @@ const ingredientReducer = (state = initialState, action) => {
       };
       return editState;
     case DELETE_INGREDIENTS:
-      const state = {
+      const deleteState = {
         ...state,
       };
-      delete state[action.ingredient.id];
-      return state;
+      delete deleteState[action.deletedIngredient.id];
+      return deleteState;
     default:
       return state;
   }
 };
+
+export default ingredientReducer;

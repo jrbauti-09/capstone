@@ -5,12 +5,21 @@ from app.models import Review
 
 def rating_check(form, field):
     rating = field.data
-    if rating < 1 or rating > 5:
+    if rating < 1 or rating > 5 or rating == 0:
         raise ValidationError('Please provide a rating between 1 and 5.')
+
+def review_check(form, field):
+    review = field.data
+    if " " not in review:
+        raise ValidationError('Review cannot be a single word.')
+    if "fuck" in review or "shit" in review:
+        raise ValidationError("Review must not contain profane language")
+    if "ducking" in review:
+        raise ValidationError("Nice try.")
 
 
 class ReviewForm(FlaskForm):
-    rating = IntegerField("Rating", validators=[DataRequired(), rating_check])
-    review = TextAreaField("Review", validators=[DataRequired()])
+    rating = IntegerField("Rating", validators=[rating_check])
+    review = TextAreaField("Review", validators=[DataRequired(), review_check])
     user_id = IntegerField("user_id", validators=[DataRequired()])
     thought_id = IntegerField("thought_id", validators=[DataRequired()])

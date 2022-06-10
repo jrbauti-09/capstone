@@ -21,6 +21,8 @@ import EditReview from "./EditReview/EditReview";
 import AddIngredient from "./AddIngredient/AddIngredient";
 
 import "./ThoughtDetail.css";
+import { deleteIngredient } from "../../store/ingredient";
+import { getIngredients } from "../../store/ingredient";
 
 // TODO, will need to add components for review forms etc.
 
@@ -61,6 +63,10 @@ export default function ThoughtDetail() {
     dispatch(getReviews());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(getIngredients());
+  }, [dispatch]);
+
   const handleDelete = (review_id) => async (e) => {
     e.preventDefault();
     // console.log("Look");
@@ -71,6 +77,12 @@ export default function ThoughtDetail() {
   const handleDeleteThought = async (e) => {
     await dispatch(deleteThought(thought?.id));
     history.push("/");
+  };
+
+  const handleDeleteIngredient = (ingredient_id) => async (e) => {
+    // console.log(ingredient_id, "LOOOOOK HERE DUDE");
+    await dispatch(deleteIngredient(ingredient_id));
+    await dispatch(getThoughts());
   };
 
   //TODO still need to figure out editing and deleting ingredient.
@@ -131,7 +143,9 @@ export default function ThoughtDetail() {
           Ingredients container
           <div className="ingredients-container ing-controls">
             <div className="ing-name ing-name-head">
-              <h2 className="single-h2 ing-h2">Ingredients: </h2>
+              <h2 className="single-h2 ing-h2">
+                <span>{thought?.ingredients.length}</span> Ingredients:{" "}
+              </h2>
             </div>
           </div>
           <div>
@@ -159,7 +173,12 @@ export default function ThoughtDetail() {
                         <></>
                       )}
                       {user == thought?.user_id ? (
-                        <div className="ingredient_button">Delete</div>
+                        <div
+                          className="ingredient_button"
+                          onClick={handleDeleteIngredient(ingredient.id)}
+                        >
+                          Delete
+                        </div>
                       ) : (
                         <></>
                       )}

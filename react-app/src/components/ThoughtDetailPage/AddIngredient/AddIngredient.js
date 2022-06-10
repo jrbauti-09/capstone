@@ -3,6 +3,9 @@ import { useHistory, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
+import { addIngredient } from "../../../store/ingredient";
+import { getThoughts } from "../../../store/thoughts";
+
 import "./AddIngredient.css";
 
 export default function AddIngredient({ thoughtId }) {
@@ -24,7 +27,20 @@ export default function AddIngredient({ thoughtId }) {
       user_id,
     };
 
-    // dispatch reducer here.
+    // console.log(data);
+
+    const newIngredient = await dispatch(addIngredient(data));
+
+    if (newIngredient?.errors) {
+      setErrors(newIngredient.errors);
+      return;
+    } else {
+      await dispatch(getThoughts());
+      setToggle(!toggle);
+      console.log(toggle, "LOOOK HERE IN THE CONSOLE!!");
+      setIngredientName("");
+      setErrors([]);
+    }
   };
 
   return (
@@ -34,7 +50,9 @@ export default function AddIngredient({ thoughtId }) {
           <div className="error-container">
             <ul>
               {errors.map((error, ind) => (
-                <li key={ind}>{error}</li>
+                <li className="li_error" key={ind}>
+                  {error}
+                </li>
               ))}
             </ul>
           </div>
@@ -47,7 +65,7 @@ export default function AddIngredient({ thoughtId }) {
               className="new-review-label ing-toggle"
               onClick={() => setToggle(!toggle)}
             >
-              Add an ingredient? ▼
+              Add an ingredient?
             </button>
           ) : (
             <label className="new-review-label">
@@ -66,9 +84,11 @@ export default function AddIngredient({ thoughtId }) {
         </div>
         <div className="ing-buttons-container">
           {toggle === false ? (
-            <button className="add-ing-button" type="submit">
-              Add Ingredient
-            </button>
+            <>
+              <button className="add-ing-button" type="submit">
+                Add Ingredient
+              </button>
+            </>
           ) : (
             <></>
           )}

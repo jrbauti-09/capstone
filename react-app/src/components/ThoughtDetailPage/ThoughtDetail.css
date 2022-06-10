@@ -54,6 +54,7 @@
 .thought_description {
   white-space: pre-wrap;
   max-width: 53.68em;
+  text-indent: 1em;
 }
 
 /* .one_image_div {
