@@ -117,22 +117,29 @@ export default function NavigationBar({ status }) {
               </Link>
             </div>
             <div className="drop">
-              <button className="about-drop">
+              <Link to="/my-thoughts">
+                {" "}
+                <button className="about-drop">
+                  My thoughts<i className="fa fa-caret-down"></i>
+                </button>
+              </Link>
+            </div>
+            <div className="drop">
+              <button className="about-drop cat-button">
                 Categories<i className="fa fa-caret-down"></i>
               </button>
               <div className="dropdown-container">
-                <a
-                  href="https://github.com/jrbauti-09/capstone"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="repository"
-                >
-                  categories
-                </a>
+                <Link to="/categories/Breakfast">Breakfast</Link>
+                <Link to="/categories/Dinner">Dinner</Link>
+                <Link to="/categories/Lunch">Lunch</Link>
+                <Link to="/categories/Beverages">Beverages</Link>
+                <Link to="/categories/Dessert">Dessert</Link>
+                <Link to="/categories/Soup">Soup</Link>
+                <Link to="/categories/Salad">Salad</Link>
               </div>
             </div>
             <div className="drop">
-              <button className="about-drop">
+              <button className="about-drop cat-button">
                 ABOUT ME<i className="fa fa-caret-down"></i>
               </button>
               <div className="dropdown-container">

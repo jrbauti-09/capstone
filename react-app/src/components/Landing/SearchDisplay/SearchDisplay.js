@@ -44,8 +44,6 @@ export default function SearchDisplay() {
     }
   });
 
-  console.log(searchId, "look here");
-
   // console.log(queryResult);
 
   return (

@@ -15,6 +15,10 @@
   display: grid;
 }
 
+.cat-button {
+  cursor: default;
+}
+
 .logo-here {
   z-index: 99;
   border-right: 1px solid red;

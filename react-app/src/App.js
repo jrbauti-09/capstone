@@ -15,14 +15,16 @@ import LandingPage from "./components/Landing/LandingPage";
 
 //testing components here..
 import ProxyHome from "./components/proxyHome";
-import SearchDisplay from "./components/Landing/SearchDisplay/SearchDisplay";
-import SearchEmpty from "./components/Landing/SearchDisplay/SearchEmpty";
+import MyThoughts from "./components/Landing/MyThoughts/MyThoughts";
 
 //when user is authenticated
 import ThoughtMain from "./components/ThoughtsPage/ThoughtMain";
 import ThoughtDetail from "./components/ThoughtDetailPage/ThoughtDetail";
 import AddThought from "./components/FormComponent/AddThought";
 import EditThought from "./components/FormComponent/EditThought";
+import SearchDisplay from "./components/Landing/SearchDisplay/SearchDisplay";
+import SearchEmpty from "./components/Landing/SearchDisplay/SearchEmpty";
+import CategoryDisplay from "./components/Landing/Categories/CategoryView";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -91,6 +93,12 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute path="/search/" exact={true}>
             <SearchEmpty />
+          </ProtectedRoute>
+          <ProtectedRoute path="/categories/:categoryId" exact={true}>
+            <CategoryDisplay />
+          </ProtectedRoute>
+          <ProtectedRoute path="/my-thoughts" exact={true}>
+            <MyThoughts />
           </ProtectedRoute>
           <ProtectedRoute path="/users" exact={true}>
             <UsersList />

@@ -237,7 +237,7 @@ export default function AddThought() {
                 <option value="Dinner">Dinner</option>
                 <option value="Soup">Soup</option>
                 <option value="Dessert">Dessert</option>
-                <option value="Drinks">Drinks</option>
+                <option value="Beverages">Beverages</option>
                 <option value="Salad">Salad</option>
               </select>
             </div>
