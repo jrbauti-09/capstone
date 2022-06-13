@@ -86,7 +86,12 @@ export default function ThoughtDetail() {
     await dispatch(getThoughts());
   };
 
-  //TODO still need to figure out editing and deleting ingredient.
+  let thoughtOrdered = thought?.reviews;
+  thoughtOrdered?.sort(function (a, b) {
+    return b.id - a.id;
+  });
+
+  // console.log(thoughtOrdered, "LOOK HERE");
 
   return (
     <div className="thought_container">
@@ -109,7 +114,12 @@ export default function ThoughtDetail() {
         <div className="category_header_div">
           <div className="category_name">
             <h4>Category:</h4>
-            <span className="thought_category_span">{thought?.category}</span>
+            <Link
+              to={`/categories/${thought?.category}`}
+              className="category_link"
+            >
+              <span className="thought_category_span">{thought?.category}</span>
+            </Link>
           </div>
         </div>
         <div className="category_rating">
@@ -207,38 +217,66 @@ export default function ThoughtDetail() {
           </div>
           <div className="review_container">
             <h2 className="review_header">Reviews:</h2>
-            {thought?.reviews.map((review, idx) => {
+            {thoughtOrdered?.map((review, idx) => {
               return (
                 <div className="single-review" key={idx}>
-                  <p className="single-review-user">
-                    <span>Review By: </span>
-                    {review?.user?.username}
-                  </p>
-                  <span className="recipe-votes">
-                    {review?.time_created.slice(0, 16)}
-                  </span>
-                  <p>{review?.review}</p>
-                  <div className="review_options">
-                    {user == review?.user_id ? (
-                      <button onClick={() => setReviewIndex(idx)}>Edit</button>
-                    ) : (
-                      <></>
-                    )}
-                    {reviewIndex === idx && user == review?.user_id ? (
-                      <button onClick={() => setReviewIndex(-1)}>Cancel</button>
-                    ) : (
-                      <></>
-                    )}
-                    {user == review?.user_id ? (
-                      <button onClick={handleDelete(review.id)}>Delete</button>
-                    ) : (
-                      <></>
-                    )}
+                  <div className="single-review-top">
+                    <p className="single-review-user">
+                      <span className="review-by">Review By: </span>
+                      {review?.user?.username}
+                    </p>
+                    <div className="review_options">
+                      {user == review?.user_id ? (
+                        <div
+                          onClick={() => setReviewIndex(idx)}
+                          className="div_btn"
+                        >
+                          <FontAwesomeIcon
+                            icon={faPencil}
+                            className="review-btn"
+                          />
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                      {user == review?.user_id ? (
+                        <div
+                          onClick={handleDelete(review.id)}
+                          className="div_btn"
+                        >
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            className="review-btn"
+                          />
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                      {reviewIndex === idx && user == review?.user_id ? (
+                        <div
+                          onClick={() => setReviewIndex(-1)}
+                          className="div_btn"
+                        >
+                          <FontAwesomeIcon
+                            icon={faXmark}
+                            className="review-btn"
+                          />
+                        </div>
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </div>
+                  <div>
                     <span
                       className="stars"
                       style={{ "--ratingValue": `${review?.rating}` }}
                     ></span>
                   </div>
+                  <span className="recipe-votes">
+                    {review?.time_created.slice(0, 16)}
+                  </span>
+                  <p>{review?.review}</p>
                   <div>
                     {reviewIndex === idx ? (
                       <EditReview
