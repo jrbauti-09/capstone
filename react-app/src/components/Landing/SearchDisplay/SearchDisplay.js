@@ -44,7 +44,9 @@ export default function SearchDisplay() {
     }
   });
 
-  console.log(queryResult);
+  console.log(searchId, "look here");
+
+  // console.log(queryResult);
 
   return (
     <div className="search-container">

@@ -51,15 +51,33 @@
   margin-bottom: 2px;
 }
 
+.thought_user_name {
+  margin-top: 1em;
+}
+
 .thought_bottom_div {
   padding: 8px;
   padding-bottom: 13px;
   display: flex;
-  align-items: flex-end;
-  flex-direction: column;
+  /* align-items: flex-end;
+  flex-direction: column;  */
+  justify-content: space-between;
   background-color: white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.right_bottom_div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.thought_bottom_description {
+  text-indent: 1em;
+  font-size: smaller;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
 }
 
 /* .card-shadow {

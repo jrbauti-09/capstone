@@ -16,6 +16,7 @@ import LandingPage from "./components/Landing/LandingPage";
 //testing components here..
 import ProxyHome from "./components/proxyHome";
 import SearchDisplay from "./components/Landing/SearchDisplay/SearchDisplay";
+import SearchEmpty from "./components/Landing/SearchDisplay/SearchEmpty";
 
 //when user is authenticated
 import ThoughtMain from "./components/ThoughtsPage/ThoughtMain";
@@ -87,6 +88,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute path="/search/:searchId" exact={true}>
             <SearchDisplay />
+          </ProtectedRoute>
+          <ProtectedRoute path="/search/" exact={true}>
+            <SearchEmpty />
           </ProtectedRoute>
           <ProtectedRoute path="/users" exact={true}>
             <UsersList />
