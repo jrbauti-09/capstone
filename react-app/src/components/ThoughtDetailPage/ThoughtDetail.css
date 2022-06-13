@@ -120,6 +120,8 @@
 .thought_ingredient {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 .thought_ingredient_buttons {
@@ -139,8 +141,17 @@
   white-space: pre-wrap;
 }
 
+.fa-ing {
+  margin-right: 0.5em;
+}
+
+.fa-tra {
+  margin-right: 1em;
+}
+
 .thought_instructions_p {
   white-space: pre-wrap;
+  text-indent: 1em;
 }
 
 .single-review {
