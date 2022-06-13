@@ -63,7 +63,7 @@ export default function AddReview({ thoughtId }) {
   return (
     <div className="add_review_form_container">
       <form onSubmit={handleSubmitReview}>
-        <h1>Thought Review:</h1>
+        <h1>Post A Review:</h1>
         {routeErrors.length ? (
           <div>
             <ul>
