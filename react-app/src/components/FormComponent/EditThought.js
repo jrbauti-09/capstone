@@ -94,7 +94,10 @@ export default function EditThought() {
     <div className="thought_form_main">
       <div className="experiment_box">
         <div className="right">
-          <form className="form_container_div" onSubmit={handleEditThought}>
+          <form
+            className="form_container_div form_edit_thought"
+            onSubmit={handleEditThought}
+          >
             <h1 className="new_thought">
               Edit details for {thoughtToEdit?.name}
             </h1>
@@ -109,31 +112,34 @@ export default function EditThought() {
             ) : (
               <></>
             )}
-            <div>
-              <label>Name:*</label>
+            <div className="div_edit_thought">
+              <label className="label_edit">Name:</label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="new_thought_input"
+                placeholder="Name* (max 255 chars)"
               ></input>
             </div>
-            <div>
-              <label>Description:*</label>
-              <input
+            <div className="div_edit_thought">
+              <label className="label_edit">Description:</label>
+              <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="new_thought_input"
-              ></input>
+                className="textarea_description"
+                placeholder="Description*"
+              ></textarea>
             </div>
-            <div>
-              <label>Instructions:*</label>
-              <input
+            <div className="div_edit_thought">
+              <label className="label_edit">Instructions:</label>
+              <textarea
                 value={instructions}
                 onChange={(e) => setInstructions(e.target.value)}
-                className="new_thought_input"
-              ></input>
+                className="textarea_description"
+                placeholder="Instructions*"
+              ></textarea>
             </div>
-            <div>
+            <div className="div_edit_thought">
               <label>Select category:*</label>
               <select
                 className="new-recipe-select"
@@ -151,7 +157,9 @@ export default function EditThought() {
             </div>
             <div></div>
             <div>
-              <button type="submit">Post Thought</button>
+              <button type="submit" className="post-thought-button">
+                Post Thought
+              </button>
             </div>
           </form>
           <ImageUploading
