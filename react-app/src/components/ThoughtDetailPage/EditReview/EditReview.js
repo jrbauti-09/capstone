@@ -58,7 +58,7 @@ export default function EditReview({ reviewId, thought_id, setReviewIndex }) {
   return (
     <div className="add_review_form_container">
       <form onSubmit={handleSubmitEditReview}>
-        <h1>Thought Review:</h1>
+        <h1>Edit Review:</h1>
         {routeErrors.length ? (
           <div>
             <ul>
