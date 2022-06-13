@@ -23,7 +23,8 @@ export default function ThoughtCard({ thought }) {
           <h2 className="thought_name">{thought?.name}</h2>
           <p>By: {thought?.user?.username}</p>
         </div>
-        <div className="thought_bottom_div">
+        <div className="thought_bottom_div review_div">
+          {/* <span className="recipe-votes">3 reviews</span> */}
           <span
             className="stars"
             style={{ "--ratingValue": `${ratingValue}` }}

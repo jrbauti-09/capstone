@@ -32,6 +32,12 @@ export default function NavigationBar({ status }) {
     history.push("/");
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    history.push(`/search/${searchValue}`);
+    setSearchValue("");
+  };
+
   if (status === "user-not-logged") {
     return (
       <div className="landing-log">
@@ -89,7 +95,7 @@ export default function NavigationBar({ status }) {
             <Link to="/">LOGO HERE</Link>
           </div>
           <div className="search-bar-container">
-            <form className="search-bar-form" onSubmit={submitProxySearch}>
+            <form className="search-bar-form" onSubmit={handleSearch}>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
                 className="magnifying-glass"

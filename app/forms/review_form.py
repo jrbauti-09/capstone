@@ -12,10 +12,6 @@ def review_check(form, field):
     review = field.data
     if " " not in review:
         raise ValidationError('Review cannot be a single word.')
-    if "fuck" in review or "shit" in review:
-        raise ValidationError("Review must not contain profane language")
-    if "ducking" in review:
-        raise ValidationError("Nice try.")
 
 
 class ReviewForm(FlaskForm):
