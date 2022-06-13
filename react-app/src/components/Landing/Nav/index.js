@@ -110,6 +110,13 @@ export default function NavigationBar({ status }) {
           </div>
           <div className="landing-navigation">
             <div className="drop">
+              <Link to="/books/">
+                <button className="about-drop">
+                  Search for a recipe<i className="fa fa-caret-down"></i>
+                </button>
+              </Link>
+            </div>
+            <div className="drop">
               <Link to="/thoughts/add">
                 <button className="about-drop">
                   Share a thought!<i className="fa fa-caret-down"></i>

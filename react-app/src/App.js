@@ -9,13 +9,15 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 
+import "./components/BookApi/style.css";
+
 //not authenticated
 import NavigationBar from "./components/Landing/Nav/index.js";
 import LandingPage from "./components/Landing/LandingPage";
 
 //testing components here..
 import ProxyHome from "./components/proxyHome";
-import MyThoughts from "./components/Landing/MyThoughts/MyThoughts";
+import Main from "./components/BookApi/Main";
 
 //when user is authenticated
 import ThoughtMain from "./components/ThoughtsPage/ThoughtMain";
@@ -25,6 +27,7 @@ import EditThought from "./components/FormComponent/EditThought";
 import SearchDisplay from "./components/Landing/SearchDisplay/SearchDisplay";
 import SearchEmpty from "./components/Landing/SearchDisplay/SearchEmpty";
 import CategoryDisplay from "./components/Landing/Categories/CategoryView";
+import MyThoughts from "./components/Landing/MyThoughts/MyThoughts";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -99,6 +102,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute path="/my-thoughts" exact={true}>
             <MyThoughts />
+          </ProtectedRoute>
+          <ProtectedRoute path="/books/" exact={true}>
+            <Main />
           </ProtectedRoute>
           <ProtectedRoute path="/users" exact={true}>
             <UsersList />
