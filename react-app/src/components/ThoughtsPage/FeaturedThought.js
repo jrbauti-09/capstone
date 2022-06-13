@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import { getThoughts } from "../../store/thoughts";
 
@@ -12,6 +11,7 @@ import "./FeaturedThought.css";
 export default function FeaturedThought() {
   // Array of all the thoughts(recipes)
   const dispatch = useDispatch();
+  const history = useHistory();
   const allThoughts = useSelector((state) => Object.values(state.allThoughts));
 
   const totalLengthIndex = allThoughts.length - 1;
@@ -45,6 +45,14 @@ export default function FeaturedThought() {
     dispatch(getThoughts());
   }, [dispatch]);
 
+  const goToCateogry = (category) => {
+    history.push(`/categories/${category}`);
+  };
+
+  const goToDetailPage = (id) => {
+    history.push(`/thoughts/${id}`);
+  };
+
   return (
     <>
       <div class="big">
@@ -59,14 +67,24 @@ export default function FeaturedThought() {
           </div>
           <div class="recipe-content">
             <p class="recipe-tags">
-              <span class="recipe-tag">Featured Thought</span>
-              <span class="recipe-tag">
+              <span
+                class="recipe-tag"
+                onClick={() => goToDetailPage(featuredThought?.id)}
+              >
+                Featured Thought
+              </span>
+              <span
+                class="recipe-tag"
+                onClick={() => goToCateogry(featuredThought?.category)}
+              >
                 Category: {featuredThought?.category}
               </span>
             </p>
 
             <h1 class="recipe-title">
-              <a href="#">{featuredThought?.name}</a>
+              <Link to={`/thoughts/${featuredThought?.id}`}>
+                {featuredThought?.name}
+              </Link>
             </h1>
 
             <p class="recipe-metadata">
@@ -96,7 +114,13 @@ export default function FeaturedThought() {
                   fill="currentColor"
                 />
               </svg>
-              Check Thought. TODO: add link here to recipe page
+              <Link to={`/thoughts/${featuredThought?.id}`}>
+                Click here to visit{" "}
+                <span className="featured-thought-span">
+                  {featuredThought?.name}
+                </span>{" "}
+                detail page.
+              </Link>
             </button>
           </div>
         </article>

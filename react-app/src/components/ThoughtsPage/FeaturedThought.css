@@ -43,6 +43,11 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--primary);
+  cursor: pointer;
+}
+
+.recipe-tag:hover {
+  color: var(--lightgrey);
 }
 .recipe-title {
   margin: 0;
@@ -52,6 +57,10 @@
 .recipe-title a {
   text-decoration: none;
   color: inherit;
+}
+
+.recipe-title a:hover {
+  color: #e05d26;
 }
 .recipe-metadata {
   margin: 0;
@@ -82,6 +91,20 @@
 }
 .recipe-save svg {
   margin-right: 6px;
+}
+
+.recipe-save:hover {
+  color: var(--lightgrey);
+}
+
+.featured-thought-span {
+  color: gray;
+  font-weight: bold;
+}
+
+.recipe-save a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Body Layout */
