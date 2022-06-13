@@ -15,12 +15,13 @@ import LandingPage from "./components/Landing/LandingPage";
 
 //testing components here..
 import ProxyHome from "./components/proxyHome";
-import EditThought from "./components/FormComponent/EditThought";
+import SearchDisplay from "./components/Landing/SearchDisplay/SearchDisplay";
 
 //when user is authenticated
 import ThoughtMain from "./components/ThoughtsPage/ThoughtMain";
 import ThoughtDetail from "./components/ThoughtDetailPage/ThoughtDetail";
 import AddThought from "./components/FormComponent/AddThought";
+import EditThought from "./components/FormComponent/EditThought";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -83,6 +84,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute path="/thoughts/:thoughtId" exact={true}>
             <ThoughtDetail />
+          </ProtectedRoute>
+          <ProtectedRoute path="/search/:searchId" exact={true}>
+            <SearchDisplay />
           </ProtectedRoute>
           <ProtectedRoute path="/users" exact={true}>
             <UsersList />
