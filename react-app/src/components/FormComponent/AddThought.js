@@ -214,19 +214,19 @@ export default function AddThought() {
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="new_thought_input"
+                className="textarea_description_add"
                 placeholder="Description*"
                 required
               ></textarea>
             </div>
             <div>
-              <input
+              <textarea
                 value={instructions}
                 onChange={(e) => setInstructions(e.target.value)}
-                className="new_thought_input"
+                className="textarea_description_add"
                 placeholder="Instructions*"
                 required
-              ></input>
+              ></textarea>
             </div>
             <div className="input_div">
               <label>Select category:*</label>
