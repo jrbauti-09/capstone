@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencil, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faPencil, faXmark, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 // Thunks here.
 import { getThoughts } from "../../store/thoughts";
@@ -141,7 +141,6 @@ export default function ThoughtDetail() {
       </div>
       <div className="bottom_section">
         <div className="ingredients_container_div">
-          Ingredients container
           <div className="ingredients-container ing-controls">
             <div className="ing-name ing-name-head">
               <h2 className="single-h2 ing-h2">
@@ -161,7 +160,7 @@ export default function ThoughtDetail() {
                           className="ingredient_button"
                           onClick={() => setIngredientIndex(idx)}
                         >
-                          Edit
+                          <FontAwesomeIcon icon={faPencil} className="fa-ing" />
                         </div>
                       ) : (
                         <></>
@@ -171,7 +170,7 @@ export default function ThoughtDetail() {
                           className="ingredient_button"
                           onClick={handleDeleteIngredient(ingredient.id)}
                         >
-                          Delete
+                          <FontAwesomeIcon icon={faTrash} className="fa-tra" />
                         </div>
                       ) : (
                         <></>
@@ -212,9 +211,12 @@ export default function ThoughtDetail() {
               return (
                 <div className="single-review" key={idx}>
                   <p className="single-review-user">
-                    <span>Review By:</span>
+                    <span>Review By: </span>
                     {review?.user?.username}
                   </p>
+                  <span className="recipe-votes">
+                    {review?.time_created.slice(0, 16)}
+                  </span>
                   <p>{review?.review}</p>
                   <div className="review_options">
                     {user == review?.user_id ? (
