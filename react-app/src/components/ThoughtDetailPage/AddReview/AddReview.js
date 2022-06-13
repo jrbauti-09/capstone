@@ -48,6 +48,7 @@ export default function AddReview({ thoughtId }) {
       setReview("");
       setFlip(true);
       setRouteErrors([]);
+      window.scrollTo({ top: 10, behavior: "smooth" });
       // history.push(`/thoughts/${thoughtId}`);
     }
   };
