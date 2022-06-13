@@ -8,6 +8,9 @@ import { addThought } from "../../store/thoughts";
 import { addIngredient } from "../../store/ingredient";
 import ImageUploading from "react-images-uploading";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faPencil } from "@fortawesome/free-solid-svg-icons";
+
 import "./AddThought.css";
 
 export default function AddThought() {
@@ -78,7 +81,7 @@ export default function AddThought() {
     }
 
     await addImage(cleanImage[0], thoughtData[1].id, user);
-    history.push("/");
+    history.push(`/thoughts/${thoughtData[1].id}`);
   };
 
   // const updateImage = (e) => {
@@ -199,33 +202,33 @@ export default function AddThought() {
               <></>
             )}
             <div>
-              <label>Name:*</label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="new_thought_input"
+                placeholder="Name* (max 255 chars)"
                 required
               ></input>
             </div>
             <div>
-              <label>Description:*</label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="new_thought_input"
+                placeholder="Description*"
                 required
               ></textarea>
             </div>
             <div>
-              <label>Instructions:*</label>
               <input
                 value={instructions}
                 onChange={(e) => setInstructions(e.target.value)}
                 className="new_thought_input"
+                placeholder="Instructions*"
                 required
               ></input>
             </div>
-            <div>
+            <div className="input_div">
               <label>Select category:*</label>
               <select
                 className="new-recipe-select"
@@ -254,40 +257,54 @@ export default function AddThought() {
             ) : (
               <></>
             )}
+            {ingredientArray.length ? <h4>Ingredients:</h4> : <></>}
             {ingredientArray?.map((ingredient, index) => {
               return (
                 <>
-                  <div style={{ display: "flex" }}>
-                    <div key={index} style={{ marginRight: "2em" }}>
-                      {index + 1}
-                      {". "}
-                      {ingredient}
+                  <div style={{ display: "flex" }} className="div_ingredient">
+                    <div className="ingredient_container">
+                      <div key={index} style={{ marginRight: "2em" }}>
+                        {index + 1}
+                        {". "}
+                        {ingredient}
+                      </div>
+                      <div className="div_ingredient_buttons">
+                        <div
+                          style={{ marginRight: "2em" }}
+                          onClick={() => toogleEdit(index)}
+                          className="ingredient_buttons"
+                        >
+                          Edit
+                        </div>
+                        <div
+                          onClick={() => handleDeleteIngredient(index)}
+                          className="ingredient_buttons"
+                        >
+                          DELETE
+                        </div>
+                      </div>
                     </div>
                     {ingredientIndex === index && editIngredientState ? (
                       <>
-                        <input
-                          value={currentIngredientEdit}
-                          onChange={(e) => {
-                            setCurrentIngredientEdit(e.target.value);
-                          }}
-                        ></input>
-                        <div onClick={() => cancelEdit(index)}>Cancel</div>
-                        <div onClick={() => handleEditIngredient(index)}>
-                          Confirm
+                        <div className="edit_input_thought">
+                          <input
+                            value={currentIngredientEdit}
+                            className="new_thought_input_edit"
+                            onChange={(e) => {
+                              setCurrentIngredientEdit(e.target.value);
+                            }}
+                          ></input>
+                          <div className="div_ingredient_buttons edit_buttons_div">
+                            <div onClick={() => cancelEdit(index)}>Cancel</div>
+                            <div onClick={() => handleEditIngredient(index)}>
+                              Confirm
+                            </div>
+                          </div>
                         </div>
                       </>
                     ) : (
                       <></>
                     )}
-                    <div
-                      style={{ marginRight: "2em" }}
-                      onClick={() => toogleEdit(index)}
-                    >
-                      Edit
-                    </div>
-                    <div onClick={() => handleDeleteIngredient(index)}>
-                      DELETE
-                    </div>
                   </div>
                 </>
               );
@@ -298,13 +315,24 @@ export default function AddThought() {
                   type="text"
                   value={ingredient}
                   onChange={(e) => setIngredient(e.target.value)}
+                  className="ingredient_input"
+                  placeholder="Add Ingredient here (optional)"
                 ></input>
-                <div onClick={handleAddIngredient}>Add div</div>
+                <div className="container-div">
+                  <div
+                    onClick={handleAddIngredient}
+                    className="add-div-thought"
+                  >
+                    Add
+                  </div>
+                </div>
               </div>
             </div>
             <div></div>
             <div>
-              <button type="submit">Post Thought</button>
+              <button type="submit" className="post-thought-button">
+                Post Thought
+              </button>
             </div>
           </form>
           <ImageUploading
@@ -331,12 +359,12 @@ export default function AddThought() {
                   {...dragProps}
                   className="add_images_container"
                 >
-                  Click or Drag Images Here
+                  Click or Drag Image Here
                 </div>
                 {/* <div onClick={onImageRemoveAll}>Remove all images</div> */}
                 <div className="images_container">
                   {imageList.map((image, index) => (
-                    <div key={index}>
+                    <div key={index} className="image_container">
                       <img src={image["data_url"]} alt="" height="230" />
                       <div className="editPhotoButtons">
                         <div
