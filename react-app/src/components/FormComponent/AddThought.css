@@ -16,10 +16,158 @@
   /* border: 1px solid red; */
   width: 60em;
   max-width: 60em;
-  height: 40em;
-  max-height: 40em;
+  height: 50em;
+  /* max-height: 40em; */
   margin-top: 6em;
   margin-bottom: 7.5em;
+}
+
+.edit_input_thought {
+  display: flex;
+  flex-direction: column;
+}
+
+.new_thought_input {
+  padding: 0.25em;
+  margin-top: 0.25em;
+  margin-bottom: 2em;
+  width: 25em;
+  border-radius: 4px;
+  border: 1px solid black;
+  height: 2em;
+}
+
+.add_images_container {
+  margin-top: 5em;
+  width: 18em;
+  height: 5em;
+  background-color: rgba(65, 56, 56, 0.199);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 2em;
+}
+
+.editPhotoButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.change_image {
+  margin-right: 1em;
+}
+
+.add_images_container:hover {
+  background-color: rgba(65, 56, 56, 0.527);
+}
+
+.new_thought_input_edit {
+  padding: 0.25em;
+  /* margin-top: 0.25em; */
+  /* margin-bottom: 2em; */
+  width: 25em;
+  border-radius: 4px;
+  border: 1px solid black;
+  height: 1em;
+}
+
+.edit_buttons_div {
+  display: flex;
+  justify-content: flex-end;
+  width: 21.5em;
+}
+
+.div_ingredient {
+  display: flex;
+  flex-direction: column;
+}
+
+.ingredient_container {
+  display: flex;
+}
+
+.ingredient_buttons {
+}
+
+.div_ingredient_buttons {
+  display: flex;
+}
+
+.new-recipe-select {
+  width: 25.7em;
+  padding: 0.25em;
+  margin-top: 0.25em;
+  margin-bottom: 2em;
+  width: 25em;
+  border-radius: 4px;
+  border: 1px solid black;
+  height: 2em;
+}
+
+.add-div-thought {
+  border-radius: 4px;
+  background-color: rgba(224, 143, 21, 0.911);
+  width: 5em;
+  cursor: pointer;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-right: 5.5em;
+  display: flex;
+  justify-content: center;
+  font-size: small;
+  font-weight: bold;
+  border: 2px solid rgba(224, 143, 21, 0.911);
+}
+
+.add-div-thought:hover {
+  background-color: white;
+  border: 2px solid rgba(224, 143, 21, 0.911);
+}
+
+.post-thought-button {
+  color: rgba(255, 255, 255, 1);
+  background-color: #ff564c;
+  border: 2px solid #ff564c;
+  transition: color 0.15s ease-in-out;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 600;
+  height: 40px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 2em;
+}
+
+.ingredient_input {
+  padding: 0.25em;
+  margin-top: 0.25em;
+  width: 25em;
+  border-radius: 4px;
+  border: 1px solid black;
+  height: 2em;
+}
+
+.post-thought-button:hover {
+  background-color: #a66252;
+  border: 2px solid #a66252;
+}
+
+.container-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input_div {
+  display: flex;
+  flex-direction: column;
 }
 
 .right {
