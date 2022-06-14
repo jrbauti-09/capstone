@@ -1,6 +1,6 @@
 .landing-log {
   z-index: 99;
-  border-bottom: 1px solid red;
+  /* border-bottom: 1px solid red; */
   left: 0;
   right: 0;
 }
@@ -21,7 +21,7 @@
 
 .logo-here {
   z-index: 99;
-  border-right: 1px solid red;
+  /* border-right: 1px solid red; */
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -107,7 +107,7 @@
   border-right: 1px solid rgba(131, 131, 131, 0.4);
   border-left: 1px solid rgba(131, 131, 131, 0.4);
   border-top: 1px solid rgba(131, 131, 131, 0.4);
-  border-bottom: 0px;
+  border-bottom: 1px solid rgba(131, 131, 131, 0.4);
   cursor: pointer;
 }
 

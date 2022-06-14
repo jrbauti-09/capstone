@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../images/bg_thought_form.jpg");
+  background-image: url("../images/calum-lewis-vA1L1jRTM70-unsplash.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.9;
@@ -80,6 +80,7 @@
 
 .form_edit_thought {
   margin-right: 2em;
+  padding: 2em;
 }
 
 .experiment_box {

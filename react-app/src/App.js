@@ -17,7 +17,7 @@ import LandingPage from "./components/Landing/LandingPage";
 
 //testing components here..
 import ProxyHome from "./components/proxyHome";
-import Main from "./components/BookApi/Main";
+import Footer from "./components/Footer/Footer";
 
 //when user is authenticated
 import ThoughtMain from "./components/ThoughtsPage/ThoughtMain";
@@ -28,6 +28,9 @@ import SearchDisplay from "./components/Landing/SearchDisplay/SearchDisplay";
 import SearchEmpty from "./components/Landing/SearchDisplay/SearchEmpty";
 import CategoryDisplay from "./components/Landing/Categories/CategoryView";
 import MyThoughts from "./components/Landing/MyThoughts/MyThoughts";
+
+//Search component for google books API.
+import Main from "./components/BookApi/Main";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -64,6 +67,7 @@ function App() {
             <LandingPage status="userSignUp" />
           </Route>
         </Switch>
+        <Footer />
       </BrowserRouter>
     );
   }
@@ -113,6 +117,7 @@ function App() {
             <User />
           </ProtectedRoute>
         </Switch>
+        <Footer />
       </BrowserRouter>
     )
   );

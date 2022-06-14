@@ -2,9 +2,12 @@
   height: 100vh;
   justify-content: center;
   display: flex;
-  background-size: cover;
+  /* background-size: cover; */
+  background-size: 100%;
+  background-repeat: no-repeat;
   background-position: center;
-  background-image: url("../../images/landing-bg-img.jpg");
+  /* background-image: url("../../images/landing-bg-img.jpg"); */
+  background-image: url("../../images/max-griss-otLqpb9LK70-unsplash.jpg");
 }
 
 /* Will divide our divs to left and right*/

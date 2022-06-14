@@ -34,8 +34,8 @@ const Main = () => {
       <div className="header">
         <div className="row1">
           <h1 className="header_books">
-            A room without books is like
-            <br /> a body without a soul.
+            Find your inspiration
+            <br /> for your next thought.
           </h1>
         </div>
         <div className="row2">
