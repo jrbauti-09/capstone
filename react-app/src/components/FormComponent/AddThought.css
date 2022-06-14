@@ -29,6 +29,10 @@
   margin-bottom: 2em;
 }
 
+.edit_link_div {
+  text-decoration: none;
+}
+
 .change_image:hover {
   background-color: #a66252;
   border: 2px solid #a66252;
