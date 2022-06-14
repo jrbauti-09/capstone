@@ -107,6 +107,11 @@ Main page dynamically renders and live filters the thoughts (recipes) based on t
 
 ## Search For a Recipe Book
 
+- Integrated Google books API, Food For Thought application can perform full-text searches and retrieve book information, viewability and eBook availability.
+
+- Search and browse throught a list of books that match the user's query.
+- Ability to view information about a book, including metadata, availability, price and links where the user can purchase the book.
+
 ![](./images/thought_book_search_start.png)
 ![](./images/thought_main_book_search_query.png)
 ![](./images/thought_main_book_search_result.png)
@@ -114,10 +119,46 @@ Main page dynamically renders and live filters the thoughts (recipes) based on t
 
 ## Code snippets
 
-Defined the default state as an empty array. Using axios (promise based HTTP client for browser and Node.js), was able to do a "READ" operation. The user's search input is passed as an argument for the query. The promise's result is set as the new data array which we can render in the front end. The max results is set to 40.
+This component defines the default state as an empty array. Using axios (promise based HTTP client for browser and Node.js), was able to do a "READ" operation. The user's search input is passed as an argument for the query. The promise's result is set as the new data array which we can render in the front end. The max results is set to 40.
 
 ![](./images/thought_book_search_code.png)
+
+#
+
+Each element in the bookData array is mapped and passed into the Card component. Inside the card component we display the thumbnail image, title and price of the book. Using state manipulation, when the user clicks the card component it sets the show state to true and the bookItem to that item which displays the modal (info) for the user.
+
+![](./images/thought_book_search_card_component.png)
 
 # Dynamic Thought (Recipe) Form
 
 TODO, still need to fix thought page. Don't forget to put code snippets and also the setProxyState([]).
+
+Per input, the user is notified how many characters the current input has. Each input notifies the user if it is required, the min and max values it can contain.
+![](./images/thought_form_display.png)
+Users can also add multiple ingredients for the thought(recipe).
+![](./images/thought_form_add_ingredient.png)
+![](./images/thought_form_edit_ingredient.png)
+
+## Code snippets
+
+When a user decides to edit the ingredient they added, when they click confirm. An onlick function which passes the ingredient's current index as an argument. The function uses the ingredient's index to splice and update it with the edit input's value.
+
+It also has to pass error handling before the edit can be confirmed. In order to trigger a re-render of the component. There needs to be a detected change between the real DOM vs. the virtual DOM.
+
+![](./images/thought_form_add_error_setProxy.png)
+
+When we invoke the function setProxyState and pass an empty array, the virtual DOM is compared with the real DOM and a change is detected. Therefore, the component will rerender along with its updated states.
+
+#
+
+![](./images/thought_form_setProxy_state.png)
+
+## Future Features
+
+- Introduce more complexity for the ingredients table. Allow users to quantify their selected ingredients enabling them to input measurements as well.
+
+- A notifications tab which notifies the user if another user left a review on their thought (recipe).
+
+- Allow the user to post a video along with the instructions table that demonstrates how to prepare the dish.
+
+- Allow users to bookmark a thought (recipe) and also access their bookmark page.

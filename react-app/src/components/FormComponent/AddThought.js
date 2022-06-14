@@ -123,7 +123,7 @@ export default function AddThought() {
     }
 
     ingredientArray.push(ingredient);
-    console.log(ingredientArray);
+    // console.log(ingredientArray);
 
     setIngredient("");
     setIngredientErrors([]);
