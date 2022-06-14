@@ -1,8 +1,19 @@
-# Flask React Project
+# Food For Thought
 
-This is the starter for the Flask React project.
+This is a clone of [Cooking by NY Times](https://cooking.nytimes.com/).
 
-## Getting started
+# Index
+
+TODO add links to feature list etc.
+
+# Technologies Used
+
+<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=50/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  height=40/>
+
+Food For Thought was developed using React, Redux, Flask, and SQLAlchemy to create a model-view-controller (MVC) application. Heroku was used for production hosting, and AWS S3 was used to host files uploaded by users for use with the application.
+
+## Clone this project.
+
 1. Clone this repository (only this branch)
 
    ```bash
@@ -11,9 +22,9 @@ This is the starter for the Flask React project.
 
 2. Install dependencies
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+   ```bash
+   pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+   ```
 
 3. Create a **.env** file based on the example with proper settings for your
    development environment
@@ -39,91 +50,74 @@ This is the starter for the Flask React project.
 
 6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
 
-***
+---
 
+_IMPORTANT!_
+psycopg2-binary MUST remain a dev dependency because you can't install it on alpine-linux.
+There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
 
-*IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on alpine-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+---
 
-### Dev Containers (OPTIONAL for M1 Users)
-The following instructions detail an *optional* development setup for M1 Mac users having issues with the `psycopg` package.
+# Key Functions
 
-1. Make sure you have the [Microsoft Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed. 
-2. Make sure you have [Docker](https://www.docker.com/products/docker-desktop/) installed on your computer. 
-3. Clone the repository (only this branch)
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
-4. Open the repo in VS Code. 
-5. Click "Open in Container" when VS Code prompts to open container in the bottom right hand corner. 
-6. **Be Patient!** The initial install will take a LONG time, it's building a container that has postgres preconfigured and even installing all your project dependencies. (For both flask and react!)
+## Thoughts, Ingredients and Categories
 
-   **Note:** This will take much less time on future starts because everything will be cached.
+Food For Thought allows users to liberally add thoughts(recipes) to the application to include recipe information and ingredients (independent of recipe data). Users also attribute thoughts to categories that were predefined by the application developer. Thoughts can also accommodate a featured image per recipe after a recipe's creation.
 
-7. Once everything is up, be sure to make a `.env` file based on `.env.example` in both the root directory and the *react-app* directory before running your app. You do not need a `DATABASE_URL` in the `.env` file if you are using this Docker setup for development - the URL is already set in the image (see `.devcontainer/Dockerfile` for the URL).
+## Reviews
 
-8. Get into your pipenv, migrate your database, seed your database, and run your flask app
+Users can add reviews to any recipe on Food For Thought, which includes a star rating from one through five. Each recipe dynamically averages the total ratings and displays the results when a recipe is "READ".
 
-   ```bash
-   pipenv shell
-   ```
+# Features Highlight
 
-   ```bash
-   flask db upgrade
-   ```
+## Interactive Thought Page
 
-   ```bash
-   flask seed all
-   ```
+Food For Thought's thought detail page showcases complex dynamic rendering on simple, smooth and easy UI/UX for users. Users can CRUD ingredients and CRUD reviews on the same page without refresh.
 
-   ```bash
-   flask run
-   ```
+![](./images/thought_detail_top.png)
+![](./images/thought_detail_bottom.png)
+Users are given the full CRUD option to add/edit or delete their ingredients to their newly created thought.
+![](./images/thought_detail_add_ingredient.png)
+![](./images/thought_detail_edit_ingredient.png)
 
-9. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+Users are given the full CRUD option to add/edit or delete their reviews in the same thought detail page.
+![](./images/thought_detail_add_review.png)
+When a user hovers on a review they posted, they are shown an edit and delete icon.
+![](./images/thought_detail_delete_review.png)
+![](./images/thought_detail_edit_review.png)
 
-<br>
+## Star Ratings
 
-## Deploy to Heroku
-This repo comes configured with Github Actions. When you push to your main branch, Github will automatically pull your code, package and push it to Heroku, and then release the new image and run db migrations. 
+Each thought's ratings are updated as soon as another user posts a rating/review. It also calculates the percentage value of the rating based on its average and displays it dynamically as stars.
+![](./images/thought_main_featured.png)
 
-1. Write your Dockerfile. In order for the Github action to work effectively, it must have a configured Dockerfile. Follow the comments found in this [Dockerfile](./Dockerfile) to write your own!
+# Search/Filter Features
 
-2. Create a new project on Heroku.
+## Search Thought (Recipe)
 
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres".
+Users can query the database based on the search input's value.
 
-4. Configure production environment variables. In your Heroku app settings -> config variables you should have two environment variables set:
+![](./images/thought_main_search_chicken.png)
 
-   |    Key          |    Value    |
-   | -------------   | ----------- |
-   | `DATABASE_URL`  | Autogenerated when adding postgres to Heroku app |
-   | `SECRET_KEY`    | Random string full of entropy |
+## Filter by Categories
 
-5. Generate a Heroku OAuth token for your Github Action. To do so, log in to Heroku via your command line with `heroku login`. Once you are logged in, run `heroku authorizations:create`. Copy the GUID value for the Token key.
+Main page dynamically renders and live filters the thoughts (recipes) based on the category selected by the user.
 
-6. In your Github Actions Secrets you should have two environment variables set. You can set these variables via your Github repository settings -> secrets -> actions. Click "New respository secret" to create
-each of the following variables:
+![](./images/thought_main_categories.png)
 
-   |    Key            |    Value    |
-   | -------------     | ----------- |
-   | `HEROKU_API_KEY`  | Heroku Oauth Token (from step 6)|
-   | `HEROKU_APP_NAME` | Heroku app name    |
+## Search For a Recipe Book
 
-7. Push to your `main` branch! This will trigger the Github Action to build your Docker image and deploy your application to the Heroku container registry. Please note that the Github Action will automatically upgrade your production database with `flask db upgrade`. However, it will *not* automatically seed your database. You must manually seed your production database if/when you so choose (see step 8).
+![](./images/thought_book_search_start.png)
+![](./images/thought_main_book_search_query.png)
+![](./images/thought_main_book_search_result.png)
+![](./images/thought_main_book_search_modal.png)
 
-8. *Attention!* Please run this command *only if you wish to seed your production database*: `heroku run -a HEROKU_APP_NAME flask seed all`
+## Code snippets
 
-## Helpful commands
-|    Command            |    Purpose    |
-| -------------         | ------------- |
-| `pipenv shell`        | Open your terminal in the virtual environment and be able to run flask commands without a prefix |
-| `pipenv run`          | Run a command from the context of the virtual environment without actually entering into it. You can use this as a prefix for flask commands  |
-| `flask db upgrade`    | Check in with the database and run any needed migrations  |
-| `flask db downgrade`  | Check in with the database and revert any needed migrations  |
-| `flask seed all`      | Just a helpful syntax to run queries against the db to seed data. See the **app/seeds** folder for reference and more details |
-| `heroku login -i`      | Authenticate your heroku-cli using the command line. Drop the -i to authenticate via the browser |
-| `heroku authorizations:create` | Once authenticated, use this to generate an Oauth token |
-| `heroku run -a <app name>` | Run a command from within the deployed container on Heroku |
+Defined the default state as an empty array. Using axios (promise based HTTP client for browser and Node.js), was able to do a "READ" operation. The user's search input is passed as an argument for the query. The promise's result is set as the new data array which we can render in the front end. The max results is set to 40.
+
+![](./images/thought_book_search_code.png)
+
+# Dynamic Thought (Recipe) Form
+
+TODO, still need to fix thought page. Don't forget to put code snippets and also the setProxyState([]).
