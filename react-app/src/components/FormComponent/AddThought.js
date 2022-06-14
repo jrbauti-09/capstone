@@ -9,7 +9,7 @@ import { addIngredient } from "../../store/ingredient";
 import ImageUploading from "react-images-uploading";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faPencil } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 import "./AddThought.css";
 
@@ -223,7 +223,7 @@ export default function AddThought() {
               ></textarea>
             </div>
             <label className="label_input">
-              Count: {instructions.length} min: 50 limit: 500
+              Count: {instructions.length} (min: 50 limit: 500)
             </label>
             <div>
               <textarea
@@ -280,13 +280,13 @@ export default function AddThought() {
                           onClick={() => toogleEdit(index)}
                           className="ingredient_buttons"
                         >
-                          Edit
+                          <FontAwesomeIcon icon={faPencil} />
                         </div>
                         <div
                           onClick={() => handleDeleteIngredient(index)}
                           className="ingredient_buttons"
                         >
-                          DELETE
+                          <FontAwesomeIcon icon={faTrash} />
                         </div>
                       </div>
                     </div>
@@ -301,8 +301,16 @@ export default function AddThought() {
                             }}
                           ></input>
                           <div className="div_ingredient_buttons edit_buttons_div">
-                            <div onClick={() => cancelEdit(index)}>Cancel</div>
-                            <div onClick={() => handleEditIngredient(index)}>
+                            <div
+                              onClick={() => cancelEdit(index)}
+                              className="confirm_edit_ingredient"
+                            >
+                              Cancel
+                            </div>
+                            <div
+                              onClick={() => handleEditIngredient(index)}
+                              className="confirm_edit_ingredient"
+                            >
                               Confirm
                             </div>
                           </div>
