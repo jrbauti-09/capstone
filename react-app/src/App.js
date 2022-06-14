@@ -14,10 +14,11 @@ import "./components/BookApi/style.css";
 //not authenticated
 import NavigationBar from "./components/Landing/Nav/index.js";
 import LandingPage from "./components/Landing/LandingPage";
+import Footer from "./components/Footer/Footer";
 
 //testing components here..
 import ProxyHome from "./components/proxyHome";
-import Footer from "./components/Footer/Footer";
+import PageNotFound from "./components/PageNotFound";
 
 //when user is authenticated
 import ThoughtMain from "./components/ThoughtsPage/ThoughtMain";
@@ -65,6 +66,9 @@ function App() {
           </Route>
           <Route path="/signup" exact={true}>
             <LandingPage status="userSignUp" />
+          </Route>
+          <Route>
+            <PageNotFound status="not-logged" />
           </Route>
         </Switch>
         <Footer />
@@ -116,6 +120,9 @@ function App() {
           <ProtectedRoute path="/users/:userId" exact={true}>
             <User />
           </ProtectedRoute>
+          <Route>
+            <PageNotFound />
+          </Route>
         </Switch>
         <Footer />
       </BrowserRouter>
