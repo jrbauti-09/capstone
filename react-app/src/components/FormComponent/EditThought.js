@@ -156,10 +156,13 @@ export default function EditThought() {
               </select>
             </div>
             <div></div>
-            <div>
+            <div style={{ justifyContent: "space-between", display: "flex" }}>
               <button type="submit" className="post-thought-button">
-                Post Thought
+                Edit Thought
               </button>
+              <Link to={`/thoughts/${thoughtId}`} className="edit_link_div">
+                <div className="post-thought-button">Cancel Edit</div>
+              </Link>
             </div>
           </form>
           <ImageUploading
