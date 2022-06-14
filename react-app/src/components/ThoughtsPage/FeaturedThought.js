@@ -14,6 +14,8 @@ export default function FeaturedThought() {
   const history = useHistory();
   const allThoughts = useSelector((state) => Object.values(state.allThoughts));
 
+  const [proxyState, setProxyState] = useState([]);
+
   const totalLengthIndex = allThoughts.length - 1;
   // randomly select an index to show random recipes
   let featuredThought =
@@ -31,6 +33,15 @@ export default function FeaturedThought() {
 
   //   return () => clearInterval(interval);
   // }, [featuredThought]);
+
+  useEffect(() => {
+    const myInterval = setInterval(() => {
+      setProxyState([]);
+      // console.log("Is this working?");
+    }, 7000);
+    // console.log("Hi, there");
+    return () => clearInterval(myInterval);
+  }, []);
 
   let ratingValue = 0;
   const ratings = featuredThought?.reviewRating;
