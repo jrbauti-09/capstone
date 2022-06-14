@@ -180,7 +180,7 @@ export default function AddThought() {
   };
 
   const currentEdit = (e) => {
-    console.log(e);
+    // console.log(e);
     setProxyState([]);
   };
 
