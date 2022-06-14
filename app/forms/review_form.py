@@ -12,6 +12,8 @@ def review_check(form, field):
     review = field.data
     if " " not in review:
         raise ValidationError('Review cannot be a single word.')
+    if len(review) > 1000:
+        raise ValidationError('Review cannot exceed 1000 characters.')
 
 
 class ReviewForm(FlaskForm):

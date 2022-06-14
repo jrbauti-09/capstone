@@ -210,6 +210,9 @@ export default function AddThought() {
                 required
               ></input>
             </div>
+            <label className="label_input">
+              Count: {description.length} (min: 100 limit: 1000)
+            </label>
             <div>
               <textarea
                 value={description}
@@ -219,6 +222,9 @@ export default function AddThought() {
                 required
               ></textarea>
             </div>
+            <label className="label_input">
+              Count: {instructions.length} min: 50 limit: 500
+            </label>
             <div>
               <textarea
                 value={instructions}

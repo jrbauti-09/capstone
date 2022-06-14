@@ -71,7 +71,7 @@ export default function EditThought() {
     }
 
     await addImage(cleanImage[0], thoughtData[1].id, user);
-    history.push("/");
+    history.push(`/thoughts/${thoughtData[1].id}`);
   };
 
   // const updateImage = (e) => {
@@ -121,6 +121,9 @@ export default function EditThought() {
                 placeholder="Name* (max 255 chars)"
               ></input>
             </div>
+            <label className="label_input">
+              Count: {description.length} (min: 100 limit: 1000)
+            </label>
             <div className="div_edit_thought">
               <label className="label_edit">Description:</label>
               <textarea
@@ -130,6 +133,9 @@ export default function EditThought() {
                 placeholder="Description*"
               ></textarea>
             </div>
+            <label className="label_input">
+              Count: {instructions.length} (min: 50 limit: 500)
+            </label>
             <div className="div_edit_thought">
               <label className="label_edit">Instructions:</label>
               <textarea
