@@ -16,13 +16,19 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
         setErrors(data);
+        // console.log(errors);
+        return;
+      } else {
+        history.push("/");
       }
+    } else {
+      return setErrors(["Passwords do not match."]);
     }
-    history.push("/");
   };
 
   const updateUsername = (e) => {
@@ -64,7 +70,7 @@ const SignUpForm = () => {
       <div>
         <label>Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           onChange={updateEmail}
           value={email}
