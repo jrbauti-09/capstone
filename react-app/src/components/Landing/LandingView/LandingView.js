@@ -8,6 +8,7 @@ import "./LandingView.css";
 // Will import auth validators.
 import SignUpForm from "../../auth/SignUpForm";
 import LoginForm from "../../auth/LoginForm";
+import logo from "../../images/Food for thought (1).png";
 
 export default function LandingView({ status }) {
   //If the value of status is default then we load our default landing page.
@@ -21,9 +22,11 @@ export default function LandingView({ status }) {
           <div className="side_right">
             <div className="side_right_inner_content">
               {/* <img alt="landing logo" src={logo} /> */}
-              <div>PLACEHOLDER: logo here</div>
-              <div className="upper">Let's get thinking</div>
-              <h1 className="middle">Food For Thought</h1>
+              <div className="logo_div_container">
+                <img src={logo} alt="logo"></img>
+              </div>
+              <h2 className="upper">Let's get thinking</h2>
+              {/* <h1 className="middle">Food For Thought</h1> */}
               <p className="bottom">
                 "To a hungry person every bitter food is as sweet as can be.
                 When the preferable is not available, the available becomes
@@ -52,6 +55,9 @@ export default function LandingView({ status }) {
 
           <div className="side_right">
             <div className="side_right_inner_content login-right">
+              <div>
+                <img src={logo} alt="logo"></img>
+              </div>
               <p className="login_header_main">Log in for Thoughts</p>
               <p>
                 <Link className="login_header" to="/signup">
@@ -60,7 +66,6 @@ export default function LandingView({ status }) {
                 Sign up to share your Thoughts.{" "}
               </p>
               {/* <img alt="landing logo" src={logo} /> */}
-              <div>PLACEHOLDER logo</div>
               <LoginForm />
             </div>
           </div>
@@ -78,7 +83,8 @@ export default function LandingView({ status }) {
           <div className="side_left"></div>
 
           <div className="side_right">
-            <div className="right-info-container login-right">
+            <div className="right-info-container">
+              <img alt="landing logo" src={logo} />
               <p className="log-heading">Sign Up for Thoughts</p>
               <p>
                 Already have an account?{" "}
@@ -86,7 +92,6 @@ export default function LandingView({ status }) {
                   LOG IN
                 </Link>
               </p>
-              {/* <img alt="landing logo" src={logo} /> */}
               <SignUpForm />
             </div>
           </div>

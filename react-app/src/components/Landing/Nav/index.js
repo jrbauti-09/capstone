@@ -13,6 +13,8 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 
+import logo from "../../images/Food for thought (1).png";
+
 import "./NavigationBar.css";
 
 export default function NavigationBar({ status }) {
@@ -43,7 +45,9 @@ export default function NavigationBar({ status }) {
       <div className="landing-log">
         <div className="landing">
           <div className="logo-here">
-            <Link to="/">LOGO HERE</Link>
+            <Link to="/" className="image_logo">
+              <img src={logo} alt="logo" className="image_logo"></img>
+            </Link>
           </div>
           <div className="search-bar-container">
             <form className="search-bar-form" onSubmit={submitProxySearch}>
@@ -92,7 +96,9 @@ export default function NavigationBar({ status }) {
       <div className="landing-log">
         <div className="landing">
           <div className="logo-here">
-            <Link to="/">LOGO HERE</Link>
+            <Link to="/" className="image_logo">
+              <img src={logo} alt="logo" className="image_logo"></img>
+            </Link>
           </div>
           <div className="search-bar-container">
             <form className="search-bar-form" onSubmit={handleSearch}>
