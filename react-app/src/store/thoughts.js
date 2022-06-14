@@ -100,7 +100,7 @@ export const deleteThought = (thoughtId) => async (dispatch) => {
 export const uploadFile = (fileForm) => async (dispatch) => {
   const { thought_id, user_id, file, newFile } = fileForm;
 
-  console.log(file, "THIS IS FROM THE THUNK");
+  // console.log(file, "THIS IS FROM THE THUNK");
   const form = new FormData();
   form.append("file", file);
   form.append("thought_id", thought_id);
@@ -116,7 +116,7 @@ export const uploadFile = (fileForm) => async (dispatch) => {
 export const uploadUrl = (data) => async (dispatch) => {
   const { url, thought_id, user_id } = data;
 
-  console.log(data);
+  // console.log(data);
 
   const form = new FormData();
   form.append("url", url);

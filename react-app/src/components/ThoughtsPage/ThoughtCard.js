@@ -10,7 +10,7 @@ export default function ThoughtCard({ thought }) {
   if (ratings?.length) {
     ratings?.forEach((rate) => (ratingValue = rate + ratingValue));
     ratingValue = ratingValue / ratings.length;
-    console.log(ratingValue);
+    // console.log(ratingValue);
   }
 
   return (
