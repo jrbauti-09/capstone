@@ -4,7 +4,7 @@
   bottom: 0;
   margin-top: -10px;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.808);
+  /* background-color: rgba(0, 0, 0, 0.808); */
   color: white;
   display: flex;
   align-items: center;
@@ -22,4 +22,34 @@
   justify-content: center;
   margin: auto;
   text-align: center;
+  font-size: 12px;
+  color: white;
+}
+
+.footer_ {
+  position: fixed;
+  height: 56px;
+  bottom: 0;
+  margin-top: -10px;
+  width: 100%;
+  /* background-color: rgba(0, 0, 0, 0.808); */
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 11px;
+  z-index: 100;
+}
+
+.footer-content_ {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  font-size: 12px;
+  color: black;
 }

@@ -46,7 +46,9 @@ export default function NavigationBar({ status }) {
         <div className="landing">
           <div className="logo-here">
             <Link to="/" className="image_logo">
-              <img src={logo} alt="logo" className="image_logo"></img>
+              {/* <img src={logo} alt="logo" className="image_logo"></img> */}
+              {/* <h3 className="header_food_for_thought">Food For Thought.</h3> */}
+              Food For Thought.
             </Link>
           </div>
           <div className="search-bar-container">
@@ -96,8 +98,9 @@ export default function NavigationBar({ status }) {
       <div className="landing-log">
         <div className="landing">
           <div className="logo-here">
-            <Link to="/" className="image_logo">
-              <img src={logo} alt="logo" className="image_logo"></img>
+            <Link to="/" className="image_logo_">
+              {/* <img src={logo} alt="logo" className="image_logo"></img> */}
+              Food For Thought.
             </Link>
           </div>
           <div className="search-bar-container">

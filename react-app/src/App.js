@@ -124,7 +124,7 @@ function App() {
             <PageNotFound />
           </Route>
         </Switch>
-        <Footer />
+        <Footer status="user-logged" />
       </BrowserRouter>
     )
   );
