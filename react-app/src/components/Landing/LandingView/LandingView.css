@@ -37,10 +37,65 @@
   }
 }
 
+.upper {
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 1em;
+  /* margin-bottom: -10px; */
+  margin-bottom: -0.8em;
+  /* color: white; */
+  animation: textColor 15s infinite;
+}
+
+.bottom {
+  font-family: "Times New Roman", Times, serif;
+  line-height: 1.2em;
+  margin-bottom: 2.2em;
+  margin-top: 2em;
+  /* color: white; */
+  font-size: 20px;
+  animation: textColor 15s infinite;
+}
+
+.login_header_main {
+  /* color: white; */
+  font-size: larger;
+  animation: textColor 15s infinite;
+}
+
+.signup_p {
+  color: white;
+  font-size: medium;
+  animation: textColor 15s infinite;
+}
+
+@keyframes textColor {
+  0%,
+  100% {
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+    color: rgb(29, 29, 29);
+  }
+  25% {
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+    color: rgb(29, 29, 29);
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    color: white;
+  }
+  75% {
+    animation-timing-function: ease-in-out;
+    color: white;
+  }
+}
+
 /* Will divide our divs to left and right*/
 .landing_view_content {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
+  /* display: grid; */
+  display: flex;
+  /* grid-template-columns: 3fr 2fr; */
+  justify-content: center;
   width: 100%;
   z-index: 1;
 }
@@ -54,6 +109,7 @@
   justify-content: center;
   align-items: center;
   display: block;
+  width: 40em;
 }
 
 .side_right_inner_content {
@@ -62,29 +118,12 @@
   font-family: "Times New Roman", Times, serif;
 }
 
-.upper {
-  font-family: "Times New Roman", Times, serif;
-  margin-top: 1em;
-  /* margin-bottom: -10px; */
-  margin-bottom: -0.8em;
-  color: white;
-}
-
 .login-right {
   margin-top: -1em;
 }
 
 .middle {
   font-family: "Times New Roman", Times, serif;
-}
-
-.bottom {
-  font-family: "Times New Roman", Times, serif;
-  line-height: 1.2em;
-  margin-bottom: 2.2em;
-  margin-top: 2em;
-  color: white;
-  font-size: 18px;
 }
 
 .landing_view_buttons {
@@ -116,16 +155,6 @@ body {
   font-weight: bold;
   text-decoration: none;
   /* margin-bottom: -2em; */
-}
-
-.login_header_main {
-  color: white;
-  font-size: larger;
-}
-
-.signup_p {
-  color: white;
-  font-size: medium;
 }
 
 .logo_div_container {

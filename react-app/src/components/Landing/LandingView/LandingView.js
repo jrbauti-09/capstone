@@ -17,14 +17,14 @@ export default function LandingView({ status }) {
     return (
       <div className="landing_view_container">
         <div className="landing_view_content">
-          <div className="side_left"></div>
+          {/* <div className="side_left"></div> */}
 
           <div className="side_right">
             <div className="side_right_inner_content">
               {/* <img alt="landing logo" src={logo} /> */}
-              <div className="logo_div_container">
+              {/* <div className="logo_div_container">
                 <img src={logo} alt="logo"></img>
-              </div>
+              </div> */}
               <h2 className="upper">Let's get thinking</h2>
               {/* <h1 className="middle">Food For Thought</h1> */}
               <p className="bottom">
