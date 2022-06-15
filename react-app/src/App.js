@@ -29,6 +29,7 @@ import SearchDisplay from "./components/Landing/SearchDisplay/SearchDisplay";
 import SearchEmpty from "./components/Landing/SearchDisplay/SearchEmpty";
 import CategoryDisplay from "./components/Landing/Categories/CategoryView";
 import MyThoughts from "./components/Landing/MyThoughts/MyThoughts";
+import FooterLogged from "./components/Footer/FooterLogged";
 
 //Search component for google books API.
 import Main from "./components/BookApi/Main";
@@ -124,7 +125,7 @@ function App() {
             <PageNotFound />
           </Route>
         </Switch>
-        <Footer status="user-logged" />
+        <FooterLogged />
       </BrowserRouter>
     )
   );
