@@ -43,6 +43,12 @@ export default function AddIngredient({ thoughtId }) {
     }
   };
 
+  const handleCancel = () => {
+    setToggle(!toggle);
+    setErrors([]);
+    setIngredientName("");
+  };
+
   return (
     <div className="new-ing-form-container">
       <form className="new-ing-form" onSubmit={handleSubmit}>
@@ -95,7 +101,7 @@ export default function AddIngredient({ thoughtId }) {
           {toggle === false ? (
             <button
               className="add-ing-button cancel-review"
-              onClick={() => setToggle(!toggle)}
+              onClick={() => handleCancel()}
               type="button"
             >
               Cancel
