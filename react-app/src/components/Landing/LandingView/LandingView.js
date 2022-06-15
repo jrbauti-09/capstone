@@ -59,7 +59,7 @@ export default function LandingView({ status }) {
                 <img src={logo} alt="logo"></img>
               </div>
               <p className="login_header_main">Log in for Thoughts</p>
-              <p>
+              <p className="signup_p">
                 <Link className="login_header" to="/signup">
                   Don't have an account?{" "}
                 </Link>{" "}
@@ -85,8 +85,8 @@ export default function LandingView({ status }) {
           <div className="side_right">
             <div className="right-info-container">
               <img alt="landing logo" src={logo} />
-              <p className="log-heading">Sign Up for Thoughts</p>
-              <p>
+              <p className="log-heading-p">Sign Up for Thoughts</p>
+              <p className="log-heading-p">
                 Already have an account?{" "}
                 <Link className="log-heading" to="/login">
                   LOG IN

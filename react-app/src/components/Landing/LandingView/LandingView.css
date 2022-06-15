@@ -48,7 +48,7 @@
 /* */
 
 .side_right {
-  background-color: #f2f3efbe;
+  /* background-color: #f2f3efbe; */
   font-family: "Times New Roman", Times, serif;
   text-align: center;
   justify-content: center;
@@ -67,6 +67,7 @@
   margin-top: 1em;
   /* margin-bottom: -10px; */
   margin-bottom: -0.8em;
+  color: white;
 }
 
 .login-right {
@@ -82,6 +83,8 @@
   line-height: 1.2em;
   margin-bottom: 2.2em;
   margin-top: 2em;
+  color: white;
+  font-size: 18px;
 }
 
 .landing_view_buttons {
@@ -104,6 +107,10 @@ body {
   margin: 0;
 }
 
+.log-heading-p {
+  color: white;
+}
+
 .login_header {
   color: rgb(38, 8, 211);
   font-weight: bold;
@@ -112,7 +119,13 @@ body {
 }
 
 .login_header_main {
-  color: black;
+  color: white;
+  font-size: larger;
+}
+
+.signup_p {
+  color: white;
+  font-size: medium;
 }
 
 .logo_div_container {
