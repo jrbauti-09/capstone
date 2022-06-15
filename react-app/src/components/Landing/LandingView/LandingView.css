@@ -20,7 +20,7 @@
   100% {
     opacity: 1;
     animation-timing-function: ease-in-out;
-    background-image: url("../../images/wallhaven-z8jq3y_1920x1080.png");
+    background-image: url("../../images/wallhaven-3955py_1920x1080.png");
   }
   25% {
     opacity: 1;
@@ -29,7 +29,7 @@
   }
   50% {
     animation-timing-function: ease-in-out;
-    background-image: url("../../images/wallhaven-q66577_1920x1080.png");
+    background-image: url("../../images/wallhaven-y82o37_1920x1080.png");
   }
   75% {
     animation-timing-function: ease-in-out;
@@ -58,7 +58,7 @@
 
 .login_header_main {
   /* color: white; */
-  font-size: larger;
+  font-size: 50px;
   animation: textColor 15s infinite;
 }
 
@@ -68,10 +68,19 @@
   animation: textColor 15s infinite;
 }
 
+.right-info-container {
+  margin-top: 10em;
+}
+
 .log-heading-p {
   /* color: white; */
   font-size: large;
   font-weight: 500;
+  animation: textColor 15s infinite;
+}
+
+.p-log-heading {
+  font-size: 50px;
   animation: textColor 15s infinite;
 }
 
@@ -126,7 +135,7 @@
 }
 
 .login-right {
-  margin-top: -1em;
+  margin-top: 5.5em;
 }
 
 .middle {

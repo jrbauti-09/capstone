@@ -13,6 +13,12 @@
   animation-duration: 0.38s;
 }
 
+.login_error_container {
+  color: #000000;
+  font-size: larger;
+  margin-bottom: 1em;
+}
+
 @keyframes transitionIn {
   0% {
     opacity: 0;
@@ -69,7 +75,8 @@
 }
 
 .submit_button:hover {
-  background-color: #a66252;
+  /* background-color: #a66252; */
+  background-color: rgba(143, 211, 42, 0.863);
 }
 
 .demo_btn {
@@ -78,7 +85,7 @@
   border-radius: 5px;
   border: 0px;
   cursor: pointer;
-  background-color: #a66252;
+  background-color: #ff0a37;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -89,5 +96,5 @@
 }
 
 .demo_btn:hover {
-  background-color: greenyellow;
+  background-color: rgba(143, 211, 42, 0.863);
 }
