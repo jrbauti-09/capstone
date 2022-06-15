@@ -63,8 +63,15 @@
 }
 
 .signup_p {
-  color: white;
+  /* color: white; */
   font-size: medium;
+  animation: textColor 15s infinite;
+}
+
+.log-heading-p {
+  /* color: white; */
+  font-size: large;
+  font-weight: 500;
   animation: textColor 15s infinite;
 }
 
@@ -144,10 +151,6 @@
 
 body {
   margin: 0;
-}
-
-.log-heading-p {
-  color: white;
 }
 
 .login_header {
