@@ -102,7 +102,7 @@ export default function ThoughtDetail() {
       <div className="thought_image">
         <div className="thought_container_div">
           <div className="thought_image_container">
-            <img className="one_image_div" src={thought?.images[0]}></img>
+            <img className="one_image_div_" src={thought?.images[0]}></img>
           </div>
           <div className="thought_container">
             <h2 className="thought_header">Description:</h2>

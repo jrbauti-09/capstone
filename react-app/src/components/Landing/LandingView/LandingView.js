@@ -25,7 +25,7 @@ export default function LandingView({ status }) {
               {/* <div className="logo_div_container">
                 <img src={logo} alt="logo"></img>
               </div> */}
-              <h2 className="upper">Let's get thinking</h2>
+              <h2 className="upper">Let's get thinking.</h2>
               {/* <h1 className="middle">Food For Thought</h1> */}
               <p className="bottom">
                 "To a hungry person every bitter food is as sweet as can be.
