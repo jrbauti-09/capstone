@@ -7,7 +7,34 @@
   background-repeat: no-repeat;
   background-position: center;
   /* background-image: url("../../images/landing-bg-img.jpg"); */
-  background-image: url("../../images/max-griss-otLqpb9LK70-unsplash.jpg");
+  /* background-image: url("../../images/max-griss-otLqpb9LK70-unsplash.jpg"); */
+  /* background-image: url("../../images/wallhaven-k9evp6_1920x1080.png"); */
+  animation: imageSlide 15s infinite;
+}
+
+.landing_view_container {
+}
+
+@keyframes imageSlide {
+  0%,
+  100% {
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+    background-image: url("../../images/wallhaven-z8jq3y_1920x1080.png");
+  }
+  25% {
+    opacity: 1;
+    animation-timing-function: ease-in-out;
+    background-image: url("../../images/wallhaven-oxq9l9_1920x1080.png");
+  }
+  50% {
+    animation-timing-function: ease-in-out;
+    background-image: url("../../images/wallhaven-q66577_1920x1080.png");
+  }
+  75% {
+    animation-timing-function: ease-in-out;
+    background-image: url("../../images/wallhaven-k9evp6_1920x1080.png");
+  }
 }
 
 /* Will divide our divs to left and right*/
