@@ -50,8 +50,8 @@
 
 .add-review-button {
   color: rgba(255, 255, 255, 1);
-  background-color: #ff564c;
-  border: 2px solid #ff564c;
+  background-color: #3873b7;
+  border: 2px solid #3873b7;
   transition: color 0.15s ease-in-out;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
@@ -90,7 +90,7 @@
   height: 30px;
   font-family: Arial;
   font-size: 22px;
-  color: #ff564c;
+  color: #e05d26;
   cursor: pointer;
 }
 
@@ -148,7 +148,7 @@
 }
 
 .review-toggle {
-  background-color: rgba(0, 0, 0, 0.1) !important;
+  background-color: rgba(0, 47, 255, 0.1) !important;
   border: none;
   padding: 10px;
   width: 100%;

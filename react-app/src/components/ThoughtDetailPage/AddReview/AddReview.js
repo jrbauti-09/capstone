@@ -151,7 +151,7 @@ export default function AddReview({ thoughtId }) {
               className="new-review-label review-toggle"
               onClick={() => setFlip(!flip)}
             >
-              Leave your thoughts on this recipe? ▼
+              Leave your thoughts on this recipe?
             </button>
           ) : (
             <label className="new-review-label">

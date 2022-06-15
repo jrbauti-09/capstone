@@ -138,6 +138,9 @@ body {
   padding: 24px;
 }
 
+/* #4c88ff */
+/* #b7d5dd */
+
 .stars {
   display: inline-block;
   font-size: 26px;
@@ -153,8 +156,8 @@ body {
   letter-spacing: 3px;
   background: linear-gradient(
     90deg,
-    #ff564c var(--percent),
-    #f8b7a8 var(--percent)
+    #e05d26 var(--percent),
+    #b7d5dd var(--percent)
   );
   background-clip: text;
   -webkit-background-clip: text;

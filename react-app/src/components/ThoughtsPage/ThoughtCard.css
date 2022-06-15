@@ -91,13 +91,13 @@
 .get-recipe-button {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  padding: 5px;
+  font-size: 12px;
+  padding: 4px;
   color: white;
   border-radius: 5px;
   box-sizing: border-box;
   border: 3px solid white;
-  background-color: #a66252;
+  background-color: #be1e08;
 }
 
 .get-recipe-button:hover {
