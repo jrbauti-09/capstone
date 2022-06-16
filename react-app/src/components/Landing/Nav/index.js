@@ -55,7 +55,7 @@ export default function NavigationBar({ status }) {
             <form className="search-bar-form" onSubmit={submitProxySearch}>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                className="magnifying-glass"
+                className="search-icon-mag"
               />
               <input
                 value={searchValue}
@@ -107,7 +107,7 @@ export default function NavigationBar({ status }) {
             <form className="search-bar-form" onSubmit={handleSearch}>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
-                className="magnifying-glass"
+                className="search-icon-mag"
               />
               <input
                 value={searchValue}
