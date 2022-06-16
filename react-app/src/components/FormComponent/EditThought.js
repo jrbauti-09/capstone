@@ -79,11 +79,6 @@ export default function EditThought() {
     history.push(`/thoughts/${thoughtData[1].id}`);
   };
 
-  // const updateImage = (e) => {
-  //   const file = e.target.files[0];
-  //   setImage(file);
-  // };
-
   const addImage = async (image, thought_id, user_id) => {
     const obj = {
       file: image,
