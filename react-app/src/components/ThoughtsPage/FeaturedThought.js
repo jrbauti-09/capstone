@@ -92,7 +92,7 @@ export default function FeaturedThought() {
             <p class="recipe-metadata">
               <span class="recipe-rating">
                 <span
-                  className="stars"
+                  className="stars_rating"
                   style={{ "--ratingValue": `${ratingValue}` }}
                 ></span>
               </span>

@@ -63,11 +63,11 @@ There is a layer in the Dockerfile that will install psycopg2 (not binary) for u
 
 ## Thoughts, Ingredients and Categories
 
-Food For Thought allows users to add thoughts(recipes) to the application to include recipe description, instruction and ingredients. Users also attribute thoughts to categories which they can choose. The user can also pick an image to upload to an AWS S3 bucket. 
+Food For Thought allows users to add thoughts(recipes) to the application to include recipe description, instruction and ingredients. Users also attribute thoughts to categories which they can choose. The user can also pick an image to upload to an AWS S3 bucket.
 
 ## Reviews
 
-Users can add reviews to any thought on Food For Thought, which includes a star rating from one to five. Each thought dynamically averages the total ratings and displays it on the front end notifying the user visually what the rating is for that thought. 
+Users can add reviews to any thought on Food For Thought, which includes a star rating from one to five. Each thought dynamically averages the total ratings and displays it on the front end notifying the user visually what the rating is for that thought.
 
 # Features Highlight
 
@@ -77,13 +77,15 @@ Food For Thought's thought detail page showcases complex dynamic rendering on si
 
 ![](./images/thought_detail_top.png)
 
-Users are given the full CRUD option to add/edit or delete their ingredients to their newly created thought.
-
+Users are given the full CRUD option to add/edit or delete their ingredients to their newly created thought. When user wants to add an ingredient to an existing thought, they are greeted with a modal to input information.
+![](./images/thought_detail_ingredient_add.png)
+![](./images/thought_ingredient_edit.png)
 
 Users are given the full CRUD option to add/edit or delete their reviews in the same thought detail page.
+![](./images/thought_review_post.png)
+![](./images/thought_review_edit.png)
 
 When a user hovers on a review they posted, they are shown an edit and delete icon.
-
 
 ## Star Ratings
 
@@ -95,14 +97,13 @@ Each thought's ratings are updated as soon as another user posts a rating/review
 ## Search Thought (Recipe)
 
 Users can query the database based on the search input's value.
-
-![](./images/thought_main_search_chicken.png)
+![](./images/thought_search_query.png)
 
 ## Filter by Categories
 
 Main page dynamically renders and live filters the thoughts (recipes) based on the category selected by the user.
 
-![](./images/thought_main_categories.png)
+![](./images/thought_categories_dessert.png)
 
 ## Search For a Recipe Book
 
@@ -111,7 +112,7 @@ Main page dynamically renders and live filters the thoughts (recipes) based on t
 - Search and browse throught a list of books that match the user's query.
 - Ability to view information about a book, including metadata, availability, price and links where the user can purchase the book.
 
-![](./images/thought_book_search_start.png)
+![](./images/thought_search_book.png)
 ![](./images/thought_main_book_search_query.png)
 ![](./images/thought_main_book_search_result.png)
 ![](./images/thought_main_book_search_modal.png)
