@@ -11,7 +11,7 @@ TODO add links to feature list etc.
 <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=50/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  height=40/>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Google_Books_logo_2015.svg/1280px-Google_Books_logo_2015.svg.png" height=40/>
 
-Food For Thought was developed using React, Redux, Flask, and SQLAlchemy to create a model-view-controller (MVC) application. Heroku was used for production hosting, and AWS S3 was used to host files uploaded by users for use with the application.
+Food For Thought was built using React, Redux, AWS S3, Flask and SQLAlchemy to create an application. Heroku was used for production hosting, and AWS S3 was used to host image files uploaded by users for use with the application.
 
 ## Clone this project.
 
@@ -63,11 +63,11 @@ There is a layer in the Dockerfile that will install psycopg2 (not binary) for u
 
 ## Thoughts, Ingredients and Categories
 
-Food For Thought allows users to liberally add thoughts(recipes) to the application to include recipe information and ingredients (independent of recipe data). Users also attribute thoughts to categories that were predefined by the application developer. Thoughts can also accommodate a featured image per recipe after a recipe's creation.
+Food For Thought allows users to add thoughts(recipes) to the application to include recipe description, instruction and ingredients. Users also attribute thoughts to categories which they can choose. The user can also pick an image to upload to an AWS S3 bucket. 
 
 ## Reviews
 
-Users can add reviews to any recipe on Food For Thought, which includes a star rating from one through five. Each recipe dynamically averages the total ratings and displays the results when a recipe is "READ".
+Users can add reviews to any thought on Food For Thought, which includes a star rating from one to five. Each thought dynamically averages the total ratings and displays it on the front end notifying the user visually what the rating is for that thought. 
 
 # Features Highlight
 
@@ -76,16 +76,14 @@ Users can add reviews to any recipe on Food For Thought, which includes a star r
 Food For Thought's thought detail page showcases complex dynamic rendering on simple, smooth and easy UI/UX for users. Users can CRUD ingredients and CRUD reviews on the same page without refresh.
 
 ![](./images/thought_detail_top.png)
-![](./images/thought_detail_bottom.png)
+
 Users are given the full CRUD option to add/edit or delete their ingredients to their newly created thought.
-![](./images/thought_detail_add_ingredient.png)
-![](./images/thought_detail_edit_ingredient.png)
+
 
 Users are given the full CRUD option to add/edit or delete their reviews in the same thought detail page.
-![](./images/thought_detail_add_review.png)
+
 When a user hovers on a review they posted, they are shown an edit and delete icon.
-![](./images/thought_detail_delete_review.png)
-![](./images/thought_detail_edit_review.png)
+
 
 ## Star Ratings
 
