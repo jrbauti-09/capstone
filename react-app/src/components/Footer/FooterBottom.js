@@ -8,7 +8,7 @@ export default function FooterBottom() {
   return (
     <article className="footer">
       <p></p>
-      <div className="footer_container">
+      <div className="footer_container login_header_main">
         Google Books API | React | Redux | SQLAlchemy | Flask | PostgreSQL |
         Python | Docker
       </div>
