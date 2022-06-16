@@ -52,6 +52,11 @@ export default function EditThought() {
       user_id: user,
     };
 
+    // console.log(
+    //   data,
+    //   "LOOOOOOOOOOOOOOOOOOOOOOK HEEEEEEEEEEEEEEEEEEEEEEREEEEEEEEEEEEEEEEEEEEEEEEEE"
+    // );
+
     const thoughtData = await dispatch(editThought(data, thoughtToEdit?.id));
 
     if (thoughtData?.errors) {

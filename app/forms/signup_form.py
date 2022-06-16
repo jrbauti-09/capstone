@@ -18,6 +18,8 @@ def username_exists(form, field):
     user = User.query.filter(User.username == username).first()
     if user:
         raise ValidationError('Username is already in use.')
+    if len(username) > 50:
+        raise ValidationError('Username must not exceed 50 characters.')
 
 
 class SignUpForm(FlaskForm):

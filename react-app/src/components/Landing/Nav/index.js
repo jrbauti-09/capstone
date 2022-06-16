@@ -82,6 +82,14 @@ export default function NavigationBar({ status }) {
                 >
                   Repository
                 </a>
+                <a
+                  href="https://www.linkedin.com/in/joshua-raphael-bautista-8a019a11b/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="linked_in"
+                >
+                  Linkedin
+                </a>
               </div>
             </div>
             <Link className="login_btn" to="/login">
@@ -167,6 +175,14 @@ export default function NavigationBar({ status }) {
                   className="repository"
                 >
                   Repository
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/joshua-raphael-bautista-8a019a11b/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="linked_in"
+                >
+                  Linkedin
                 </a>
               </div>
             </div>

@@ -79,6 +79,11 @@ export const editThought = (data, thoughtId) => async (dispatch) => {
     // console.log(editedThought, "THIS IS THE EDITED THOUGHT");
     dispatch(edit(editedThought));
     return ["Created", editedThought];
+  } else {
+    const data = await response.json();
+    if (data.errors) {
+      return { errors: data.errors };
+    }
   }
 };
 

@@ -17,9 +17,9 @@ def description_check(form, field):
 def instructions_check(form, field):
     instruction = field.data
     if len(instruction) > 500:
-        raise ValidationError("Instructions too long, please provide an instruction between 100-500 characters")
+        raise ValidationError("Instructions too long, please provide an instruction between 50-500 characters")
     if len(instruction) < 50:
-        raise ValidationError("Please provide at least 20 characters for instructions.")
+        raise ValidationError("Please provide at least 50 characters for instructions.")
 
 class ThoughtForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), name_check])
