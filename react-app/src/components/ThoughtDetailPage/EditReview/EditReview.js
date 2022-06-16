@@ -80,7 +80,7 @@ export default function EditReview({
   return (
     <div className="add_review_form_container">
       <form onSubmit={handleSubmitEditReview}>
-        <h1>Edit Review:</h1>
+        <h1 className="edit_review_header">Edit Review:</h1>
         {routeErrors.length ? (
           <div>
             <ul>
@@ -152,8 +152,8 @@ export default function EditReview({
             {" "}
             Leave your thoughts on this recipe
             <textarea
-              className="new-review-input"
-              id="review-text"
+              className="review_input_edit"
+              id="review_input_field"
               value={review}
               onChange={(e) => setReview(e.target.value)}
               required

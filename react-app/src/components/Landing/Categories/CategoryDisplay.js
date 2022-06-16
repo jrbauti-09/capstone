@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getThoughts } from "../../../store/thoughts";
 import ThoughtCard from "../../ThoughtsPage/ThoughtCard";
 
-import "./CategoryView.css";
+import "./CategoryDisplay.css";
 
 export default function CategoryDisplay() {
   const { categoryId } = useParams();

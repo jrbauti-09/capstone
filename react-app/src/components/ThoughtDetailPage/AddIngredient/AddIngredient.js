@@ -52,12 +52,12 @@ export default function AddIngredient({ thoughtId, setShowModal }) {
 
   return (
     <div className="ingredient_form_container">
-      <form className="new-ing-form" onSubmit={handleSubmit}>
+      <form className="ingredient_form" onSubmit={handleSubmit}>
         {errors?.length && toggle === false ? (
           <div className="error-container">
             <ul>
               {errors.map((error, ind) => (
-                <li className="li_error" key={ind}>
+                <li className="list_error" key={ind}>
                   {error}
                 </li>
               ))}
@@ -66,7 +66,7 @@ export default function AddIngredient({ thoughtId, setShowModal }) {
         ) : (
           <></>
         )}
-        <div>
+        <div className="ingredient_input_div">
           <label className="ingredient_label">
             {" "}
             Add an ingredient

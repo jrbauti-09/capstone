@@ -27,7 +27,7 @@ import AddThought from "./components/FormComponent/AddThought";
 import EditThought from "./components/FormComponent/EditThought";
 import SearchDisplay from "./components/Landing/SearchDisplay/SearchDisplay";
 import SearchEmpty from "./components/Landing/SearchDisplay/SearchEmpty";
-import CategoryDisplay from "./components/Landing/Categories/CategoryView";
+import CategoryDisplay from "./components/Landing/Categories/CategoryDisplay";
 import MyThoughts from "./components/Landing/MyThoughts/MyThoughts";
 import FooterLogged from "./components/Footer/FooterLogged";
 

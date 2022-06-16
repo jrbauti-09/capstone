@@ -173,6 +173,7 @@
 .ingredients_container_div {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+  margin-bottom: 1em;
 }
 
 .thought_ingredient_name {

@@ -137,8 +137,8 @@ export default function AddReview({ thoughtId, setShowModal }) {
             Leave a review on this thought.
           </label>
           <textarea
-            className="new-review-input"
-            id="review-text"
+            className="review_input"
+            id="review_input_field"
             value={review}
             onChange={(e) => setReview(e.target.value)}
             required

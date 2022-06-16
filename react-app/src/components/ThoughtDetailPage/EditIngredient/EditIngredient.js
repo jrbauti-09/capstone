@@ -7,6 +7,8 @@ import { addIngredient } from "../../../store/ingredient";
 import { getThoughts } from "../../../store/thoughts";
 import { editIngredient } from "../../../store/ingredient";
 
+import "./EditIngredient.css";
+
 export default function EditIngForm({
   thoughtId,
   ingredientId,
@@ -59,12 +61,12 @@ export default function EditIngForm({
 
   return (
     <div className="ingredient_form_container">
-      <form className="new-ing-form" onSubmit={handleSubmit}>
+      <form className="ingredient_form" onSubmit={handleSubmit}>
         {errors?.length ? (
           <div className="error_div">
             <ul>
               {errors?.map((error, ind) => (
-                <li className="li_error" key={ind}>
+                <li className="list_error" key={ind}>
                   {error}
                 </li>
               ))}
@@ -73,21 +75,18 @@ export default function EditIngForm({
         ) : (
           <></>
         )}
-        <div>
-          <label className="ingredient_label">
-            {" "}
-            Edit your ingredient:
-            <input
-              className=""
-              value={ingredientName}
-              onChange={(e) => setIngredientName(e.target.value)}
-              required
-              autoComplete="off"
-              placeholder="Ingredient"
-            />
-          </label>
+        <label className="ingredient_label"> Edit your ingredient:</label>
+        <div className="ingredient_input_div">
+          <input
+            className=""
+            value={ingredientName}
+            onChange={(e) => setIngredientName(e.target.value)}
+            required
+            autoComplete="off"
+            placeholder="Ingredient"
+          />
         </div>
-        <div className="">
+        <div className="edit_btn_container">
           <>
             <button className="add_ingredient_button" type="submit">
               Confirm Edit

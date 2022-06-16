@@ -128,7 +128,7 @@ export default function NavigationBar({ status }) {
             <div className="drop">
               <Link to="/thoughts/add">
                 <button className="about-drop">
-                  Share a thought!<i className="fa fa-caret-down"></i>
+                  Share a thought!<i className=""></i>
                 </button>
               </Link>
             </div>

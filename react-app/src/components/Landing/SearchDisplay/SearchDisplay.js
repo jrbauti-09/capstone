@@ -15,8 +15,18 @@ export default function SearchDisplay() {
   }, [dispatch]);
 
   let search = searchId;
+
   // if the search includes spaces then we split by spaces to its individual elements.
-  if (search.includes(" ")) {
+
+  // if (!search.includes(" ")) {
+  //   search = [search];
+  //   // console.log(search);
+  // } else {
+  //   search = search.split(" ");
+  //   // console.log(search);
+  // }
+
+  if (search.split(" ")) {
     search = search.split(" ");
   } else {
     search = [search];
@@ -24,27 +34,15 @@ export default function SearchDisplay() {
 
   const queryResult = thoughts?.filter((thought) => {
     for (let i = 0; i < search.length; i++) {
-      let word = search[i];
-
-      if (thought?.name?.toLowerCase().includes(word.toLowerCase())) {
-        return thought;
-      } else if (
-        thought?.name
-          ?.toLowerCase()
-          .includes(word.substring(0, 3).toLowerCase())
-      ) {
-        return thought;
-      } else if (
-        thought?.name
-          ?.toLowerCase()
-          .includes(word.substring(word.length - 3).toLowerCase())
-      ) {
+      let word = search[i].toLowerCase();
+      let name = thought?.name.toLowerCase();
+      if (name.includes(word)) {
         return thought;
       }
     }
   });
 
-  // console.log(queryResult);
+  // We pass the filtered Array into our ThoughtCard component.
 
   return (
     <div className="search-container">

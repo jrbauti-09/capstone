@@ -1,0 +1,22 @@
+.edit_btn_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredient_input_div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  width: 20em;
+  /* margin-left: -1em; */
+  /* border-radius: 5px; */
+}
+
+.ingredient_input_div input {
+  /* border-radius: 2px; */
+  padding: 5px;
+  margin-left: 0px;
+  display: block;
+  height: 25px;
+  width: 95%;
+}
