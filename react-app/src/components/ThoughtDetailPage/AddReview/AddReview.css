@@ -14,15 +14,22 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
+.add_review_header {
+  margin-left: 0.8em;
+}
+
 .new-review-input {
   display: block;
   margin-top: 10px;
   max-width: 750px;
   padding: 5px;
-  width: 100%;
+  /* width: 100%; */
+  width: 38em;
   height: 35px;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  /* padding-left: 2em; */
+  margin-left: 1.5em;
 }
 .new-review-input:focus {
   outline: 1px solid rgba(0, 0, 0, 0.2);
@@ -65,6 +72,7 @@
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
+  margin-left: 1.5em;
 }
 
 .add-review-button:hover {
@@ -90,80 +98,33 @@
   height: 30px;
   font-family: Arial;
   font-size: 22px;
-  color: #e05d26;
+  color: #f3e51a;
   cursor: pointer;
 }
 
 .rating .star-label::before {
   content: "\2606";
-  line-height: 26px;
 }
 
 .rating input:checked ~ .star-label:before {
   content: "\2605";
 }
 
-.cancel-review-button {
-  display: inline;
-  color: #de791b;
-  background-color: white;
-  border: transparent;
-  transition: color 0.15s ease-in-out;
-  font-family: Arial, Helvetica, sans-serif;
-  box-sizing: border-box;
-  padding: 0 10px;
-  font-size: 12px;
-  font-weight: 600;
-  height: 40px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-left: 6px;
-  cursor: pointer;
-}
-
 .cancel-review-button:hover {
   text-decoration: underline;
 }
 
-.buttons-container {
+.btn_div_container {
   display: flex;
   flex-direction: row;
   margin-top: 20px;
   margin-bottom: 1em;
 }
 
-.new-review-header {
-  display: inline;
-  height: 50px;
-  width: 100px;
-}
-
-#review-pic {
-  position: relative;
-  top: 25px;
-  left: 10px;
-}
-
-.review-toggle {
-  background-color: rgba(0, 47, 255, 0.1) !important;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
 .review-toggle:hover {
   color: #a66252;
 }
 
-.cancel-review {
-  margin-left: 10px;
+.error_div {
+  color: red;
 }

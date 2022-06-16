@@ -11,6 +11,7 @@ export default function EditIngForm({
   thoughtId,
   ingredientId,
   setIngredientIndex,
+  setShowModal,
 }) {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -45,6 +46,7 @@ export default function EditIngForm({
       await dispatch(getThoughts());
       setIngredientIndex(-1);
       //   console.log(toggle, "LOOOK HERE IN THE CONSOLE!!");
+      setShowModal(false);
       setIngredientName("");
       setErrors([]);
     }
@@ -52,13 +54,14 @@ export default function EditIngForm({
 
   const handleCancel = () => {
     setIngredientIndex(-1);
+    setIngredientName(ingredientToEdit?.name);
   };
 
   return (
-    <div className="new-ing-form-container">
+    <div className="ingredient_form_container">
       <form className="new-ing-form" onSubmit={handleSubmit}>
         {errors?.length ? (
-          <div className="error-container">
+          <div className="error_div">
             <ul>
               {errors?.map((error, ind) => (
                 <li className="li_error" key={ind}>
@@ -71,11 +74,11 @@ export default function EditIngForm({
           <></>
         )}
         <div>
-          <label className="new-review-label">
+          <label className="ingredient_label">
             {" "}
             Edit your ingredient:
             <input
-              className="new-ing-input"
+              className=""
               value={ingredientName}
               onChange={(e) => setIngredientName(e.target.value)}
               required
@@ -84,18 +87,18 @@ export default function EditIngForm({
             />
           </label>
         </div>
-        <div className="ing-buttons-container">
+        <div className="">
           <>
-            <button className="add-ing-button" type="submit">
+            <button className="add_ingredient_button" type="submit">
               Confirm Edit
             </button>
           </>
           <button
-            className="add-ing-button cancel-review"
+            className="add_ingredient_button"
             onClick={handleCancel}
             type="button"
           >
-            Cancel
+            Reset
           </button>
         </div>
       </form>

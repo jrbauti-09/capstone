@@ -155,10 +155,8 @@ export default function EditThought() {
                 <option value="Breakfast">Breakfast</option>
                 <option value="Lunch">Lunch</option>
                 <option value="Dinner">Dinner</option>
-                <option value="Soup">Soup</option>
                 <option value="Dessert">Dessert</option>
                 <option value="Beverages">Beverages</option>
-                <option value="Salad">Salad</option>
               </select>
             </div>
             <div></div>

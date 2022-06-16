@@ -156,7 +156,7 @@ body {
   letter-spacing: 3px;
   background: linear-gradient(
     90deg,
-    #e05d26 var(--percent),
+    #f3f708 var(--percent),
     #b7d5dd var(--percent)
   );
   background-clip: text;

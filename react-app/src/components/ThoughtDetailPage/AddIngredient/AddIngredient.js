@@ -8,7 +8,7 @@ import { getThoughts } from "../../../store/thoughts";
 
 import "./AddIngredient.css";
 
-export default function AddIngredient({ thoughtId }) {
+export default function AddIngredient({ thoughtId, setShowModal }) {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -37,7 +37,8 @@ export default function AddIngredient({ thoughtId }) {
     } else {
       await dispatch(getThoughts());
       setToggle(!toggle);
-      console.log(toggle, "LOOOK HERE IN THE CONSOLE!!");
+      setShowModal(false);
+      // console.log(toggle, "LOOOK HERE IN THE CONSOLE!!");
       setIngredientName("");
       setErrors([]);
     }
@@ -50,7 +51,7 @@ export default function AddIngredient({ thoughtId }) {
   };
 
   return (
-    <div className="new-ing-form-container">
+    <div className="ingredient_form_container">
       <form className="new-ing-form" onSubmit={handleSubmit}>
         {errors?.length && toggle === false ? (
           <div className="error-container">
@@ -66,49 +67,23 @@ export default function AddIngredient({ thoughtId }) {
           <></>
         )}
         <div>
-          {toggle === true ? (
-            <button
-              className="new-review-label ing-toggle"
-              onClick={() => setToggle(!toggle)}
-            >
-              Add an ingredient?
-            </button>
-          ) : (
-            <label className="new-review-label">
-              {" "}
-              Add an ingredient
-              <input
-                className="new-ing-input"
-                value={ingredientName}
-                onChange={(e) => setIngredientName(e.target.value)}
-                required
-                autoComplete="off"
-                placeholder="Ingredient"
-              />
-            </label>
-          )}
+          <label className="ingredient_label">
+            {" "}
+            Add an ingredient
+            <input
+              className="add_ingredient_input"
+              value={ingredientName}
+              onChange={(e) => setIngredientName(e.target.value)}
+              required
+              autoComplete="off"
+              placeholder="Ingredient"
+            />
+          </label>
         </div>
-        <div className="ing-buttons-container">
-          {toggle === false ? (
-            <>
-              <button className="add-ing-button" type="submit">
-                Add Ingredient
-              </button>
-            </>
-          ) : (
-            <></>
-          )}
-          {toggle === false ? (
-            <button
-              className="add-ing-button cancel-review"
-              onClick={() => handleCancel()}
-              type="button"
-            >
-              Cancel
-            </button>
-          ) : (
-            <></>
-          )}
+        <div className="">
+          <button className="add_ingredient_button" type="submit">
+            Add Ingredient
+          </button>
         </div>
       </form>
     </div>

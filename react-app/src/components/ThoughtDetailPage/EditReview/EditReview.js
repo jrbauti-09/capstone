@@ -10,7 +10,12 @@ import "./EditReview.css";
 
 // Gonna be similar to AddReview except fields are already filled with previous info.
 
-export default function EditReview({ reviewId, thought_id, setReviewIndex }) {
+export default function EditReview({
+  reviewId,
+  thoughtId,
+  setReviewIndex,
+  setShowModal,
+}) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -31,6 +36,7 @@ export default function EditReview({ reviewId, thought_id, setReviewIndex }) {
 
   const [review, setReview] = useState(reviewToEdit?.review);
   const [rating, setRating] = useState(reviewToEdit?.rating);
+  const [proxyState, setProxyState] = useState([]);
   // console.log(review, rating);
 
   const handleSubmitEditReview = async (e) => {
@@ -38,22 +44,38 @@ export default function EditReview({ reviewId, thought_id, setReviewIndex }) {
 
     const data = {
       rating: parseInt(rating),
-      thought_id,
+      thought_id: thoughtId,
       user_id,
       review,
     };
 
+    // console.log(reviewToEdit.id);
+
     // Will send a dispatch to edit the review upon successful post.
     const editReivew = await dispatch(editReview(data, reviewToEdit.id));
 
-    if (editReview?.errors) {
+    if (editReivew?.errors) {
       setRouteErrors(editReivew.errors);
+      setProxyState([]);
+      // console.log(editReivew.errors, "LOOOOK HERE FOR THE ERRORS");
     } else {
+      // console.log(editReivew.errors);
       await dispatch(getThoughts());
       setReviewIndex(-1);
-      history.push(`/thoughts/${thought_id}`);
+      setShowModal(false);
+      // history.push(`/thoughts/${thought_id}`);
     }
   };
+
+  useEffect(() => {
+    const errors = [];
+
+    if (review.length > 1000)
+      errors.push("Review length cannot exceed 1000 characters.");
+    if (rating === 0) errors.push("Please provide a rating between 1-5.");
+
+    setRouteErrors(errors);
+  }, [review, rating]);
 
   return (
     <div className="add_review_form_container">
@@ -70,7 +92,7 @@ export default function EditReview({ reviewId, thought_id, setReviewIndex }) {
         ) : (
           <></>
         )}
-        <label className="new-review-label" htmlFor="rating">
+        <label className="ingredient_label" htmlFor="rating">
           {" "}
           Rating
           <div
@@ -126,7 +148,7 @@ export default function EditReview({ reviewId, thought_id, setReviewIndex }) {
           </div>
         </label>
         <div>
-          <label className="new-review-label">
+          <label className="ingredient_label">
             {" "}
             Leave your thoughts on this recipe
             <textarea
@@ -140,7 +162,7 @@ export default function EditReview({ reviewId, thought_id, setReviewIndex }) {
             />
           </label>
         </div>
-        <div className="buttons-container">
+        <div className="btn_div_container">
           <button className="add-review-button" type="submit">
             Edit Review
           </button>

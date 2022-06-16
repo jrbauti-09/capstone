@@ -20,6 +20,10 @@ import AddReview from "./AddReview/AddReview";
 import EditReview from "./EditReview/EditReview";
 import AddIngredient from "./AddIngredient/AddIngredient";
 import EditIngForm from "./EditIngredient/EditIngredient";
+import AddReviewModal from "./AddReview/AddReviewModal";
+import EditReviewModal from "./EditReview/EditReviewModal";
+import AddIngredientModal from "./AddIngredient/AddIngredientModal";
+import EditIngredientModal from "./EditIngredient/EditIngredientModal";
 
 import "./ThoughtDetail.css";
 import { deleteIngredient } from "../../store/ingredient";
@@ -113,7 +117,7 @@ export default function ThoughtDetail() {
       <div className="category_div">
         <div className="category_header_div">
           <div className="category_name">
-            <h4>Category:</h4>
+            <h4 className="category_header">Category:</h4>
             <Link
               to={`/categories/${thought?.category}`}
               className="category_link"
@@ -151,9 +155,9 @@ export default function ThoughtDetail() {
       </div>
       <div className="bottom_section">
         <div className="ingredients_container_div">
-          <div className="ingredients-container ing-controls">
-            <div className="ing-name ing-name-head">
-              <h2 className="single-h2 ing-h2">
+          <div className="">
+            <div className="">
+              <h2 className="ingredients_header">
                 <span>{thought?.ingredients.length}</span> Ingredients:{" "}
               </h2>
             </div>
@@ -163,15 +167,17 @@ export default function ThoughtDetail() {
               return (
                 <>
                   <div className="thought_ingredient" key={ingredient?.id}>
-                    <div>{ingredient.name}</div>
+                    <div className="thought_ingredient_name">
+                      {ingredient.name}
+                    </div>
                     <div className="thought_ingredient_buttons">
                       {user == thought?.user_id ? (
-                        <div
-                          className="ingredient_button"
-                          onClick={() => setIngredientIndex(idx)}
-                        >
-                          <FontAwesomeIcon icon={faPencil} className="fa-ing" />
-                        </div>
+                        <EditIngredientModal
+                          thoughtId={thought?.id}
+                          ingredientId={ingredient?.id}
+                          setIngredientIndex={setIngredientIndex}
+                          idx={idx}
+                        />
                       ) : (
                         <></>
                       )}
@@ -187,7 +193,7 @@ export default function ThoughtDetail() {
                       )}
                     </div>
                   </div>
-                  {ingredientIndex === idx ? (
+                  {/* {ingredientIndex === idx ? (
                     <EditIngForm
                       thoughtId={thought?.id}
                       ingredientId={ingredient.id}
@@ -195,13 +201,15 @@ export default function ThoughtDetail() {
                     />
                   ) : (
                     <></>
-                  )}
+                  )} */}
                 </>
               );
             })}
             <div>
               {user == thought?.user_id ? (
-                <AddIngredient thoughtId={thought?.id} />
+                <>
+                  <AddIngredientModal thoughtId={thought?.id} />
+                </>
               ) : (
                 <></>
               )}
@@ -215,8 +223,8 @@ export default function ThoughtDetail() {
             </h2>
             <p className="thought_instructions_p">{thought?.instructions}</p>
           </div>
+          <h2 className="review_header">Reviews:</h2>
           <div className="review_container">
-            <h2 className="review_header">Reviews:</h2>
             {thoughtOrdered?.map((review, idx) => {
               return (
                 <div className="single-review" key={idx}>
@@ -227,15 +235,12 @@ export default function ThoughtDetail() {
                     </p>
                     <div className="review_options">
                       {user == review?.user_id ? (
-                        <div
-                          onClick={() => setReviewIndex(idx)}
-                          className="div_btn"
-                        >
-                          <FontAwesomeIcon
-                            icon={faPencil}
-                            className="review-btn"
-                          />
-                        </div>
+                        <EditReviewModal
+                          thought_id={thought?.id}
+                          reviewId={review?.id}
+                          setReviewIndex={setReviewIndex}
+                          idx={idx}
+                        />
                       ) : (
                         <></>
                       )}
@@ -278,7 +283,7 @@ export default function ThoughtDetail() {
                   </span>
                   <p>{review?.review}</p>
                   <div>
-                    {reviewIndex === idx ? (
+                    {/* {reviewIndex === idx ? (
                       <EditReview
                         reviewId={review.id}
                         thought_id={thought?.id}
@@ -286,14 +291,14 @@ export default function ThoughtDetail() {
                       />
                     ) : (
                       <></>
-                    )}
+                    )} */}
                   </div>
                 </div>
               );
             })}
-            <div>
-              <AddReview thoughtId={thought?.id} />
-            </div>
+          </div>
+          <div>
+            <AddReviewModal thoughtId={thought?.id} />
           </div>
         </div>
       </div>

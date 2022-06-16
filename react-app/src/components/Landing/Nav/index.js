@@ -150,8 +150,6 @@ export default function NavigationBar({ status }) {
                 <Link to="/categories/Lunch">Lunch</Link>
                 <Link to="/categories/Beverages">Beverages</Link>
                 <Link to="/categories/Dessert">Dessert</Link>
-                <Link to="/categories/Soup">Soup</Link>
-                <Link to="/categories/Salad">Salad</Link>
               </div>
             </div>
             <div className="drop">

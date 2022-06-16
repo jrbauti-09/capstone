@@ -10,6 +10,12 @@
   align-items: center;
 }
 
+.review_container {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  margin: 0 0 0 50px;
+}
+
 .review-by {
   font-weight: bold;
 }
@@ -115,6 +121,8 @@
   align-items: center;
   margin-left: 1.2em;
   font-weight: 500;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 17px;
 }
 
 .category_name {
@@ -142,9 +150,24 @@
   width: 53.68em;
   margin-top: 0.5em;
   border-bottom: 3px solid rgba(0, 0, 0, 0.6);
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  /* display: grid;
+  grid-template-columns: 1fr 2fr; */
   margin-bottom: 5em;
+}
+
+.category_header {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+}
+
+.instructions_header {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+}
+
+.review_header {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
 }
 
 .ingredients_container_div {
@@ -152,11 +175,20 @@
   font-size: 15px;
 }
 
+.thought_ingredient_name {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
+}
+
 .thought_ingredient {
   display: flex;
   justify-content: space-between;
   margin-top: 0.2em;
   margin-bottom: 0.2em;
+}
+
+.ingredients_header {
+  font-family: "Times New Roman", Times, serif;
 }
 
 .thought_ingredient_buttons {
@@ -169,6 +201,7 @@
 
 .thought_instructions_container {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 5px;
   margin-bottom: 21px;
   font-family: Arial, Helvetica, sans-serif;
