@@ -60,9 +60,8 @@ export const addReview = (data) => async (dispatch) => {
     dispatch(add(review));
   } else {
     const data = await response.json();
-    if (data.errors) {
-      return { errors: data.errors };
-    }
+    // check if there are errors.
+    return { errors: data.errors };
   }
 };
 
