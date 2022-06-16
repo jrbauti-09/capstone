@@ -109,15 +109,15 @@ html {
   height: 200px;
   border-radius: 1rem 1rem 0 0;
 }
-.card .bottom {
+.card .bottom_ {
   display: flex;
   flex-direction: column;
 }
-.card .bottom .title {
+.card .bottom_ .title {
   font-size: 14px;
   margin-bottom: 32px;
 }
-.card .bottom .amount {
+.card .bottom_ .amount {
   position: absolute;
   bottom: 10px;
   left: 10px;

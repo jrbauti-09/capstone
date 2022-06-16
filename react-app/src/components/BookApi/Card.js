@@ -23,7 +23,7 @@ const Card = ({ book }) => {
                 }}
               >
                 <img src={thumbnail} alt="" />
-                <div className="bottom">
+                <div className="bottom_">
                   <h3 className="title">{item.volumeInfo.title}</h3>
                   <p className="amount">${amount}</p>
                 </div>
