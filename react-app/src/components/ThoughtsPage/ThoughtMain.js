@@ -4,7 +4,6 @@ import FeaturedThought from "./FeaturedThought";
 import ThoughtShow from "./ThoughtShow";
 import { getThoughts } from "../../store/thoughts";
 import { useSelector } from "react-redux";
-import Carousel from "react-elastic-carousel";
 import "./ThoughtMain.css";
 
 import ThoughtCard from "./ThoughtCard";
