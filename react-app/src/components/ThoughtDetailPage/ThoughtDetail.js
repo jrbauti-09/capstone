@@ -36,10 +36,6 @@ export default function ThoughtDetail() {
   const dispatch = useDispatch();
   const { thoughtId } = useParams();
 
-  const [showEdit, setShowEdit] = useState(false);
-  const [ingredientIndex, setIngredientIndex] = useState(-1);
-  const [reviewIndex, setReviewIndex] = useState(-1);
-
   // This will grab our needed thought recipe
   const thought = useSelector((state) => state.allThoughts[thoughtId]);
   //   console.log(thought, "working");
@@ -227,8 +223,6 @@ export default function ThoughtDetail() {
                         <EditReviewModal
                           thought_id={thought?.id}
                           reviewId={review?.id}
-                          setReviewIndex={setReviewIndex}
-                          idx={idx}
                         />
                       ) : (
                         <></>
