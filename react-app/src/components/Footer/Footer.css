@@ -1,6 +1,9 @@
 .footer {
   position: fixed;
   height: 56px;
+  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+  font-size: 11px;
+  z-index: 50;
   bottom: 0;
   margin-top: -10px;
   width: 100%;
@@ -10,19 +13,16 @@
   align-items: center;
   justify-content: flex-start;
   text-decoration: none;
-  font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
-  font-size: 11px;
-  z-index: 100;
 }
 
-.footer-content {
+.footer_container {
   width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
   color: white;
 }
 
@@ -43,13 +43,13 @@
   z-index: 100;
 }
 
-.footer-content_ {
+.footer_container_ {
   width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto;
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
   color: black;
 }
