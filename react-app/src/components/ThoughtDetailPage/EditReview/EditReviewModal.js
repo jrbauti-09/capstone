@@ -4,17 +4,12 @@ import EditReview from "./EditReview";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
-export default function EditReviewModal({
-  thought_id,
-  reviewId,
-  setReviewIndex,
-  idx,
-}) {
+export default function EditReviewModal({ thought_id, reviewId }) {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
     setShowModal(true);
-    setReviewIndex(idx);
+
     // console.log(thought_id);
   };
 
@@ -31,7 +26,6 @@ export default function EditReviewModal({
           <EditReview
             thoughtId={thought_id}
             reviewId={reviewId}
-            setReviewIndex={setReviewIndex}
             setShowModal={setShowModal}
           />
         </Modal>

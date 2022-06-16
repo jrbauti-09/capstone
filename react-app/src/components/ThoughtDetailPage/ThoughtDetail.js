@@ -175,8 +175,6 @@ export default function ThoughtDetail() {
                         <EditIngredientModal
                           thoughtId={thought?.id}
                           ingredientId={ingredient?.id}
-                          setIngredientIndex={setIngredientIndex}
-                          idx={idx}
                         />
                       ) : (
                         <></>
@@ -193,15 +191,6 @@ export default function ThoughtDetail() {
                       )}
                     </div>
                   </div>
-                  {/* {ingredientIndex === idx ? (
-                    <EditIngForm
-                      thoughtId={thought?.id}
-                      ingredientId={ingredient.id}
-                      setIngredientIndex={setIngredientIndex}
-                    />
-                  ) : (
-                    <></>
-                  )} */}
                 </>
               );
             })}
@@ -257,19 +246,6 @@ export default function ThoughtDetail() {
                       ) : (
                         <></>
                       )}
-                      {reviewIndex === idx && user == review?.user_id ? (
-                        <div
-                          onClick={() => setReviewIndex(-1)}
-                          className="div_btn"
-                        >
-                          <FontAwesomeIcon
-                            icon={faXmark}
-                            className="review-btn"
-                          />
-                        </div>
-                      ) : (
-                        <></>
-                      )}
                     </div>
                   </div>
                   <div>
@@ -282,17 +258,7 @@ export default function ThoughtDetail() {
                     {review?.time_created.slice(0, 16)}
                   </span>
                   <p>{review?.review}</p>
-                  <div>
-                    {/* {reviewIndex === idx ? (
-                      <EditReview
-                        reviewId={review.id}
-                        thought_id={thought?.id}
-                        setReviewIndex={setReviewIndex}
-                      />
-                    ) : (
-                      <></>
-                    )} */}
-                  </div>
+                  <div></div>
                 </div>
               );
             })}

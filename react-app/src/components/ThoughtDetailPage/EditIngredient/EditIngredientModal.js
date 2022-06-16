@@ -7,15 +7,13 @@ import { faPencil } from "@fortawesome/free-solid-svg-icons";
 export default function EditIngredientModal({
   thoughtId,
   ingredientId,
-  setIngredientIndex,
-  idx,
+  // setIngredientIndex,
+  // idx,
 }) {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
     setShowModal(true);
-    setIngredientIndex(idx);
-    // console.log(thought_id);
   };
 
   return (
@@ -32,7 +30,6 @@ export default function EditIngredientModal({
           <EditIngForm
             thoughtId={thoughtId}
             ingredientId={ingredientId}
-            setIngredientIndex={setIngredientIndex}
             setShowModal={setShowModal}
           />
         </Modal>

@@ -9,12 +9,7 @@ import { editIngredient } from "../../../store/ingredient";
 
 import "./EditIngredient.css";
 
-export default function EditIngForm({
-  thoughtId,
-  ingredientId,
-  setIngredientIndex,
-  setShowModal,
-}) {
+export default function EditIngForm({ thoughtId, ingredientId, setShowModal }) {
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -46,8 +41,6 @@ export default function EditIngForm({
       return;
     } else {
       await dispatch(getThoughts());
-      setIngredientIndex(-1);
-      //   console.log(toggle, "LOOOK HERE IN THE CONSOLE!!");
       setShowModal(false);
       setIngredientName("");
       setErrors([]);
@@ -55,7 +48,6 @@ export default function EditIngForm({
   };
 
   const handleCancel = () => {
-    setIngredientIndex(-1);
     setIngredientName(ingredientToEdit?.name);
   };
 

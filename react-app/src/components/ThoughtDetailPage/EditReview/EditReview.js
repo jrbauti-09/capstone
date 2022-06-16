@@ -10,12 +10,7 @@ import "./EditReview.css";
 
 // Gonna be similar to AddReview except fields are already filled with previous info.
 
-export default function EditReview({
-  reviewId,
-  thoughtId,
-  setReviewIndex,
-  setShowModal,
-}) {
+export default function EditReview({ reviewId, thoughtId, setShowModal }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -61,7 +56,6 @@ export default function EditReview({
     } else {
       // console.log(editReivew.errors);
       await dispatch(getThoughts());
-      setReviewIndex(-1);
       setShowModal(false);
       // history.push(`/thoughts/${thought_id}`);
     }
