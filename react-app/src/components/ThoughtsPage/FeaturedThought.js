@@ -19,20 +19,11 @@ export default function FeaturedThought() {
   const totalLengthIndex = allThoughts.length - 1;
   // randomly select an index to show random recipes
   let featuredThought =
-    allThoughts[Math.floor(Math.random() * totalLengthIndex)];
+    allThoughts[Math.ceil(Math.random() * totalLengthIndex)];
 
   // setInterval(async function () {
   //   await dispatch(getThoughts());
   // }, 2000);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     featuredThought =
-  //       allThoughts[Math.floor(Math.random() * totalLengthIndex)];
-  //   }, 5000);
-
-  //   return () => clearInterval(interval);
-  // }, [featuredThought]);
 
   useEffect(() => {
     const myInterval = setInterval(() => {
