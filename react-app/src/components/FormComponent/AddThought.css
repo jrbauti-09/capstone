@@ -210,12 +210,12 @@
   display: flex;
 }
 
-.new-recipe-select {
+.category_select {
   width: 25.7em;
+  /* width: 25em; */
   padding: 0.25em;
   margin-top: 0.25em;
   margin-bottom: 2em;
-  width: 25em;
   border-radius: 4px;
   border: 1px solid black;
   height: 2em;

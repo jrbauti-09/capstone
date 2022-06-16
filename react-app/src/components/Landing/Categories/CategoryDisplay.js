@@ -7,11 +7,11 @@ import ThoughtCard from "../../ThoughtsPage/ThoughtCard";
 import "./CategoryDisplay.css";
 
 export default function CategoryDisplay() {
-  const { categoryId } = useParams();
   const dispatch = useDispatch();
+  const { categoryId } = useParams();
 
   // we will filter results based on categoryId from search url.
-
+  // Return an array where category matches of the params.
   const filteredResult = useSelector((state) =>
     Object.values(state?.allThoughts).filter((thought) => {
       return thought?.category == categoryId;
@@ -22,13 +22,14 @@ export default function CategoryDisplay() {
     dispatch(getThoughts());
   }, [dispatch]);
 
+  // Map through filtered array and pass as a prop into ThoughtCard component
   return (
-    <div className="search-container">
+    <div className="main_div_category_container">
       <h1>
         Category: <span>{categoryId}</span>
       </h1>
       {filteredResult.length ? (
-        <div className="thought-show-container">
+        <div className="thought_show_container">
           {filteredResult?.map((thought) => {
             return (
               <>

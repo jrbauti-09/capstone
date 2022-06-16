@@ -11,12 +11,13 @@ export default function SearchEmpty() {
   useEffect(() => {
     dispatch(getThoughts());
   }, [dispatch]);
+  // This is the case if the user submits an empty string.
   return (
-    <div className="search-container">
+    <div className="main_div_category_container">
       <h1 style={{ marginLeft: "0.2em" }}>
         Search result for: <span>{""}</span>
       </h1>
-      <div className="thought-show-container">
+      <div className="thought_show_container">
         {thoughts?.map((thought) => {
           return (
             <>

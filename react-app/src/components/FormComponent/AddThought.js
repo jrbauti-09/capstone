@@ -237,7 +237,7 @@ export default function AddThought() {
             <div className="input_div">
               <label>Select category:*</label>
               <select
-                className="new-recipe-select"
+                className="category_select"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >

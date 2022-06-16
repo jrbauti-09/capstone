@@ -34,7 +34,7 @@ export default function ThoughtCard({ thought }) {
               {thought?.reviews.length} reviews
             </span>
             <span
-              className="stars"
+              className="stars_rating"
               style={{ "--ratingValue": `${ratingValue}` }}
             ></span>
             <div>

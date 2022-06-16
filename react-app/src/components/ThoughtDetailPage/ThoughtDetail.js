@@ -144,7 +144,7 @@ export default function ThoughtDetail() {
             {thought?.reviewRating.length} total reviews
           </span>
           <span
-            className="stars"
+            className="stars_rating"
             style={{ "--ratingValue": `${ratingValue}` }}
           ></span>
         </div>
@@ -244,7 +244,7 @@ export default function ThoughtDetail() {
                   </div>
                   <div>
                     <span
-                      className="stars"
+                      className="stars_rating"
                       style={{ "--ratingValue": `${review?.rating}` }}
                     ></span>
                   </div>

@@ -5,11 +5,11 @@ import { signUp } from "../../store/session";
 import { useHistory } from "react-router-dom";
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();

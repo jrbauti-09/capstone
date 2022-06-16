@@ -69,7 +69,7 @@
   animation: textColor 15s infinite;
 }
 
-.right-info-container {
+.center_info_container {
   margin-top: 10em;
 }
 
@@ -108,7 +108,7 @@
 }
 
 /* Will divide our divs to left and right*/
-.landing_view_content {
+.landing_view_inner_container {
   /* display: grid; */
   display: flex;
   /* grid-template-columns: 3fr 2fr; */
@@ -119,7 +119,7 @@
 
 /* */
 
-.side_right {
+.center {
   /* background-color: #f2f3efbe; */
   font-family: "Times New Roman", Times, serif;
   text-align: center;
@@ -129,7 +129,7 @@
   width: 40em;
 }
 
-.side_right_inner_content {
+.center_inner_content {
   margin-top: 15%;
   padding: 1.59em;
   font-family: "Times New Roman", Times, serif;

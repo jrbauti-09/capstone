@@ -44,7 +44,7 @@
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   /* padding-left: 2em; */
-  /* margin-left: 1.5em; */
+  margin-left: 1.5em;
   /* margin-right: 2em; */
 }
 
@@ -72,7 +72,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.add-review-button {
+.review_add_btn {
   color: rgba(255, 255, 255, 1);
   background-color: #3873b7;
   border: 2px solid #3873b7;
@@ -89,57 +89,59 @@
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
-  margin-left: 1.5em;
+  /* margin-left: 1.5em; */
 }
 
-.add-review-button:hover {
+.review_add_btn:hover {
   background-color: #a66252;
   border: 2px solid #a66252;
 }
 
-.rating {
+.rating_main_div {
   display: inline-flex;
-  align-items: center;
-  width: 130px;
-  flex-direction: row-reverse;
+  width: 125px;
   justify-content: space-between;
-  margin: 0px 0px 0px 7px;
+  flex-direction: row-reverse;
+  margin: 0px 0px 0px 6px;
+  align-items: center;
 }
 
-.rating input {
+.rating_main_div input {
   display: none;
 }
 
-.rating > .star-label {
-  width: 10px;
-  height: 30px;
-  font-family: Arial;
-  font-size: 22px;
+.rating_main_div > .star-pseudo {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+  width: 8px;
+  height: 28px;
   color: #f3e51a;
   cursor: pointer;
 }
 
-.rating .star-label::before {
+.rating_main_div .star-pseudo::before {
   content: "\2606";
 }
 
-.rating input:checked ~ .star-label:before {
+.rating_main_div input:checked ~ .star-pseudo:before {
   content: "\2605";
 }
 
-.cancel-review-button:hover {
-  text-decoration: underline;
+.btn_div_container_add {
+  display: flex;
+  /* justify-content: space-around; */
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 1em;
+  margin-left: 1em;
 }
 
 .btn_div_container {
   display: flex;
+  justify-content: space-around;
   flex-direction: row;
   margin-top: 20px;
   margin-bottom: 1em;
-}
-
-.review-toggle:hover {
-  color: #a66252;
 }
 
 .error_div {

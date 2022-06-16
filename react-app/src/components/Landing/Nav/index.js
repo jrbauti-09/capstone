@@ -26,6 +26,7 @@ export default function NavigationBar({ status }) {
     e.preventDefault();
     // set the search value to blank string since user is not logged in.
     setSearchValue("");
+    window.alert("Please login to use the search feature.");
     history.push("/login");
   };
 
@@ -46,13 +47,15 @@ export default function NavigationBar({ status }) {
         <div className="landing">
           <div className="logo-here">
             <Link to="/" className="image_logo">
-              {/* <img src={logo} alt="logo" className="image_logo"></img> */}
-              {/* <h3 className="header_food_for_thought">Food For Thought.</h3> */}
               Food For Thought.
             </Link>
           </div>
           <div className="search-bar-container">
-            <form className="search-bar-form" onSubmit={submitProxySearch}>
+            <div className="padding_logo">
+              <div className="inner_padding_logo"></div>
+            </div>
+            <div></div>
+            <form className="search_bar" onSubmit={submitProxySearch}>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
                 className="search-icon-mag"
@@ -61,16 +64,16 @@ export default function NavigationBar({ status }) {
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search for thoughts to make food.."
-                className="search-bar-input"
+                className="search_bar_input"
               />
             </form>
           </div>
-          <div className="landing-navigation">
-            <div className="drop">
-              <button className="about-drop">
-                ABOUT ME<i className="fa fa-caret-down"></i>
+          <div className="landing_nav_bar">
+            <div className="tab">
+              <button className="tab_down">
+                ABOUT ME<i className="tab_icon"></i>
               </button>
-              <div className="dropdown-container">
+              <div className="bottom_container">
                 <a
                   href="https://github.com/jrbauti-09/capstone"
                   target="_blank"
@@ -104,47 +107,47 @@ export default function NavigationBar({ status }) {
             </Link>
           </div>
           <div className="search-bar-container">
-            <form className="search-bar-form" onSubmit={handleSearch}>
+            <form className="search_bar" onSubmit={handleSearch}>
               <FontAwesomeIcon
                 icon={faMagnifyingGlass}
                 className="search-icon-mag"
               />
               <input
-                value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
+                value={searchValue}
+                className="search_bar_input"
                 placeholder="Search for thoughts to make food.."
-                className="search-bar-input"
               />
             </form>
           </div>
-          <div className="landing-navigation">
-            <div className="drop">
+          <div className="landing_nav_bar">
+            <div className="tab">
               <Link to="/books/">
-                <button className="about-drop">
-                  Search for a recipe<i className="fa fa-caret-down"></i>
+                <button className="tab_down">
+                  Search for a recipe<i className="tab_icon"></i>
                 </button>
               </Link>
             </div>
-            <div className="drop">
+            <div className="tab">
               <Link to="/thoughts/add">
-                <button className="about-drop">
+                <button className="tab_down">
                   Share a thought!<i className=""></i>
                 </button>
               </Link>
             </div>
-            <div className="drop">
+            <div className="tab">
               <Link to="/my-thoughts">
                 {" "}
-                <button className="about-drop">
-                  My thoughts<i className="fa fa-caret-down"></i>
+                <button className="tab_down">
+                  My thoughts<i className="tab_icon"></i>
                 </button>
               </Link>
             </div>
-            <div className="drop">
-              <button className="about-drop cat-button">
-                Categories<i className="fa fa-caret-down"></i>
+            <div className="tab">
+              <button className="tab_down">
+                Categories<i className="tab_icon"></i>
               </button>
-              <div className="dropdown-container">
+              <div className="bottom_container">
                 <Link to="/categories/Breakfast">Breakfast</Link>
                 <Link to="/categories/Dinner">Dinner</Link>
                 <Link to="/categories/Lunch">Lunch</Link>
@@ -152,11 +155,11 @@ export default function NavigationBar({ status }) {
                 <Link to="/categories/Dessert">Dessert</Link>
               </div>
             </div>
-            <div className="drop">
-              <button className="about-drop cat-button">
-                ABOUT ME<i className="fa fa-caret-down"></i>
+            <div className="tab">
+              <button className="tab_down">
+                ABOUT ME<i className="tab_icon"></i>
               </button>
-              <div className="dropdown-container">
+              <div className="bottom_container">
                 <a
                   href="https://github.com/jrbauti-09/capstone"
                   target="_blank"

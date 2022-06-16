@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
-import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
@@ -14,7 +13,7 @@ import "./components/BookApi/style.css";
 //not authenticated
 import NavigationBar from "./components/Landing/Nav/index.js";
 import LandingPage from "./components/Landing/LandingPage";
-import Footer from "./components/Footer/Footer";
+import FooterBottom from "./components/Footer/FooterBottom";
 
 //testing components here..
 import ProxyHome from "./components/proxyHome";
@@ -54,81 +53,155 @@ function App() {
 
   //If user is null then we only show login/signup forms.
 
-  if (!user) {
-    return (
-      <BrowserRouter>
-        <NavigationBar status="user-not-logged"></NavigationBar>
-        <Switch>
-          <Route path="/" exact={true}>
-            <LandingPage status="default" />
-          </Route>
-          <Route path="/login" exact={true}>
-            <LandingPage status="user-login" />
-          </Route>
-          <Route path="/signup" exact={true}>
-            <LandingPage status="userSignUp" />
-          </Route>
-          <Route>
-            <PageNotFound status="not-logged" />
-          </Route>
-        </Switch>
-        <Footer />
-      </BrowserRouter>
-    );
-  }
+  // if (!user) {
+  //   return (
+  //     <BrowserRouter>
+  //       <NavigationBar status="user-not-logged"></NavigationBar>
+  //       <Switch>
+  //         <Route path="/" exact={true}>
+  //           <LandingPage status="default" />
+  //         </Route>
+  //         <Route path="/login" exact={true}>
+  //           <LandingPage status="user-login" />
+  //         </Route>
+  //         <Route path="/signup" exact={true}>
+  //           <LandingPage status="userSignUp" />
+  //         </Route>
+  //         <Route>
+  //           <PageNotFound status="not-logged" />
+  //         </Route>
+  //       </Switch>
+  //       <Footer />
+  //     </BrowserRouter>
+  //   );
+  // }
 
   return (
-    loaded && (
-      <BrowserRouter>
-        <NavigationBar status="user-is-logged"></NavigationBar>
-        <Switch>
-          <Route path="/login" exact={true}>
-            <LoginForm />
-          </Route>
-          <Route path="/sign-up" exact={true}>
-            <SignUpForm />
-          </Route>
-          <ProtectedRoute path="/" exact={true}>
-            <ThoughtMain />
-          </ProtectedRoute>
-          <ProtectedRoute path="/thoughts/add" exact={true}>
-            <AddThought />
-          </ProtectedRoute>
-          <ProtectedRoute path="/thoughts/:thoughtId/edit">
-            <EditThought />
-          </ProtectedRoute>
-          <ProtectedRoute path="/thoughts/:thoughtId" exact={true}>
-            <ThoughtDetail />
-          </ProtectedRoute>
-          <ProtectedRoute path="/search/:searchId" exact={true}>
-            <SearchDisplay />
-          </ProtectedRoute>
-          <ProtectedRoute path="/search/" exact={true}>
-            <SearchEmpty />
-          </ProtectedRoute>
-          <ProtectedRoute path="/categories/:categoryId" exact={true}>
-            <CategoryDisplay />
-          </ProtectedRoute>
-          <ProtectedRoute path="/my-thoughts" exact={true}>
-            <MyThoughts />
-          </ProtectedRoute>
-          <ProtectedRoute path="/books/" exact={true}>
-            <Main />
-          </ProtectedRoute>
-          <ProtectedRoute path="/users" exact={true}>
-            <UsersList />
-          </ProtectedRoute>
-          <ProtectedRoute path="/users/:userId" exact={true}>
-            <User />
-          </ProtectedRoute>
-          <Route>
-            <PageNotFound />
-          </Route>
-        </Switch>
-        <FooterLogged />
-      </BrowserRouter>
-    )
+    <div>
+      {!user ? (
+        <BrowserRouter>
+          <NavigationBar status="user-not-logged"></NavigationBar>
+          <Switch>
+            <Route path="/" exact={true}>
+              <LandingPage status="default" />
+            </Route>
+            <Route path="/login" exact={true}>
+              <LandingPage status="user-login" />
+            </Route>
+            <Route path="/signup" exact={true}>
+              <LandingPage status="userSignUp" />
+            </Route>
+            <Route>
+              <PageNotFound status="not-logged" />
+            </Route>
+          </Switch>
+          <FooterBottom />
+        </BrowserRouter>
+      ) : (
+        <BrowserRouter>
+          <NavigationBar status="user-is-logged"></NavigationBar>
+          <Switch>
+            <Route path="/login" exact={true}>
+              <LoginForm />
+            </Route>
+            <Route path="/sign-up" exact={true}>
+              <SignUpForm />
+            </Route>
+            <ProtectedRoute path="/" exact={true}>
+              <ThoughtMain />
+            </ProtectedRoute>
+            <ProtectedRoute path="/thoughts/add" exact={true}>
+              <AddThought />
+            </ProtectedRoute>
+            <ProtectedRoute path="/thoughts/:thoughtId/edit">
+              <EditThought />
+            </ProtectedRoute>
+            <ProtectedRoute path="/thoughts/:thoughtId" exact={true}>
+              <ThoughtDetail />
+            </ProtectedRoute>
+            <ProtectedRoute path="/search/:searchId" exact={true}>
+              <SearchDisplay />
+            </ProtectedRoute>
+            <ProtectedRoute path="/search/" exact={true}>
+              <SearchEmpty />
+            </ProtectedRoute>
+            <ProtectedRoute path="/categories/:categoryId" exact={true}>
+              <CategoryDisplay />
+            </ProtectedRoute>
+            <ProtectedRoute path="/my-thoughts" exact={true}>
+              <MyThoughts />
+            </ProtectedRoute>
+            <ProtectedRoute path="/books/" exact={true}>
+              <Main />
+            </ProtectedRoute>
+            <ProtectedRoute path="/users" exact={true}>
+              <UsersList />
+            </ProtectedRoute>
+            <ProtectedRoute path="/users/:userId" exact={true}>
+              <User />
+            </ProtectedRoute>
+            <Route>
+              <PageNotFound />
+            </Route>
+          </Switch>
+          <FooterLogged />
+        </BrowserRouter>
+      )}
+    </div>
   );
+
+  // return (
+  //   loaded && (
+  //     <BrowserRouter>
+  //       <NavigationBar status="user-is-logged"></NavigationBar>
+  //       <Switch>
+  //         <Route path="/login" exact={true}>
+  //           <LoginForm />
+  //         </Route>
+  //         <Route path="/sign-up" exact={true}>
+  //           <SignUpForm />
+  //         </Route>
+  //         <ProtectedRoute path="/" exact={true}>
+  //           <ThoughtMain />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/thoughts/add" exact={true}>
+  //           <AddThought />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/thoughts/:thoughtId/edit">
+  //           <EditThought />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/thoughts/:thoughtId" exact={true}>
+  //           <ThoughtDetail />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/search/:searchId" exact={true}>
+  //           <SearchDisplay />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/search/" exact={true}>
+  //           <SearchEmpty />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/categories/:categoryId" exact={true}>
+  //           <CategoryDisplay />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/my-thoughts" exact={true}>
+  //           <MyThoughts />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/books/" exact={true}>
+  //           <Main />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/users" exact={true}>
+  //           <UsersList />
+  //         </ProtectedRoute>
+  //         <ProtectedRoute path="/users/:userId" exact={true}>
+  //           <User />
+  //         </ProtectedRoute>
+  //         <Route>
+  //           <PageNotFound />
+  //         </Route>
+  //       </Switch>
+  //       <FooterLogged />
+  //     </BrowserRouter>
+  //   )
+  // );
   // return (
   //   loaded && (
   //     <BrowserRouter>

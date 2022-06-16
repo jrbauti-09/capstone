@@ -24,12 +24,12 @@ export default function MyThoughts() {
   }, [dispatch]);
 
   return (
-    <div className="search-container">
+    <div className="main_div_category_container">
       <h1>
         My Thoughts: <span>{myThoughts?.length}</span>
       </h1>
       {myThoughts.length ? (
-        <div className="thought-show-container">
+        <div className="thought_show_container">
           {myThoughts.map((thought) => {
             return (
               <>

@@ -148,7 +148,7 @@ export default function EditThought() {
             <div className="div_edit_thought">
               <label>Select category:*</label>
               <select
-                className="new-recipe-select"
+                className="category_select"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               >

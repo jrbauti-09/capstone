@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import { addReview } from "../../../store/reviews";
 import { getThoughts } from "../../../store/thoughts";
@@ -10,16 +10,15 @@ import "./AddReview.css";
 
 export default function AddReview({ thoughtId, setShowModal }) {
   //   console.log(thoughtId, "I'm here at the thought Id");
-  const dispatch = useDispatch();
+
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const user_id = useSelector((state) => state.session.user.id);
 
   //We need our useStates for the data we will post.
 
   const [routeErrors, setRouteErrors] = useState([]);
-  // boolean state for oppossite functions
-  const [flip, setFlip] = useState(true);
   // default review value and setting it.
   const [review, setReview] = useState("");
   // default rating value and setting it.
@@ -44,21 +43,22 @@ export default function AddReview({ thoughtId, setShowModal }) {
     // console.log(newReview, "NEW REVIEW");
 
     if (newReview?.errors) {
+      // If there are errors, will set errors to the errors from the flask form validation check.
       setRouteErrors(newReview.errors);
       // console.log(rating, "RATING");
     } else {
       await dispatch(getThoughts());
+      // After successful dispatch will reset the values.
+      // Will set modal to false.
       setShowModal(false);
       setRating(0);
       setReview("");
-      setFlip(true);
+      // reset errors to empty array.
       setRouteErrors([]);
-      // history.push(`/thoughts/${thoughtId}`);
     }
   };
 
   const cancelFunction = async (e) => {
-    setFlip(!flip);
     // set values back to default state.
     setRating(0);
     setReview("");
@@ -81,54 +81,53 @@ export default function AddReview({ thoughtId, setShowModal }) {
           <></>
         )}
 
-        <label className="ingredient_label" htmlFor="rating">
+        <label className="ingredient_label">
           {" "}
           Rating
           <div
-            className="rating"
-            id="rating"
+            className="rating_main_div"
             onChange={(e) => setRating(e.target.value)}
           >
             <input
-              className="star star-1"
+              className="star_1"
               type="radio"
               name="stars"
-              id="star-1"
+              id="star_1"
               value="5"
             />
-            <label className="star star-1 star-label" htmlFor="star-1"></label>
+            <label className="star_1 star-pseudo" htmlFor="star_1"></label>
             <input
-              className="star star-2"
+              className="star_2"
               type="radio"
               name="stars"
-              id="star-2"
+              id="star_2"
               value="4"
             />
-            <label className="star star-2 star-label" htmlFor="star-2"></label>
+            <label className="star_2 star-pseudo" htmlFor="star_2"></label>
             <input
-              className="star star-3"
+              className="star_3"
               type="radio"
               name="stars"
-              id="star-3"
+              id="star_3"
               value="3"
             />
-            <label className="star star-3 star-label" htmlFor="star-3"></label>
+            <label className="star_3 star-pseudo" htmlFor="star_3"></label>
             <input
-              className="star star-4"
+              className="star_4"
               type="radio"
               name="stars"
-              id="star-4"
+              id="star_4"
               value="2"
             />
-            <label className="star star-4 star-label" htmlFor="star-4"></label>
+            <label className="star star_4 star-pseudo" htmlFor="star_4"></label>
             <input
-              className="star star-5"
+              className="star_5"
               type="radio"
               name="stars"
-              id="star-5"
+              id="star_5"
               value="1"
             />
-            <label className="star star-5 star-label" htmlFor="star-5"></label>
+            <label className="star star_5 star-pseudo" htmlFor="star_5"></label>
           </div>
         </label>
         <div>
@@ -142,12 +141,11 @@ export default function AddReview({ thoughtId, setShowModal }) {
             value={review}
             onChange={(e) => setReview(e.target.value)}
             required
-            autoComplete="off"
             placeholder="Post review of thought here.."
           />
         </div>
-        <div className="btn_div_container">
-          <button className="add-review-button" type="submit">
+        <div className="btn_div_container_add">
+          <button className="review_add_btn" type="submit">
             Post Review
           </button>
           {/* <button

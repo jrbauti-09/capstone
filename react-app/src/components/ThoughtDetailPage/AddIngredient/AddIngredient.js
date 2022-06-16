@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -10,11 +10,11 @@ import "./AddIngredient.css";
 
 export default function AddIngredient({ thoughtId, setShowModal }) {
   const history = useHistory();
-  const dispatch = useDispatch();
 
   const user_id = useSelector((state) => state.session.user.id);
+  const dispatch = useDispatch();
 
-  const [errors, setErrors] = useState([]);
+  const [errorsIngredient, setErrorsArray] = useState([]);
   const [ingredientName, setIngredientName] = useState("");
   const [toggle, setToggle] = useState(true);
 
@@ -32,31 +32,31 @@ export default function AddIngredient({ thoughtId, setShowModal }) {
     const newIngredient = await dispatch(addIngredient(data));
 
     if (newIngredient?.errors) {
-      setErrors(newIngredient.errors);
+      // If there are errors in the return, then we set the errors array.
+      setErrorsArray(newIngredient.errors);
+      // We break code and return here with further notification in the front end that errors need to be addressed.
       return;
     } else {
+      // re update store, trigger a re-render of the component.
       await dispatch(getThoughts());
-      setToggle(!toggle);
       setShowModal(false);
-      // console.log(toggle, "LOOOK HERE IN THE CONSOLE!!");
       setIngredientName("");
-      setErrors([]);
+      setErrorsArray([]);
     }
   };
 
   const handleCancel = () => {
-    setToggle(!toggle);
-    setErrors([]);
+    setErrorsArray([]);
     setIngredientName("");
   };
 
   return (
     <div className="ingredient_form_container">
       <form className="ingredient_form" onSubmit={handleSubmit}>
-        {errors?.length && toggle === false ? (
-          <div className="error-container">
+        {errorsIngredient?.length ? (
+          <div className="error_contents">
             <ul>
-              {errors.map((error, ind) => (
+              {errorsIngredient.map((error, ind) => (
                 <li className="list_error" key={ind}>
                   {error}
                 </li>
@@ -74,9 +74,9 @@ export default function AddIngredient({ thoughtId, setShowModal }) {
               className="add_ingredient_input"
               value={ingredientName}
               onChange={(e) => setIngredientName(e.target.value)}
-              required
-              autoComplete="off"
               placeholder="Ingredient"
+              autoComplete="off"
+              required
             />
           </label>
         </div>

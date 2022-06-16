@@ -27,8 +27,6 @@ export default function EditReview({ reviewId, thoughtId, setShowModal }) {
 
   const [routeErrors, setRouteErrors] = useState([]);
 
-  const [flip, setFlip] = useState(true);
-
   const [review, setReview] = useState(reviewToEdit?.review);
   const [rating, setRating] = useState(reviewToEdit?.rating);
   const [proxyState, setProxyState] = useState([]);
@@ -54,22 +52,25 @@ export default function EditReview({ reviewId, thoughtId, setShowModal }) {
       setProxyState([]);
       // console.log(editReivew.errors, "LOOOOK HERE FOR THE ERRORS");
     } else {
-      // console.log(editReivew.errors);
       await dispatch(getThoughts());
       setShowModal(false);
       // history.push(`/thoughts/${thought_id}`);
     }
   };
 
-  useEffect(() => {
-    const errors = [];
+  // useEffect(() => {
+  //   const errors = [];
 
-    if (review.length > 1000)
-      errors.push("Review length cannot exceed 1000 characters.");
-    if (rating === 0) errors.push("Please provide a rating between 1-5.");
+  //   if (review.length > 1000)
+  //     errors.push("Review length cannot exceed 1000 characters.");
+  //   if (rating === 0) errors.push("Please provide a rating between 1-5.");
 
-    setRouteErrors(errors);
-  }, [review, rating]);
+  //   setRouteErrors(errors);
+  // }, [review, rating]);
+
+  const handleReset = () => {
+    setReview(reviewToEdit?.review);
+  };
 
   return (
     <div className="add_review_form_container">
@@ -86,79 +87,85 @@ export default function EditReview({ reviewId, thoughtId, setShowModal }) {
         ) : (
           <></>
         )}
-        <label className="ingredient_label" htmlFor="rating">
+        <label className="ingredient_label">
           {" "}
           Rating
           <div
-            className="rating"
-            id="rating"
+            className="rating_main_div"
             onChange={(e) => setRating(e.target.value)}
           >
             <input
-              className="star star-1"
+              className="star_1"
               type="radio"
               name="stars"
-              id="star-1"
+              id="star_1"
               value="5"
               defaultChecked={parseInt(rating) == 5}
             />
-            <label className="star star-1 star-label" htmlFor="star-1"></label>
+            <label className="star_1 star-pseudo" htmlFor="star_1"></label>
             <input
-              className="star star-2"
+              className="star_2"
               type="radio"
               name="stars"
-              id="star-2"
+              id="star_2"
               value="4"
               defaultChecked={parseInt(rating) == 4}
             />
-            <label className="star star-2 star-label" htmlFor="star-2"></label>
+            <label className="star_2 star-pseudo" htmlFor="star_2"></label>
             <input
-              className="star star-3"
+              className="star_3"
               type="radio"
               name="stars"
-              id="star-3"
+              id="star_3"
               value="3"
               defaultChecked={parseInt(rating) == 3}
             />
-            <label className="star star-3 star-label" htmlFor="star-3"></label>
+            <label className="star_3 star-pseudo" htmlFor="star_3"></label>
             <input
-              className="star star-4"
+              className="star_4"
               type="radio"
               name="stars"
-              id="star-4"
+              id="star_4"
               value="2"
               defaultChecked={parseInt(rating) == 2}
             />
-            <label className="star star-4 star-label" htmlFor="star-4"></label>
+            <label className="star_4 star-pseudo" htmlFor="star_4"></label>
             <input
-              className="star star-5"
+              className="star_5"
               type="radio"
               name="stars"
-              id="star-5"
+              id="star_5"
               value="1"
               defaultChecked={parseInt(rating) == 1}
             />
-            <label className="star star-5 star-label" htmlFor="star-5"></label>
+            <label className="star_5 star-pseudo" htmlFor="star_5"></label>
           </div>
         </label>
+        <label className="ingredient_label">
+          {" "}
+          Leave your thoughts on this recipe
+        </label>
         <div>
-          <label className="ingredient_label">
-            {" "}
-            Leave your thoughts on this recipe
-            <textarea
-              className="review_input_edit"
-              id="review_input_field"
-              value={review}
-              onChange={(e) => setReview(e.target.value)}
-              required
-              autoComplete="off"
-              placeholder="Review"
-            />
-          </label>
+          <textarea
+            className="review_input_edit"
+            id="review_input_field"
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
+            required
+            autoComplete="off"
+            placeholder="Review"
+          />
         </div>
         <div className="btn_div_container">
-          <button className="add-review-button" type="submit">
+          <button className="review_add_btn" type="submit">
             Edit Review
+          </button>
+          <button
+            className="review_add_btn"
+            onClick={handleReset}
+            type="button"
+          >
+            Reset
           </button>
         </div>
       </form>

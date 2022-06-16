@@ -11,7 +11,7 @@ export default function ThoughtShow() {
 
   return (
     <>
-      <div className="thought-show-container">
+      <div className="thought_show_container">
         {thoughts?.map((thought) => {
           return (
             <>

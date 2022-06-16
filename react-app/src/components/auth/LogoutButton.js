@@ -4,13 +4,13 @@ import { logout } from "../../store/session";
 import { useHistory } from "react-router-dom";
 
 const LogoutButton = () => {
+  // const history = useHistory();
   const dispatch = useDispatch();
-  const history = useHistory();
-  const onLogout = async (e) => {
+  const handleLogout = async (e) => {
     await dispatch(logout());
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <button onClick={handleLogout}>Logout</button>;
 };
 
 export default LogoutButton;
