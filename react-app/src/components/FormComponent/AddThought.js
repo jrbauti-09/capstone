@@ -104,8 +104,9 @@ export default function AddThought() {
     //setProxyState will cause a rerender of the component.
 
     if (!ingredient.length) {
-      setIngredientErrors(["Cannot add an empty ingredient."]);
-      console.log(ingredientErrors);
+      // setIngredientErrors(["Cannot add an empty ingredient."]);
+      window.alert("Cannot add an empty ingredient.");
+      // console.log(ingredientErrors);
       setProxyState([]);
       return;
     }
@@ -167,6 +168,7 @@ export default function AddThought() {
   const cancelEdit = (index) => {
     setEditIngredientState(!editIngredientState);
     setCurrentIngredientEdit(ingredientArray[index]);
+    setIngredientErrors([]);
     setIngredientIndex(-1);
   };
 
@@ -194,7 +196,11 @@ export default function AddThought() {
               <div>
                 <ul>
                   {errors.map((error, idx) => {
-                    return <li key={idx}>{error}</li>;
+                    return (
+                      <li className="error_list" key={idx}>
+                        {error}
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
@@ -253,7 +259,9 @@ export default function AddThought() {
                 return (
                   <div key={idx}>
                     <ul>
-                      <li key={idx}>{error}</li>
+                      <li className="error_list" key={idx}>
+                        {error}
+                      </li>
                     </ul>
                   </div>
                 );

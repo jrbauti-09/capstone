@@ -9,6 +9,10 @@
   height: 100%;
 }
 
+.error_list {
+  color: red;
+}
+
 .label_input {
   font-weight: bold;
   margin-bottom: 1em;

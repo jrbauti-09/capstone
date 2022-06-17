@@ -105,7 +105,11 @@ export default function EditThought() {
               <div>
                 <ul>
                   {errors.map((error, idx) => {
-                    return <li key={idx}>{error}</li>;
+                    return (
+                      <li className="error_list" key={idx}>
+                        {error}
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
@@ -122,10 +126,10 @@ export default function EditThought() {
               ></input>
             </div>
             <label className="label_input">
-              Count: {description.length} (min: 100 limit: 1000)
+              Description: Count {description.length} (min: 100 limit: 1000)
             </label>
             <div className="div_edit_thought">
-              <label className="label_edit">Description:</label>
+              {/* <label className="label_edit">Description:</label> */}
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -134,10 +138,10 @@ export default function EditThought() {
               ></textarea>
             </div>
             <label className="label_input">
-              Count: {instructions.length} (min: 50 limit: 500)
+              Instructions: Count {instructions.length} (min: 50 limit: 500)
             </label>
             <div className="div_edit_thought">
-              <label className="label_edit">Instructions:</label>
+              {/* <label className="label_edit">Instructions:</label> */}
               <textarea
                 value={instructions}
                 onChange={(e) => setInstructions(e.target.value)}

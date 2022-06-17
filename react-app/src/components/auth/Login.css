@@ -14,9 +14,21 @@
 }
 
 .login_error_container {
-  color: #000000;
+  color: red;
   font-size: larger;
   margin-bottom: 1em;
+  font-weight: 600;
+  /* background-color: rgba(0, 0, 0, 0.479); */
+  border-radius: 8px;
+  width: fit-content;
+  justify-content: center;
+}
+
+.login_error_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes transitionIn {

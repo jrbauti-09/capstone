@@ -24,7 +24,7 @@ export default function ThoughtCard({ thought }) {
           <p className="thought_user_name">By: {thought?.user?.username}</p>
         </div>
         <div className="thought_bottom_div review_div">
-          <div>
+          <div className="thought_bottom_div">
             <p className="thought_bottom_description">
               {thought?.description.slice(0, 95)}...
             </p>
