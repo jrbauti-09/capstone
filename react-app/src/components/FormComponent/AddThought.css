@@ -20,7 +20,8 @@
 }
 
 textarea {
-  resize: none;
+  /* resize: none; */
+  resize: vertical;
 }
 
 .change_image {
@@ -108,7 +109,7 @@ textarea {
   /* border: 1px solid red; */
   width: 60em;
   max-width: 60em;
-  height: 50em;
+  /* height: 50em; */
   /* max-height: 40em; */
   margin-top: 6em;
   margin-bottom: 7.5em;
