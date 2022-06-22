@@ -222,6 +222,7 @@
 .thought_instructions_p {
   white-space: pre-wrap;
   text-indent: 1em;
+  word-wrap: break-word;
 }
 
 .single-review {
