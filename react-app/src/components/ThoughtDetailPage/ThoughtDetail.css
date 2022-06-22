@@ -84,6 +84,7 @@
   white-space: pre-wrap;
   max-width: 53.68em;
   text-indent: 1em;
+  word-wrap: break-word;
 }
 
 /* .one_image_div {
