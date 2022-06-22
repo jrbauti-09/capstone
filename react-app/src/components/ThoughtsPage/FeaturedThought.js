@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -13,7 +14,7 @@ export default function FeaturedThought() {
   const dispatch = useDispatch();
   const history = useHistory();
   const allThoughts = useSelector((state) => Object.values(state.allThoughts));
-
+  // eslint-disable-next-line
   const [proxyState, setProxyState] = useState([]);
 
   const totalLengthIndex = allThoughts.length - 1;

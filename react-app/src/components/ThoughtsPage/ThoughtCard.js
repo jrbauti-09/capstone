@@ -17,7 +17,11 @@ export default function ThoughtCard({ thought }) {
     <>
       <div className="one_thought_container">
         <div className="one_thought_div">
-          <img className="one_image_div" src={thought?.images[0]}></img>
+          <img
+            className="one_image_div"
+            src={thought?.images[0]}
+            alt="thought_image"
+          ></img>
         </div>
         <div className="thought_title">
           <h2 className="thought_name">{thought?.name}</h2>

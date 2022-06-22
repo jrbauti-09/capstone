@@ -5,7 +5,7 @@ import ThoughtShow from "./ThoughtShow";
 import { getThoughts } from "../../store/thoughts";
 import { useSelector } from "react-redux";
 import "./ThoughtMain.css";
-
+// eslint-disable-next-line
 import ThoughtCard from "./ThoughtCard";
 
 export default function ThoughtMain() {
@@ -15,6 +15,7 @@ export default function ThoughtMain() {
   }, [dispatch]);
 
   // thoughts array
+  // eslint-disable-next-line
   const thoughts = useSelector((state) => Object.values(state.allThoughts));
 
   return (

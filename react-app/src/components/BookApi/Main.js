@@ -1,3 +1,4 @@
+/* eslint-disable */
 import react, { useState } from "react";
 import Card from "./Card";
 import axios from "axios";

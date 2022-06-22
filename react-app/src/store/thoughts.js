@@ -111,7 +111,7 @@ export const uploadFile = (fileForm) => async (dispatch) => {
   form.append("thought_id", thought_id);
   form.append("user_id", user_id);
   form.append("newFile", newFile);
-
+  // eslint-disable-next-line
   const res = await fetch("/api/thoughts/images", {
     method: "POST",
     body: form,
@@ -127,7 +127,7 @@ export const uploadUrl = (data) => async (dispatch) => {
   form.append("url", url);
   form.append("thought_id", thought_id);
   form.append("user_id", user_id);
-
+  // eslint-disable-next-line
   const response = fetch("/api/thoughts/image", {
     method: "POST",
     body: form,

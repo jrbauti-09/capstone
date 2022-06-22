@@ -16,6 +16,7 @@ import LandingPage from "./components/Landing/LandingPage";
 import FooterBottom from "./components/Footer/FooterBottom";
 
 //testing components here..
+// eslint-disable-next-line
 import ProxyHome from "./components/proxyHome";
 import PageNotFound from "./components/PageNotFound";
 

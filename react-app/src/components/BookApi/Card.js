@@ -1,3 +1,4 @@
+/* eslint-disable */
 import react from "react";
 import { useState } from "react";
 import Modal from "./Modal";
@@ -7,6 +8,7 @@ const Card = ({ book }) => {
   // console.log(book);
   return (
     <>
+      // eslint-disable-next-line
       {book.map((item) => {
         let thumbnail =
           item.volumeInfo.imageLinks &&

@@ -96,8 +96,10 @@
 }
 
 .thought_bottom_description {
-  text-indent: 1em;
+  /* text-indent: 1em; */
   font-size: smaller;
+  word-wrap: break-word;
+  max-width: 14.5em;
 }
 
 /* .card-shadow {
