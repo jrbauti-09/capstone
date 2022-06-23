@@ -126,6 +126,8 @@ body {
 
 .recipe-desc {
   text-indent: 1em;
+  word-wrap: break-word;
+  max-width: 60em;
 }
 
 .big {
