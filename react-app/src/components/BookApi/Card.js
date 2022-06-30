@@ -8,7 +8,6 @@ const Card = ({ book }) => {
   // console.log(book);
   return (
     <>
-      // eslint-disable-next-line
       {book.map((item) => {
         let thumbnail =
           item.volumeInfo.imageLinks &&
